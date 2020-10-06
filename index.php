@@ -271,7 +271,7 @@
                     <div class="col-lg-5">
                         <h1>AgroBD Farm</h1>
                         <p>Plan your season or create your plant production which you want.</p>
-                        <a href="cropplant.php" class="primary-btn">Get Started</a>
+                        <a href="register.php" class="primary-btn">Get Started</a>
                     </div>
                 </div>
             </div>
