@@ -69,14 +69,14 @@ if(isset($_POST['submit'])){
         echo "<script>mailAlert();</script>";
 
     }else{
-    $sql="INSERT INTO user_login(name, email, password,company_name, phone) VALUES('$name', '$email', '$password', '$company_name', '$phone')";
-    //echo $sql;exit;
+        $sql="INSERT INTO user_login(name, email, password,company_name, phone) VALUES('$name', '$email', '$password', '$company_name', '$phone')";
+        //echo $sql;exit;
         if($conn->query($sql)){
 
-    echo "<script>myAlert();</script>";
-    } else{
-    echo "<script>erAlert();</script>";
-    }
+        echo "<script>myAlert();</script>";
+        } else{
+        echo "<script>erAlert();</script>";
+        }
     }
 }
 ?>
@@ -244,7 +244,8 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>Register</h2><hr>
+                        <h2>Register</h2>
+                        <hr>
                         <form class="form-horizontal" onsubmit="return nullcheck();" action="" method="POST">
                             <div class="group-input">
                                 <label for="name"><i class="fa fa-user icon"></i>Your Name*</label>
@@ -337,14 +338,11 @@ if(isset($_POST['submit'])){
         } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
             $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
             return false;
-
         }
     }
 </script>
-
 <!-- Register Form Section End -->
 
-
-<!-- Footer -->
+<!-- Footer Start -->
 <?php include'includes/footer.php';?>
 <!-- Footer End -->
