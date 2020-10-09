@@ -250,7 +250,7 @@ if(isset($_POST['submit'])){
                             <div class="group-input">
                                 <label for="name"><i class="fa fa-user icon"></i>Your Name*</label>
                                 <input type="text" id="name" oninput="ontype();" name="name"
-                                    placeholder="Enter your full name" autofocus="">
+                                    placeholder="Enter your full name">
                             </div>
                             <div class="group-input">
                                 <label for="email"> <i class="fa fa-envelope icon"></i> E-mail*</label>
@@ -322,22 +322,24 @@ if(isset($_POST['submit'])){
     function ontype() {
         $(".error").remove();
 
-        if (!/^[a-z ]+$/i.test($("#name").val())) {
-
-            $('#name').after('<span class="error">*Your name can not be numeric!!</span>');
-            return false;
-
-        } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-            $('#email').after('<span class="error">* Type a valid email!!</span>');
-            return false;
-
-        } else if (isNaN($("#phone").val())) {
-            $('#phone').after('<span class="error">* Phone Number is numeric!!</span>');
-            return false;
-
-        } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
-            $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
-            return false;
+        if ($('#name').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#name").val())) {
+                $('#name').after('<span class="error">*Your name can not be numeric!!</span>');
+                return false;
+            }
+        } else if ($('#phone').val() !== '') {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                $('#email').after('<span class="error">* Type a valid email!!</span>');
+                return false;
+            }
+        } else if ($('#phone').val() !== '') {
+            if (isNaN($("#phone").val())) {
+                $('#phone').after('<span class="error">* Phone Number is numeric!!</span>');
+                return false;
+            } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
+                $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
+                return false;
+            }
         }
     }
 </script>
