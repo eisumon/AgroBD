@@ -315,8 +315,6 @@ if(isset($_POST['submit'])){
             $('#phone').after('<span class="error">* This field is required</span>');
             return false;
         }
-
-
     }
 
     function ontype() {
@@ -334,7 +332,7 @@ if(isset($_POST['submit'])){
             }
         } else if ($('#phone').val() !== '') {
             if (isNaN($("#phone").val())) {
-                $('#phone').after('<span class="error">* Phone Number is numeric!!</span>');
+                $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
                 return false;
             } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
                 $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
