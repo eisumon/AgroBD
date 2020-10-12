@@ -77,7 +77,7 @@ if (isset($_POST['submit'])){
             echo "<script>erAlert();</script>";
             }
     }
-} 
+}
 ?>
 
 
@@ -328,7 +328,8 @@ if (isset($_POST['submit'])){
                                                 </div>
                                                 <div>
                                                     <label for="city">City:</label><br>
-                                                    <input type="text" id="city" name="city" placeholder="Your city" oninput="ontype();">
+                                                    <input type="text" id="city" name="city" placeholder="Your city"
+                                                        oninput="ontype();">
                                                 </div>
                                             </div>
                                             <div class="col-md-5 offset-md-1">
@@ -339,7 +340,8 @@ if (isset($_POST['submit'])){
                                                 </div>
                                                 <div>
                                                     <label for="phone">Phone:</label><br>
-                                                    <input type="text" id="phone" name="phone" placeholder="Your phone" oninput="ontype();">
+                                                    <input type="text" id="phone" name="phone" placeholder="Your phone"
+                                                        oninput="ontype();">
                                                 </div>
                                                 <div>
                                                     <label for="role">Role:</label><br>
@@ -449,6 +451,26 @@ if (isset($_POST['submit'])){
                                     </div>
                                 </td>
                             </tr>
+                            <?php include_once("dbCon.php");
+    
+                            $conn = connect();
+
+                            $sql= "SELECT fname, lname, gender, city, address, phone, role FROM people";
+                            $result = $conn->query($sql);
+                            
+                            if($result->num_rows>0){
+                                // output data of each row
+                                while ($row = $result-> fetch_assoc()){
+                                    echo"<tr><td>". $row["fname"] ."</td><td>". $row["lname"] ."</td><td>". $row["gender"] ."</td><td>". $row["city"] ."</td><td>". $row["address"] ."</td><td>". $row["phone"] ."</td><td>". $row["role"] ."</td></tr>";
+                                }
+                                echo "</table>";
+                            }
+                            else{
+                                echo "0 result";
+                            }
+                            $conn-> close();
+                            
+                            ?>
                         </table>
                     </div>
                     <!-- Result Table End -->
@@ -508,16 +530,16 @@ if (isset($_POST['submit'])){
         if (!/^[a-z ]+$/i.test($("#fname").val())) {
             $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
             return false;
-        
-        }else if (!/^[a-z ]+$/i.test($("#lname").val())) {
+
+        } else if (!/^[a-z ]+$/i.test($("#lname").val())) {
             $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
             return false;
 
-        }else if (!/^[a-z ]+$/i.test($("#city").val())) {
+        } else if (!/^[a-z ]+$/i.test($("#city").val())) {
             $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
             return false;
 
-        }else if (!/^[a-z ]+$/i.test($("#address").val())) {
+        } else if (!/^[a-z ]+$/i.test($("#address").val())) {
             $('#address').after('<span class="error">*Your address can not be numeric!!</span>');
             return false;
 
