@@ -19,7 +19,7 @@
 
     function erAlert() {
         swal({
-            title: "Registration People not Successfull",
+            title: "People Registration is not Successfull",
             type: "error",
             timer: 2000,
             showCancelButton: false,
@@ -34,6 +34,33 @@
         swal({
             title: "This phone number has already registered. Try with another phone number.",
             text: "Try Agian!",
+            type: "error",
+            timer: 2000,
+            showCancelButton: false,
+            showConfirmButton: false,
+            closeOnClickOutside: false,
+        }, function () {
+            window.location.href = "people";
+        });
+    }
+
+    function del_Alert() {
+
+        swal({
+            title: "Delete Record Successfully",
+            type: "success",
+            timer: 2000,
+            showCancelButton: false,
+            showConfirmButton: false,
+            closeOnClickOutside: false,
+        }, function () {
+            window.location.href = "people";
+        });
+    }
+
+    function del_er_Alert() {
+        swal({
+            title: "Record is not Delete Successfully",
             type: "error",
             timer: 2000,
             showCancelButton: false,
@@ -427,50 +454,61 @@ if (isset($_POST['submit'])){
                                 <th>Role:</th>
                                 <th></th>
                             </tr>
+                            <?php include_once("dbCon.php");
+                            $conn = connect();
+
+                            $sql= "SELECT * FROM people";
+                            $result = $conn->query($sql);
+                            ?>
+
+                            <?php
+                                // output data of each row
+                                while ($row = $result-> fetch_assoc()): 
+                            ?>
                             <tr>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
+                                <td><?php echo $row["fname"]; ?></td>
+                                <td><?php echo $row["lname"]; ?></td>
+                                <td><?php echo $row["gender"]; ?></td>
+                                <td><?php echo $row["city"]; ?></td>
+                                <td><?php echo $row["address"]; ?></td>
+                                <td><?php echo $row["phone"]; ?></td>
+                                <td><?php echo $row["role"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View
+                                            <a href="people.php?view=<?php echo $row['p_id'];?>"><i class="fa fa-eye"
+                                                    aria-hidden="true"></i> View
                                                 Details</a>
-                                            <a href="#" style="color: green;"><i class="fa fa-edit"
-                                                    aria-hidden="true"></i>
+                                            <a href="people.php?edit=<?php echo $row['p_id'];?>"
+                                                style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
                                                 Edit</a>
-                                            <a href="#" style="color: red;"><i class="fa fa-trash"
-                                                    aria-hidden="true"></i>
+                                            <a href="people.php?delete=<?php echo $row['p_id'];?>"
+                                                style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
                                                 Delete</a>
                                         </div>
                                     </div>
+                                    <?php 
+                                        include_once("dbCon.php");
+                                        $conn = connect();
+                                        if (isset($_GET['delete'])){
+                                            $id = $_GET['delete'];
+                                            $sql= "DELETE FROM people WHERE p_id=$id";
+                                            $resultt = $conn->query($sql);
+                                            
+                                        if($conn->query($sql)){
+
+                                            echo "<script>del_Alert();</script>";
+                                        } else{
+                                            echo "<script>del_er_Alert();</script>";
+                                        }
+                                        }
+                                        
+                                    
+                                    ?>
                                 </td>
                             </tr>
-                            <?php include_once("dbCon.php");
-    
-                            $conn = connect();
-
-                            $sql= "SELECT fname, lname, gender, city, address, phone, role FROM people";
-                            $result = $conn->query($sql);
-                            
-                            if($result->num_rows>0){
-                                // output data of each row
-                                while ($row = $result-> fetch_assoc()){
-                                    echo"<tr><td>". $row["fname"] ."</td><td>". $row["lname"] ."</td><td>". $row["gender"] ."</td><td>". $row["city"] ."</td><td>". $row["address"] ."</td><td>". $row["phone"] ."</td><td>". $row["role"] ."</td></tr>";
-                                }
-                                echo "</table>";
-                            }
-                            else{
-                                echo "0 result";
-                            }
-                            $conn-> close();
-                            
-                            ?>
+                            <?php endwhile; $conn-> close(); ?>
                         </table>
                     </div>
                     <!-- Result Table End -->
