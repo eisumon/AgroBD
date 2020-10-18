@@ -226,6 +226,7 @@
                     </div>
                     <!-- Nav bar end -->
                 </div>
+                <!-- production box -->
                 <div class="col-lg-9 col-md-9 production_box">
                     <!-- Essential button -->
                     <button id="linkBtn"><i class="fa fa-link" aria-hidden="true"></i> Link field</button>

@@ -75,7 +75,7 @@
 </head>
 
 <body>
-    <?php include_once("dbCon.php");
+<?php include_once("dbCon.php");
     
 $conn = connect();
 if (isset($_POST['submit'])){
@@ -106,8 +106,6 @@ if (isset($_POST['submit'])){
     }
 }
 ?>
-
-
 
     <!-- Header Section Begin -->
     <header class="header-section">
@@ -318,8 +316,11 @@ if (isset($_POST['submit'])){
                 <hr>
                 <div class="">
                     <!-- Essential button -->
-                    <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Add New
+                    <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i>
+                        Add New
                         people</button>
+
+                    <!-- modal form start -->
                     <div id="myModal" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
@@ -358,6 +359,7 @@ if (isset($_POST['submit'])){
                                                     <input type="text" id="city" name="city" placeholder="Your city"
                                                         oninput="ontype();">
                                                 </div>
+
                                             </div>
                                             <div class="col-md-5 offset-md-1">
                                                 <div>
@@ -414,7 +416,7 @@ if (isset($_POST['submit'])){
                             <tr>
                                 <td><i class="fa fa-user fil_search"></i><input type="text" id="fname" name="firstname"
                                         placeholder="Your name.." style="width: auto;"></td>
-                                <td><i class="fa fa-user fil_search"></i><input type="text" id="fname" name="firstname"
+                                <td><i class="fa fa-user fil_search"></i><input type="text" id="fname" name="lasttname"
                                         placeholder="Your name.." style="width: auto;"></td>
                                 <td><i class="fa fa-user fil_search"></i><select id="country" name="country">
                                         <option value="">-</option>
@@ -477,10 +479,7 @@ if (isset($_POST['submit'])){
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="people.php?view=<?php echo $row['p_id'];?>"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i> View
-                                                Details</a>
-                                            <a href="people.php?edit=<?php echo $row['p_id'];?>"
+                                            <a href="people_edit.php?edit=<?php echo $row['p_id'];?>"
                                                 style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
                                                 Edit</a>
                                             <a href="people.php?delete=<?php echo $row['p_id'];?>"
@@ -488,27 +487,9 @@ if (isset($_POST['submit'])){
                                                 Delete</a>
                                         </div>
                                     </div>
-                                    <?php 
-                                        include_once("dbCon.php");
-                                        $conn = connect();
-                                        if (isset($_GET['delete'])){
-                                            $id = $_GET['delete'];
-                                            $sql= "DELETE FROM people WHERE p_id=$id";
-                                            $resultt = $conn->query($sql);
-                                            
-                                        if($conn->query($sql)){
-
-                                            echo "<script>del_Alert();</script>";
-                                        } else{
-                                            echo "<script>del_er_Alert();</script>";
-                                        }
-                                        }
-                                        
-                                    
-                                    ?>
                                 </td>
                             </tr>
-                            <?php endwhile; $conn-> close(); ?>
+                            <?php endwhile;?>
                         </table>
                     </div>
                     <!-- Result Table End -->
@@ -517,6 +498,25 @@ if (isset($_POST['submit'])){
         </div>
         <!-- Inner Header end -->
     </section>
+
+<?php 
+  include_once("dbCon.php");
+  $conn = connect();
+
+  if (isset($_GET['delete'])){
+      $id = $_GET['delete'];
+      $sql= "DELETE FROM people WHERE p_id=$id";
+      $resultt = $conn->query($sql);
+      
+      if($conn->query($sql)){
+
+        echo "<script>del_Alert();</script>";
+    } else{
+        echo "<script>del_er_Alert();</script>";
+    }
+  }    
+?>
+
 </body>
 
 <script>
@@ -565,29 +565,34 @@ if (isset($_POST['submit'])){
     function ontype() {
         $(".error").remove();
 
-        if (!/^[a-z ]+$/i.test($("#fname").val())) {
-            $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
-            return false;
-
-        } else if (!/^[a-z ]+$/i.test($("#lname").val())) {
-            $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
-            return false;
-
-        } else if (!/^[a-z ]+$/i.test($("#city").val())) {
-            $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
-            return false;
-
-        } else if (!/^[a-z ]+$/i.test($("#address").val())) {
-            $('#address').after('<span class="error">*Your address can not be numeric!!</span>');
-            return false;
-
-        } else if (isNaN($("#phone").val())) {
-            $('#phone').after('<span class="error">* Your Phone Number should be numeric!!</span>');
-            return false;
-
-        } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
-            $('#phone').after('<span class="error">* Input your 11 digit phone number!</span>');
-            return false;
+        if ($('#fname').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#fname").val())) {
+                $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+                return false;
+            }
+        } else if ($('#lname').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#lname").val())) {
+                $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
+                return false;
+            }
+        } else if ($('#city').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#city").val())) {
+                $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
+                return false;
+            }
+        } else if ($('#email').val() !== '') {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                $('#email').after('<span class="error">* Type a valid email!!</span>');
+                return false;
+            }
+        } else if ($('#phone').val() !== '') {
+            if (isNaN($("#phone").val())) {
+                $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
+                return false;
+            } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
+                $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
+                return false;
+            }
         }
     }
 </script>

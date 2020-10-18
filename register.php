@@ -248,7 +248,7 @@ if(isset($_POST['submit'])){
                         <hr>
                         <form class="form-horizontal" onsubmit="return nullcheck();" action="" method="POST">
                             <div class="group-input">
-                                <label for="name"><i class="fa fa-user icon"></i>Your Name*</label>
+                                <label for="name"><i class="fa fa-user icon"></i> Your Name*</label>
                                 <input type="text" id="name" oninput="ontype();" name="name"
                                     placeholder="Enter your full name">
                             </div>
@@ -325,7 +325,7 @@ if(isset($_POST['submit'])){
                 $('#name').after('<span class="error">*Your name can not be numeric!!</span>');
                 return false;
             }
-        } else if ($('#phone').val() !== '') {
+        } else if ($('#email').val() !== '') {
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
                 $('#email').after('<span class="error">* Type a valid email!!</span>');
                 return false;
