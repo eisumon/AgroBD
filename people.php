@@ -75,7 +75,7 @@
 </head>
 
 <body>
-<?php include_once("dbCon.php");
+    <?php include_once("dbCon.php");
     
 $conn = connect();
 if (isset($_POST['submit'])){
@@ -356,8 +356,16 @@ if (isset($_POST['submit'])){
                                                 </div>
                                                 <div>
                                                     <label for="city">City:</label><br>
-                                                    <input type="text" id="city" name="city" placeholder="Your city"
-                                                        oninput="ontype();">
+                                                    <select id="city" name="city">
+                                                        <option value="">-</option>
+                                                        <option value="dhaka">Dhaka</option>
+                                                        <option value="chitagong">Chitagong</option>
+                                                        <option value="rajshahi">Rajshahi</option>
+                                                        <option value="khulna">Khulna</option>
+                                                        <option value="comillaSylhet">ComillaSylhet</option>
+                                                        <option value="sylhet">Sylhet</option>
+                                                        <option value="barishal">Barishal</option>
+                                                    </select>
                                                 </div>
 
                                             </div>
@@ -414,29 +422,39 @@ if (isset($_POST['submit'])){
                                 <th></th>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-user fil_search"></i><input type="text" id="fname" name="firstname"
-                                        placeholder="Your name.." style="width: auto;"></td>
-                                <td><i class="fa fa-user fil_search"></i><input type="text" id="fname" name="lasttname"
-                                        placeholder="Your name.." style="width: auto;"></td>
-                                <td><i class="fa fa-user fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td><i class="fa fa-map-marker fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td><i class="fa fa-tag fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td>
-                                    <button class="filter_btn" title="Filter"><i class="fa fa-filter"></i></button>
-                                    <button class="res_btn" title="Reset"><i class="fa fa-refresh"></i></button>
-                                </td>
+                                <form action="people_config.php" method="POST">
+                                    <td><i class="fa fa-user fil_search"></i><input type="text" name="firstname"
+                                            placeholder="Your name.." style="width: auto;"></td>
+                                    <td><i class="fa fa-user fil_search"></i><input type="text" name="lastname"
+                                            placeholder="Your name.." style="width: auto;"></td>
+                                    <td><i class="fa fa-user fil_search"></i><select name="gender">
+                                            <option value="">-</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Others</option>
+                                        </select></td>
+                                    <td><i class="fa fa-map-marker fil_search"></i><select id="city" name="city">
+                                            <option value="">-</option>
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="chitagong">Chitagong</option>
+                                            <option value="rajshahi">Rajshahi</option>
+                                            <option value="khulna">Khulna</option>
+                                            <option value="comillaSylhet">ComillaSylhet</option>
+                                            <option value="sylhet">Sylhet</option>
+                                            <option value="barishal">Barishal</option>
+                                        </select>
+                                    </td>
+                                    <td><i class="fa fa-tag fil_search"></i><select name="role">
+                                            <option value="">-</option>
+                                            <option value="manager">Manager</option>
+                                            <option value="worker">Worker</option>
+                                        </select></td>
+                                    <td>
+                                        <button class="filter_btn" title="Filter" name="filter"><i
+                                                class="fa fa-filter"></i></button>
+                                        <button class="res_btn" title="Reset"><i class="fa fa-refresh"></i></button>
+                                    </td>
+                                </form>
                             </tr>
                         </table>
                     </div>
@@ -458,7 +476,6 @@ if (isset($_POST['submit'])){
                             </tr>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-
                             $sql= "SELECT * FROM people";
                             $result = $conn->query($sql);
                             ?>
@@ -499,7 +516,7 @@ if (isset($_POST['submit'])){
         <!-- Inner Header end -->
     </section>
 
-<?php 
+    <?php 
   include_once("dbCon.php");
   $conn = connect();
 

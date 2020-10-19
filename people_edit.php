@@ -41,7 +41,8 @@
         $id = $_GET['edit'];
         $sql= "SELECT * FROM people WHERE p_id=$id";
         $result = $conn->query($sql);
-        $row = mysqli_fetch_assoc($result);
+        // $row = mysqli_fetch_assoc($result);
+        $row = $result-> fetch_assoc();
         $fname = $row['fname'];
         $lname = $row['lname'];
         $gender = $row['gender'];
@@ -50,6 +51,7 @@
         $phone = $row['phone'];
         $role = $row['role'];
     }
+    
     if (isset($_POST['update'])){
         $id = $_POST['p_id'];
         $fname = $_POST['firstname'];
