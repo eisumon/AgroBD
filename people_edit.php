@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <a href="index"><i class="fa fa-home"></i> Home</a>
                         <a href="people">People</a>
                         <span>Edit People</span>
                     </div>
@@ -160,9 +160,85 @@
         </div>
         <!-- Inner Header end -->
     </section>
-
-
 </body>
+
+<script>
+    function nullcheck() {
+
+        $(".error").remove();
+
+        $('#submit').removeAttr('disabled', true);
+
+        if ($('#fname').val() == '') {
+            $('#fname').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#lname').val() == '') {
+            $('#lname').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#gender').val() == '') {
+            $('#gender').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#city').val() == '') {
+            $('#city').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#address').val() == '') {
+            $('#address').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#phone').val() == '') {
+            $('#phone').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#role').val() == '') {
+            $('#role').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+    }
+
+    function ontype() {
+        $(".error").remove();
+
+        if ($('#fname').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#fname").val())) {
+                $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+                return false;
+            }
+        } if ($('#lname').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#lname").val())) {
+                $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
+                return false;
+            }
+        } if ($('#city').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#city").val())) {
+                $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
+                return false;
+            }
+        } if ($('#email').val() !== '') {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                $('#email').after('<span class="error">* Type a valid email!!</span>');
+                return false;
+            }
+        } if ($('#phone').val() !== '') {
+            if (isNaN($("#phone").val())) {
+                $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
+                return false;
+            } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
+                $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
+                return false;
+            }
+        }
+    }
+</script>
 
 <!-- Footer Section Begin -->
 <?php include'includes/footer.php';?>

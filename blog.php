@@ -237,311 +237,194 @@
 </header>
 <!-- Header End -->
 
-
-
-
-<?php if(isset($_SESSION['isLoggedIn'])){?>
-
-<!-- Hero Section Begin if logged in -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-            <div class="container">
-                    <div class="">
-                        <h1>AgroBD Farm</h1>
-                        <p>Plan your season or create your plant production which you want.</p>
-                        <a href="cropplant.php" class="primary-btn"><i class="fa fa-plus"></i> Create Production</a>
-                        <a href="seasonplan.php" class="primary-btn">Season Plan</a>
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<?php }else{ ?>
-<!-- Hero Section Begin if logged out -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-            <div class="container">
-                    <div class="">
-                        <h1>AgroBD Farm</h1>
-                        <p>Plan your season or create your plant production which you want.</p>
-                        <a href="register.php" class="primary-btn">Get Started</a>
-                    </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<!-- How It Works Section Begin-->
-<section class="deal-of-week spad">
-    <div class="container">
-        <div class="text-center">
-            <div class="section-title">
-                <h2>How It Works?</h2>
-                <p>Agrivi farm management software lets you plan, monitor and analyze all activities on your farm
-                    easily. Tillage, planting, spraying, fertilization, irrigation, harvesting and all other activities
-                    are managed with a few clicks.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- How It Works Section End -->
-
-<!-- Core Feature Section Begin-->
-<section class="spad deal_bg">
-    <div class="container">
-        <div class="text-center core_fea">
-            <div class="section-title">
-                <h2>Who Are You?</h2>
-                <p>Whether you are a small or large farmer, looking for a tailor-made solution, we have one for you.
-                    Powerful farm analytics let you make the right decisions at the right time. Say no to gut-feeling
-                    decisions and welcome data-driven farm management.</p>
-                <img style="width: 100%;" src="img/farm.jpg" alt="">
-            </div><br>
-            <div class="section-title">
-                <h2>Core Features</h2>
-                <p>Complete support for all crops: fruit, vegetables, grains and other.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 core_feature">
-                    <h4>Farm Management</h4>
-                    <p>Manage all your farming data including field activities, farm finances, and inventory In one
-                        single
-                        place.</p>
-                </div>
-                <div class="col-md-6 core_feature">
-                    <h4>Advanced Pest Detection</h4>
-                    <p>Get alerts if there is a risk of insect pests or diseases on your fields and protect your crops
-                    timely.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 core_feature">
-                    <h4>Powerful Analytics</h4>
-                    <p>Real-time overview of your farm performance helps you make the right decisions based on facts.</p>
-                </div>
-                <div class="col-md-6 core_feature">
-                    <h4>Best Practice Knowledge</h4>
-                    <p>Plan your season with the help of our agricultural knowledge base and ensure higher yield.</p>
-                </div>
-            </div>
-            <a href="#" class="primary-btn">Sign Up Free Trail</a>
-        </div>
-    </div>
-</section>
-<!-- Core Feature Section End -->
-
-<!-- Testimonial section begain -->
-<section class="hero-section testimonial" style="text-align: center;">
-    <div class="section-title">
-        <h2>What Our Customers Say</h2>
-    </div>
-    <div class="hero-items1 owl-carousel">
-        <div class="single-hero-items">
-            <div class="container">
-                <div>
-                    <span><i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i></span>
-                    <h1>Riad Hasan</h1>
-                    <p>Seriously such a useful service, If someone asks for a better option, none
-                        other than service will be my opinion. It's such a great
-                        service that helps the patients in an emergency.</p>
-                </div>
-            </div>
-        </div>
-        <div class="single-hero-items">
-            <div class="container">
-                <div>
-                    <span><i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i></span>
-                    <h1>Md Fazlul Haque</h1>
-                    <p>They are providing very effective service in all kinds of situations. The
-                        website interface is very clean and provides all the necessary information.
-                        Highly recommended</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial section End -->
-
-<!-- Latest Blog Section Begin -->
-<section class="latest-blog spad deal_bg">
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>From The Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-1.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>The Best Street Style From London Fashion Week</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-2.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-3.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>How To Brighten Your Wardrobe With A Dash</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
+                <div class="breadcrumb-text">
+                    <a href="index"><i class="fa fa-home"></i> Home</a>
+                    <span>Blog</span>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- Latest Blog Section End -->
+</div>
+<!-- Breadcrumb Section Begin -->
 
-<!-- Need More Help Section Begin-->
-<section class="deal-of-week spad">
+<!-- Blog Section Begin -->
+<section class="blog-section spad">
     <div class="container">
-        <div class="text-center">
-            <div class="section-title">
-                <h2>Need More Help?</h2>
-                <p>Get in touch with our Sales team and let them find the right solution for you.</p>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1">
+                <div class="blog-sidebar">
+                    <div class="search-form">
+                        <h4>Search</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Search . . .  ">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="blog-catagory">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">Picnic</a></li>
+                            <li><a href="#">Model</a></li>
+                        </ul>
+                    </div>
+                    <div class="recent-post">
+                        <h4>Recent Post</h4>
+                        <div class="recent-blog">
+                            <a href="#" class="rb-item">
+                                <div class="rb-pic">
+                                    <img src="img/blog/recent-1.jpg" alt="">
+                                </div>
+                                <div class="rb-text">
+                                    <h6>The Personality Trait That Makes...</h6>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </a>
+                            <a href="#" class="rb-item">
+                                <div class="rb-pic">
+                                    <img src="img/blog/recent-2.jpg" alt="">
+                                </div>
+                                <div class="rb-text">
+                                    <h6>The Personality Trait That Makes...</h6>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </a>
+                            <a href="#" class="rb-item">
+                                <div class="rb-pic">
+                                    <img src="img/blog/recent-3.jpg" alt="">
+                                </div>
+                                <div class="rb-text">
+                                    <h6>The Personality Trait That Makes...</h6>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </a>
+                            <a href="#" class="rb-item">
+                                <div class="rb-pic">
+                                    <img src="img/blog/recent-4.jpg" alt="">
+                                </div>
+                                <div class="rb-text">
+                                    <h6>The Personality Trait That Makes...</h6>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-tags">
+                        <h4>Product Tags</h4>
+                        <div class="tag-item">
+                            <a href="#">Towel</a>
+                            <a href="#">Shoes</a>
+                            <a href="#">Coat</a>
+                            <a href="#">Dresses</a>
+                            <a href="#">Trousers</a>
+                            <a href="#">Men's hats</a>
+                            <a href="#">Backpack</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="primary-btn">Contact Us</a>
+            <div class="col-lg-9 order-1 order-lg-2">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-1.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>The Personality Trait That Makes People Happier</h4>
+                                </a>
+                                <p>travel <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-2.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>This was one of our first days in Hawaii last week.</h4>
+                                </a>
+                                <p>Fashion <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-3.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>Last week I had my first work trip of the year to Sonoma Valley</h4>
+                                </a>
+                                <p>travel <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-4.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>Happppppy New Year! I know I am a little late on this post</h4>
+                                </a>
+                                <p>Fashion <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-5.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>Absolue collection. The Lancome team has been one…</h4>
+                                </a>
+                                <p>Model <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="blog-item">
+                            <div class="bi-pic">
+                                <img src="img/blog/blog-6.jpg" alt="">
+                            </div>
+                            <div class="bi-text">
+                                <a href="./blog-details.php">
+                                    <h4>Writing has always been kind of therapeutic for me</h4>
+                                </a>
+                                <p>Fashion <span>- May 19, 2019</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="loading-more">
+                            <i class="icon_loading"></i>
+                            <a href="#">
+                                Loading More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!-- Need More Help Section End -->
-<?php } ?>
+<!-- Blog Section End -->
+</body>
 
 <!-- Footer Section Begin -->
 <?php include'includes/footer.php';?>
 <!-- Footer Section End -->
-<!-- The Modal box start -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <!-- Modal header -->
-        <div class="modal-header">
-            <h4>User Profile</h4>
-            <span class="close">&times;</span>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div class="container">
-                <form action="action_page.php">
-                    <div>
-                        <label for="fname">First Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Last Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Email Address:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your email.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Phone Number:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your Number.." disabled>
-                    </div>
-                    <br>
-                    <div class="sub"><input type="submit" value="Edit"></div>
-
-                </form>
-            </div>
-        </div>
-        <!-- Modal body end -->
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <!-- <h3>Modal Footer</h3> -->
-        </div>
-        <!-- Modal footer end -->
-    </div>
-    <!-- Modal content end -->
-</div>
-<!-- The Modal box end -->
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("mBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>

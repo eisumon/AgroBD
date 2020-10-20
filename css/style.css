@@ -174,6 +174,16 @@ ol {
 
 /* buttons */
 
+.nav-primary-btn {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	padding: 8px 30px;
+	color: #ffffff;
+	background: #e7ab3c;
+	text-transform: uppercase;
+}
+
 .primary-btn {
 	display: inline-block;
 	font-size: 14px;
@@ -584,7 +594,8 @@ ol {
 	display: none;
 }
 
-/* nav item 2 */
+
+/* nav item 1 */
 .nav-item1 {
 	background: #ffffff;
 	display: -webkit-box;
@@ -761,26 +772,13 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-	height: 725px;
-	padding-top: 210px;
-}
-
-.hero-items .single-hero-items span {
-	color: #e7ab3c;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	line-height: 28px;
-	display: inline-block;
-	position: relative;
-	top: 50px;
-	opacity: 0;
+	height: 820px;
+	padding-top: 310px;
 }
 
 .hero-items .single-hero-items h1 {
-	color: #252525;
-	font-size: 72px;
+	color: #ffffff;
+	font-size: 82px;
 	font-weight: 700;
 	margin-bottom: 6px;
 	position: relative;
@@ -789,7 +787,8 @@ ol {
 }
 
 .hero-items .single-hero-items p {
-	margin-bottom: 42px;
+	color: #ffffff;
+	margin-bottom: 20px;
 	position: relative;
 	top: 100px;
 	opacity: 0;
@@ -801,7 +800,6 @@ ol {
 	opacity: 0;
 }
 
-.hero-items .owl-item.active .single-hero-items span,
 .hero-items .owl-item.active .single-hero-items h1,
 .hero-items .owl-item.active .single-hero-items p,
 .hero-items .owl-item.active .single-hero-items .primary-btn {
@@ -809,11 +807,6 @@ ol {
 	opacity: 1;
 }
 
-.hero-items .owl-item.active .single-hero-items span {
-	-webkit-transition: all 0.2s ease 0.2s;
-	-o-transition: all 0.2s ease 0.2s;
-	transition: all 0.2s ease 0.2s;
-}
 
 .hero-items .owl-item.active .single-hero-items h1 {
 	-webkit-transition: all 0.4s ease 0.4s;
@@ -997,7 +990,7 @@ ol {
 	text-justify: inter-word;
 	background-color: rgb(255, 255, 255);
 	height: 150px;
-	border: 1px solid burlywood;
+	/* border: 1px solid burlywood; */
 	
 
 }

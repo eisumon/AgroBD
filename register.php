@@ -325,12 +325,12 @@ if(isset($_POST['submit'])){
                 $('#name').after('<span class="error">*Your name can not be numeric!!</span>');
                 return false;
             }
-        } else if ($('#email').val() !== '') {
+        } if ($('#email').val() !== '') {
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
                 $('#email').after('<span class="error">* Type a valid email!!</span>');
                 return false;
             }
-        } else if ($('#phone').val() !== '') {
+        } if ($('#phone').val() !== '') {
             if (isNaN($("#phone").val())) {
                 $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
                 return false;

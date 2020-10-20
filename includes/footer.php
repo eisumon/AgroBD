@@ -9,7 +9,7 @@
                     </div>
                     <ul>
                         <li>Address: 43/R/1, Panthapath, Dhaka</li>
-                        <li>Phone: +880 1954149655</li>
+                        <li>Phone: +880 1910203040</li>
                         <li>Email: agrobd@gmail.com</li>
                     </ul>
                     <div class="footer-social">

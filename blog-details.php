@@ -1,6 +1,60 @@
 <?php session_start();?>
 <?php include'includes/head.php';?>
 
+<!-- Alert script start -->
+<script type="text/javascript">
+    function myAlert() {
+
+        swal({
+            title: "Comment submit Successfully",
+            type: "success",
+            timer: 2000,
+            showCancelButton: false,
+            showConfirmButton: false,
+            closeOnClickOutside: false,
+        }, function () {
+            window.location.href = "blog-details";
+        });
+    }
+
+    function erAlert() {
+        swal({
+            title: "Comment is not submit successfully",
+            type: "error",
+            timer: 2000,
+            showCancelButton: false,
+            showConfirmButton: false,
+            closeOnClickOutside: false,
+        }, function () {
+            window.location.href = "blog-details";
+        });
+    }
+</script>
+<!-- Alert script end -->
+</head>
+
+<body>
+    <?php include_once("dbCon.php");
+$conn = connect();
+if (isset($_POST['submit'])){
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+        $sql ="INSERT INTO blog(name, email, message) VALUES('$name', '$email', '$message')";
+        // echo $sql;
+        // exit;
+        if($conn->query($sql)){
+
+            echo "<script>myAlert();</script>";
+            } else{
+            echo "<script>erAlert();</script>";
+            }
+    }
+
+?>
+
 <!-- Header Section Begin -->
 <header class="header-section">
     <!-- Header top start -->
@@ -237,311 +291,194 @@
 </header>
 <!-- Header End -->
 
-
-
-
-<?php if(isset($_SESSION['isLoggedIn'])){?>
-
-<!-- Hero Section Begin if logged in -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-            <div class="container">
-                    <div class="">
-                        <h1>AgroBD Farm</h1>
-                        <p>Plan your season or create your plant production which you want.</p>
-                        <a href="cropplant.php" class="primary-btn"><i class="fa fa-plus"></i> Create Production</a>
-                        <a href="seasonplan.php" class="primary-btn">Season Plan</a>
-                    </div>
-                
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<?php }else{ ?>
-<!-- Hero Section Begin if logged out -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-            <div class="container">
-                    <div class="">
-                        <h1>AgroBD Farm</h1>
-                        <p>Plan your season or create your plant production which you want.</p>
-                        <a href="register.php" class="primary-btn">Get Started</a>
-                    </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<!-- How It Works Section Begin-->
-<section class="deal-of-week spad">
-    <div class="container">
-        <div class="text-center">
-            <div class="section-title">
-                <h2>How It Works?</h2>
-                <p>Agrivi farm management software lets you plan, monitor and analyze all activities on your farm
-                    easily. Tillage, planting, spraying, fertilization, irrigation, harvesting and all other activities
-                    are managed with a few clicks.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- How It Works Section End -->
-
-<!-- Core Feature Section Begin-->
-<section class="spad deal_bg">
-    <div class="container">
-        <div class="text-center core_fea">
-            <div class="section-title">
-                <h2>Who Are You?</h2>
-                <p>Whether you are a small or large farmer, looking for a tailor-made solution, we have one for you.
-                    Powerful farm analytics let you make the right decisions at the right time. Say no to gut-feeling
-                    decisions and welcome data-driven farm management.</p>
-                <img style="width: 100%;" src="img/farm.jpg" alt="">
-            </div><br>
-            <div class="section-title">
-                <h2>Core Features</h2>
-                <p>Complete support for all crops: fruit, vegetables, grains and other.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 core_feature">
-                    <h4>Farm Management</h4>
-                    <p>Manage all your farming data including field activities, farm finances, and inventory In one
-                        single
-                        place.</p>
-                </div>
-                <div class="col-md-6 core_feature">
-                    <h4>Advanced Pest Detection</h4>
-                    <p>Get alerts if there is a risk of insect pests or diseases on your fields and protect your crops
-                    timely.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 core_feature">
-                    <h4>Powerful Analytics</h4>
-                    <p>Real-time overview of your farm performance helps you make the right decisions based on facts.</p>
-                </div>
-                <div class="col-md-6 core_feature">
-                    <h4>Best Practice Knowledge</h4>
-                    <p>Plan your season with the help of our agricultural knowledge base and ensure higher yield.</p>
-                </div>
-            </div>
-            <a href="#" class="primary-btn">Sign Up Free Trail</a>
-        </div>
-    </div>
-</section>
-<!-- Core Feature Section End -->
-
-<!-- Testimonial section begain -->
-<section class="hero-section testimonial" style="text-align: center;">
-    <div class="section-title">
-        <h2>What Our Customers Say</h2>
-    </div>
-    <div class="hero-items1 owl-carousel">
-        <div class="single-hero-items">
-            <div class="container">
-                <div>
-                    <span><i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i></span>
-                    <h1>Riad Hasan</h1>
-                    <p>Seriously such a useful service, If someone asks for a better option, none
-                        other than service will be my opinion. It's such a great
-                        service that helps the patients in an emergency.</p>
-                </div>
-            </div>
-        </div>
-        <div class="single-hero-items">
-            <div class="container">
-                <div>
-                    <span><i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i></span>
-                    <h1>Md Fazlul Haque</h1>
-                    <p>They are providing very effective service in all kinds of situations. The
-                        website interface is very clean and provides all the necessary information.
-                        Highly recommended</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial section End -->
-
-<!-- Latest Blog Section Begin -->
-<section class="latest-blog spad deal_bg">
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>From The Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-1.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>The Best Street Style From London Fashion Week</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-2.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-latest-blog">
-                    <img src="img/latest-3.jpg" alt="">
-                    <div class="latest-text">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <i class="fa fa-calendar-o"></i>
-                                May 4,2019
-                            </div>
-                            <div class="tag-item">
-                                <i class="fa fa-comment-o"></i>
-                                5
-                            </div>
-                        </div>
-                        <a href="#">
-                            <h4>How To Brighten Your Wardrobe With A Dash</h4>
-                        </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
+                <div class="breadcrumb-text">
+                    <a href="index"><i class="fa fa-home"></i> Home</a>
+                    <a href="blog">Blog</a>
+                    <span>Blog Details</span>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- Latest Blog Section End -->
+</div>
+<!-- Breadcrumb Section Begin -->
 
-<!-- Need More Help Section Begin-->
-<section class="deal-of-week spad">
+<!-- Blog Details Section Begin -->
+<section class="blog-details spad">
     <div class="container">
-        <div class="text-center">
-            <div class="section-title">
-                <h2>Need More Help?</h2>
-                <p>Get in touch with our Sales team and let them find the right solution for you.</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-details-inner">
+                    <div class="blog-detail-title">
+                        <h2>The Personality Trait That Makes People Happier</h2>
+                        <p>travel <span>- May 19, 2019</span></p>
+                    </div>
+                    <div class="blog-large-pic">
+                        <img src="img/blog/blog-detail.jpg" alt="">
+                    </div>
+                    <div class="blog-detail-desc">
+                        <p>psum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
+                        </p>
+                    </div>
+                    <div class="blog-quote">
+                        <p>“ Technology is nothing. What's important is that you have a faith in people, that
+                            they're basically good and smart, and if you give them tools, they'll do wonderful
+                            things with them.” <span>- Steven Jobs</span></p>
+                    </div>
+                    <div class="blog-more">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="img/blog/blog-detail-1.jpg" alt="">
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="img/blog/blog-detail-2.jpg" alt="">
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="img/blog/blog-detail-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <p>Sum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                    <div class="tag-share">
+                        <div class="details-tag">
+                            <ul>
+                                <li><i class="fa fa-tags"></i></li>
+                                <li>Travel</li>
+                                <li>Beauty</li>
+                                <li>Fashion</li>
+                            </ul>
+                        </div>
+                        <div class="blog-share">
+                            <span>Share:</span>
+                            <div class="social-links">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-6">
+                                <a href="#" class="prev-blog">
+                                    <div class="pb-pic">
+                                        <i class="ti-arrow-left"></i>
+                                        <img src="img/blog/prev-blog.png" alt="">
+                                    </div>
+                                    <div class="pb-text">
+                                        <span>Previous Post:</span>
+                                        <h5>The Personality Trait That Makes People Happier</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-5 offset-lg-2 col-md-6">
+                                <a href="#" class="next-blog">
+                                    <div class="nb-pic">
+                                        <img src="img/blog/next-blog.png" alt="">
+                                        <i class="ti-arrow-right"></i>
+                                    </div>
+                                    <div class="nb-text">
+                                        <span>Next Post:</span>
+                                        <h5>The Personality Trait That Makes People Happier</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="posted-by">
+                        <div class="pb-pic">
+                            <img src="img/blog/post-by.png" alt="">
+                        </div>
+                        <div class="pb-text">
+                            <a href="#">
+                                <h5>Shane Lynch</h5>
+                            </a>
+                            <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                amodo</p>
+                        </div>
+                    </div>
+                    <div class="leave-comment">
+                        <h4>Leave A Comment</h4>
+                        <form method="POST" class="comment-form" onsubmit="return nullcheck();">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" name="name" placeholder="Name" oninput="ontype();">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Email" name="email" oninput="ontype();">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" placeholder="Messages" oninput="ontype();"></textarea>
+                                    <button type="submit" name="submit" class="site-btn">Send message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="primary-btn">Contact Us</a>
         </div>
     </div>
 </section>
-<!-- Need More Help Section End -->
-<?php } ?>
+<!-- Blog Details Section End -->
+</body>
+
+<script>
+    function nullcheck() {
+
+        $(".error").remove();
+
+        $('#submit').removeAttr('disabled', true);
+
+        if ($('#name').val() == '') {
+            $('#name').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#email').val() == '') {
+            $('#email').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+
+        if ($('#message').val() == '') {
+            $('#message').after('<span class="error">* This field is required</span>');
+            return false;
+        }
+    }
+
+    function ontype() {
+        $(".error").remove();
+
+        if ($('#name').val() !== '') {
+            if (!/^[a-z ]+$/i.test($("#name").val())) {
+                $('#name').after('<span class="error">*Your name can not be numeric!!</span>');
+                return false;
+            }
+        } if ($('#email').val() !== '') {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                $('#email').after('<span class="error">* Type a valid email!!</span>');
+                return false;
+            }
+        }
+    }
+</script>
 
 <!-- Footer Section Begin -->
 <?php include'includes/footer.php';?>
 <!-- Footer Section End -->
-<!-- The Modal box start -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <!-- Modal header -->
-        <div class="modal-header">
-            <h4>User Profile</h4>
-            <span class="close">&times;</span>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div class="container">
-                <form action="action_page.php">
-                    <div>
-                        <label for="fname">First Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Last Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Email Address:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your email.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Phone Number:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your Number.." disabled>
-                    </div>
-                    <br>
-                    <div class="sub"><input type="submit" value="Edit"></div>
-
-                </form>
-            </div>
-        </div>
-        <!-- Modal body end -->
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <!-- <h3>Modal Footer</h3> -->
-        </div>
-        <!-- Modal footer end -->
-    </div>
-    <!-- Modal content end -->
-</div>
-<!-- The Modal box end -->
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("mBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
