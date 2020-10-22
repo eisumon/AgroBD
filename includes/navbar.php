@@ -60,7 +60,7 @@
                                     <li><a href="seasonplan">Season Plan</a></li>
                                     <li><a href="cropplant">Create Production</a></li>
                                     <?php }else{ ?>
-                                    <li><a href="./faq.html">Faq</a></li>
+                                    <li><a href="./faq">Faq</a></li>
                                     <a href="register.php" class="nav-primary-btn">Get Started</a>
                                     <?php } ?>
                                 </ul>

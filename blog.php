@@ -174,15 +174,6 @@ include'includes/navbar.php';
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="loading-more">
-                            <i class="icon_loading"></i>
-                            <a href="#">
-                                Loading More
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -55,64 +55,58 @@
             <div class="">
                 <h4>People</h4>
                 <hr>
-                <div class="">
-                    <!-- Essential button -->
-                    <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i>
-                        Add New
-                        people</button>
-
-
-                    <hr>
-
-                    <table id="example" class="display">
-                        <thead>
-                            <tr>
-                                <th>First Name:</th>
-                                <th>Last Name:</th>
-                                <th>Gender:</th>
-                                <th>City:</th>
-                                <th>Adreess:</th>
-                                <th>Phone:</th>
-                                <th>Role:</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php include_once("dbCon.php");
+                <!-- Essential button -->
+                <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i>
+                    Add New
+                    people</button>
+                <hr>
+                <table id="example" class="display">
+                    <thead>
+                        <tr>
+                            <th>First Name:</th>
+                            <th>Last Name:</th>
+                            <th>Gender:</th>
+                            <th>City:</th>
+                            <th>Adreess:</th>
+                            <th>Phone:</th>
+                            <th>Role:</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php include_once("dbCon.php");
                             $conn = connect();
                             $sql= "SELECT * FROM people";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                         ?>
 
-                            <tr>
-                                <td><?php echo $row["fname"]; ?></td>
-                                <td><?php echo $row["lname"]; ?></td>
-                                <td><?php echo $row["gender"]; ?></td>
-                                <td><?php echo $row["city"]; ?></td>
-                                <td><?php echo $row["address"]; ?></td>
-                                <td><?php echo $row["phone"]; ?></td>
-                                <td><?php echo $row["role"]; ?></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                        <div class="dropdown-content">
-                                            <a href="people_edit.php?edit=<?php echo $row['p_id'];?>"
-                                                style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
-                                                Edit</a>
-                                            <a href="people.php?delete=<?php echo $row['p_id'];?>"
-                                                style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                Delete</a>
-                                        </div>
+                        <tr>
+                            <td><?php echo $row["fname"]; ?></td>
+                            <td><?php echo $row["lname"]; ?></td>
+                            <td><?php echo $row["gender"]; ?></td>
+                            <td><?php echo $row["city"]; ?></td>
+                            <td><?php echo $row["address"]; ?></td>
+                            <td><?php echo $row["phone"]; ?></td>
+                            <td><?php echo $row["role"]; ?></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                    <div class="dropdown-content">
+                                        <a href="people_edit.php?edit=<?php echo $row['p_id'];?>"
+                                            style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
+                                            Edit</a>
+                                        <a href="people.php?delete=<?php echo $row['p_id'];?>" style="color: red;"><i
+                                                class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete</a>
                                     </div>
-                                </td>
-                            </tr>
-                            <?php endwhile;?>
-                        </tbody>
-                    </table>
-
-                    <!-- Result Table End -->
-                </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endwhile;?>
+                    </tbody>
+                </table>
+                <!-- Result Table End -->
             </div>
         </div>
         <!-- Inner Header end -->
