@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
     $company_name = $_POST['company_name'];
     $phone = $_POST['phone'];
 
-    $sql="SELECT email FROM user_login WHERE email='$email'";
+    $sql="SELECT email FROM user WHERE email='$email'";
     $result = $conn->query($sql);
                     //  print_r($result);
     if($result->num_rows>0){
@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
         echo "<script>mailAlert();</script>";
 
     }else{
-        $sql="INSERT INTO user_login(name, email, password,company_name, phone) VALUES('$name', '$email', '$password', '$company_name', '$phone')";
+        $sql="INSERT INTO user(name, email, password,company_name, phone) VALUES('$name', '$email', '$password', '$company_name', '$phone')";
         //echo $sql;exit;
         if($conn->query($sql)){
 

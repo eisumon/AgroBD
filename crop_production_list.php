@@ -61,16 +61,12 @@ include'includes/navbar.php';
                             <th>Name</th>
                             <th>Crop</th>
                             <th>Location</th>
-                            <th>Soil type</th>
                             <th>Linked area</th>
                             <th>Yield</th>
                             <th>Active season</th>
-                            <th>Tasks</th>
                             <th></th>
                         </tr>
                         <tr>
-                            <td>Search result</td>
-                            <td>Search result</td>
                             <td>Search result</td>
                             <td>Search result</td>
                             <td>Search result</td>

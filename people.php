@@ -42,10 +42,24 @@
        echo "<script>del_er_Alert();</script>";
    }
  }  
-    ?>
+?>
 </head>
 
 <body>
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="index"><i class="fa fa-home"></i> Home</a>
+                        <a href="people">People</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section Begin -->
 
     <!-- Feature Section -->
     <section class="homenav">
@@ -112,93 +126,91 @@
         <!-- Inner Header end -->
     </section>
 
-
-</body>
-<?php 
-include'add_people_modal.php';
+    <?php 
+include'people_modal.php';
 include'includes/footer.php';
 ?>
-<!-- Footer Section End -->
+    <!-- Footer Section End -->
 
-<script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
 
-    function nullcheck() {
+        function nullcheck() {
 
-        $(".error").remove();
+            $(".error").remove();
 
-        $('#submit').removeAttr('disabled', true);
+            $('#submit').removeAttr('disabled', true);
 
-        if ($('#fname').val() == '') {
-            $('#fname').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#fname').val() == '') {
+                $('#fname').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#lname').val() == '') {
-            $('#lname').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#lname').val() == '') {
+                $('#lname').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#gender').val() == '') {
-            $('#gender').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#gender').val() == '') {
+                $('#gender').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#city').val() == '') {
-            $('#city').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#city').val() == '') {
+                $('#city').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#address').val() == '') {
-            $('#address').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#address').val() == '') {
+                $('#address').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#phone').val() == '') {
-            $('#phone').after('<span class="error">* This field is required</span>');
-            return false;
-        }
+            if ($('#phone').val() == '') {
+                $('#phone').after('<span class="error">* This field is required</span>');
+                return false;
+            }
 
-        if ($('#role').val() == '') {
-            $('#role').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-    }
-
-    function ontype() {
-        $(".error").remove();
-
-        if ($('#fname').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#fname").val())) {
-                $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+            if ($('#role').val() == '') {
+                $('#role').after('<span class="error">* This field is required</span>');
                 return false;
             }
         }
-        if ($('#lname').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#lname").val())) {
-                $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
-                return false;
+
+        function ontype() {
+            $(".error").remove();
+
+            if ($('#fname').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#fname").val())) {
+                    $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#lname').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#lname").val())) {
+                    $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#email').val() !== '') {
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                    $('#email').after('<span class="error">* Type a valid email!!</span>');
+                    return false;
+                }
+            }
+            if ($('#phone').val() !== '') {
+                if (isNaN($("#phone").val())) {
+                    $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
+                    return false;
+                } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
+                    $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
+                    return false;
+                }
             }
         }
-        if ($('#email').val() !== '') {
-            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-                $('#email').after('<span class="error">* Type a valid email!!</span>');
-                return false;
-            }
-        }
-        if ($('#phone').val() !== '') {
-            if (isNaN($("#phone").val())) {
-                $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
-                return false;
-            } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
-                $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
-                return false;
-            }
-        }
-    }
-</script>
+    </script>
 </body>
 
 </html>

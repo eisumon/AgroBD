@@ -48,7 +48,7 @@ include'includes/navbar.php';
                                     <form action="action_page.php">
 
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <h5 style="color: green; border-bottom:1px solid green">Season Name</h5>
                                                 <div>
                                                     <label for="fname">Season Name:</label><br>
@@ -73,7 +73,7 @@ include'includes/navbar.php';
                                                 </div>
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <h5 style="color: green; border-bottom:1px solid green">Production Type</h5>
                                                 <div>
                                                     <label for="country">Production Type:</label><br>
@@ -93,17 +93,6 @@ include'includes/navbar.php';
                                                 </div>
                                                 <div>
                                                     <label for="country">Harvest Unit::</label><br>
-                                                    <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                            <h5 style="color: green; border-bottom:1px solid green">Plan your season</h5>
-                                                <div>
-                                                    <label for="country">Variety:</label><br>
                                                     <select id="country" name="country">
                                                         <option value="australia">-</option>
                                                         <option value="canada">Canada</option>

@@ -12,7 +12,8 @@ include'includes/navbar.php';
             <hr>
             <div class="">
                 <!-- Essential button -->
-                <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create tasks</button>
+                <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
+                    tasks</button>
                 <!-- The Modal box start -->
                 <div id="myModal" class="modal">
                     <!-- Modal content -->
@@ -49,14 +50,8 @@ include'includes/navbar.php';
                                                     <option value="usa">USA</option>
                                                 </select>
                                             </div>
-                                            <div>
-                                                <label for="country">Field:</label><br>
-                                                <select id="country" name="country">
-                                                    <option value="australia">-</option>
-                                                    <option value="canada">Canada</option>
-                                                    <option value="usa">USA</option>
-                                                </select>
-                                            </div>
+                                        </div>
+                                        <div class="col-md-5 offset-md-1">
                                             <div>
                                                 <label for="country">Categories:</label><br>
                                                 <select id="country" name="country">
@@ -65,18 +60,8 @@ include'includes/navbar.php';
                                                     <option value="usa">USA</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5 offset-md-1">
                                             <div>
                                                 <label for="country">Crop Production:</label><br>
-                                                <select id="country" name="country">
-                                                    <option value="australia">-</option>
-                                                    <option value="canada">Canada</option>
-                                                    <option value="usa">USA</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label for="country">Season:</label><br>
                                                 <select id="country" name="country">
                                                     <option value="australia">-</option>
                                                     <option value="canada">Canada</option>
@@ -156,10 +141,12 @@ include'includes/navbar.php';
                             <th>Categories:</th>
                             <th>Start date: </th>
                             <th>End date:</th>
-                            <th>Fields:</th>
+                            <th>Production name:</th>
+                            <th>status: </th>
                             <th></th>
                         </tr>
                         <tr>
+                            <td>Search result</td>
                             <td>Search result</td>
                             <td>Search result</td>
                             <td>Search result</td>

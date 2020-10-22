@@ -5,7 +5,8 @@
             <div class="col-lg-3">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <h2 style="color: white;">AgroBD</h2>
+                        <!-- <h2 style="color: white;">AgroBD</h2> -->
+                        <a href="#"><img src="img/footer-logo.png" alt=""></a>
                     </div>
                     <ul>
                         <li>Address: 43/R/1, Panthapath, Dhaka</li>

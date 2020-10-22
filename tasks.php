@@ -70,14 +70,8 @@ include'includes/navbar.php';
                                                         <option value="usa">USA</option>
                                                     </select>
                                                 </div>
-                                                <div>
-                                                    <label for="country">Field:</label><br>
-                                                    <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
-                                                    </select>
-                                                </div>
+                                            </div>
+                                            <div class="col-md-5 offset-md-1">
                                                 <div>
                                                     <label for="country">Categories:</label><br>
                                                     <select id="country" name="country">
@@ -86,18 +80,8 @@ include'includes/navbar.php';
                                                         <option value="usa">USA</option>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-5 offset-md-1">
                                                 <div>
                                                     <label for="country">Crop Production:</label><br>
-                                                    <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <label for="country">Season:</label><br>
                                                     <select id="country" name="country">
                                                         <option value="australia">-</option>
                                                         <option value="canada">Canada</option>

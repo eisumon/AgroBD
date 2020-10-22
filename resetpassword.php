@@ -45,7 +45,7 @@ if(isset($_GET['email'])){
   //echo $mail;exit;
   $token = $_GET['token'];
 
-  $sql = "SELECT * FROM user_login where email ='$mail' AND token='$token'";
+  $sql = "SELECT * FROM user where email ='$mail' AND token='$token'";
     $result = $conn->query($sql);
   //echo $sql;exit;
     if($result->num_rows>0){
@@ -58,7 +58,7 @@ if(isset($_GET['email'])){
   if(isset($_POST['reset'])){
     $email=$_POST['email'];
     $password=md5($_POST['password']);
-    $sql= "UPDATE user_login SET password='$password', token='' WHERE email='$email'";
+    $sql= "UPDATE user SET password='$password', token='' WHERE email='$email'";
     //echo $sql;exit;
      $result = $conn->query($sql);
     if(mysqli_affected_rows($conn) >0 ){

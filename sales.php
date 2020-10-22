@@ -8,7 +8,7 @@ include'includes/navbar.php';
     <!-- Inner Header start -->
     <div class="container production_box">
         <div class="">
-            <h4>People</h4>
+            <h4>Sales</h4>
             <hr>
             <div class="">
                 <!-- Essential button -->

@@ -32,68 +32,6 @@ include'includes/navbar.php';
                 <div class="col-lg-9 col-md-9 production_box">
                     <!-- Essential button -->
                     <button id="myBtn" style="float: none;">Start live chat</button>
-                    <!-- The Modal box start -->
-                    <div id="myModal" class="modal">
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <!-- Modal header -->
-                            <div class="modal-header">
-                                <h4>Your Plan</h4>
-                                <span class="close">&times;</span>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="action_page.php">
-                                        <div>
-                                            <label for="country">Status:</label><br>
-                                            <select id="country" name="country">
-                                                <option value="australia">-</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label for="country">Linked area:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                                                style="width:735px; float: left;">
-
-                                            <select id="country" name="country"
-                                                style="width:150px; background-color: silver;">
-                                                <option value="australia">ha</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label for="country">Linked area:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                                                style="width:735px; float: left;">
-
-                                            <select id="country" name="country"
-                                                style="width:150px; background-color: silver;">
-                                                <option value="australia">ha</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <br>
-                                        <div class="sub"><input type="submit" value="Submit"></div>
-                                        <div class="res"><input type="reset" value="Reset"></div>
-
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Modal body end -->
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <!-- <h3>Modal Footer</h3> -->
-                            </div>
-                            <!-- Modal footer end -->
-                        </div>
-                        <!-- Modal content end -->
-                    </div>
-                    <!-- The Modal box end -->
                     <hr>
 
                     <!-- Filter Table -->
@@ -123,7 +61,7 @@ include'includes/navbar.php';
                     <div class="tab">
                         <table>
                             <tr>
-                                <th>Pests:</th>
+                                <th>Pests name:</th>
                                 <th>Type:</th>
                                 <th>Desciption:</th>
                                 <th></th>

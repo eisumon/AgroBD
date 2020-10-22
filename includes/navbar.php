@@ -10,7 +10,7 @@
                 </div>
                 <div class="phone-service">
                     <i class=" fa fa-phone"></i>
-                    +880 1954149655
+                    +880 1910203040
                 </div>
             </div>
             <div class="ht-right">

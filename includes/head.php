@@ -23,31 +23,33 @@
   <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  <!-- Individual column searching (css cdn) -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  
 
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript"
+  <script
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <!-- Individual column searching (js cdn) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script>
     function myAlert(msg, type, redirectTo) {
-
-swal({
-    title: msg,
-    type: type,
-    timer: 2000,
-    showCancelButton: false,
-    showConfirmButton: false,
-    closeOnClickOutside: false,
-}, function () {
-    window.location.href = redirectTo;
-});
-}
+      swal({
+        title: msg,
+        type: type,
+        timer: 2000,
+        showCancelButton: false,
+        showConfirmButton: false,
+        closeOnClickOutside: false,
+      }, function () {
+        window.location.href = redirectTo;
+      });
+    }
   </script>
 
   <style>

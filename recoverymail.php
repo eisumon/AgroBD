@@ -222,7 +222,7 @@
     }
     else
     {
-      $sql = "UPDATE user_login SET token = '$token' WHERE email= '$usermail'";
+      $sql = "UPDATE user SET token = '$token' WHERE email= '$usermail'";
       $conn->query($sql);
     //  echo $sql;exit;
       echo '<script>myAlert()</script>';

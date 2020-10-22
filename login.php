@@ -39,7 +39,7 @@ if(isset($_POST["login"])){
 
 $email= mysqli_real_escape_string($conn,$_POST['email']);
 $password= mysqli_real_escape_string($conn,md5($_POST['password']));
-$sql="SELECT * FROM user_login where email ='$email' AND password='$password'";
+$sql="SELECT * FROM user where email ='$email' AND password='$password'";
             $result = $conn->query($sql);
                     //  print_r($result);
               if($result->num_rows>0){

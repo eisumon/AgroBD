@@ -28,7 +28,7 @@ $conn =connect();
 if(isset($_POST["send"])){
 
   $email= mysqli_real_escape_string($conn,$_POST['email']);
-  $sql="SELECT * FROM user_login where email ='$email'";
+  $sql="SELECT * FROM user where email ='$email'";
   $result = $conn->query($sql);
                     //  print_r($result);
                 if($result->num_rows>0){
@@ -37,7 +37,6 @@ if(isset($_POST["send"])){
                     // echo '<script>erAlert()</script>';
                   echo '<script>erAlert();</script>';
                 }
-
 }
 ?>
 
@@ -47,8 +46,8 @@ if(isset($_POST["send"])){
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                        <a href="index"><i class="fa fa-home"></i> Home</a>
+                        <span>Forget Password</span>
                     </div>
                 </div>
             </div>
@@ -79,39 +78,6 @@ if(isset($_POST["send"])){
         </div>
     </div>
     <!-- Register Form Section End -->
-
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
       function nullcheck(){
