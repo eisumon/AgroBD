@@ -1,82 +1,48 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
+
+include_once("dbCon.php");
+$conn = connect();
+
+if (isset($_GET['edit'])){
+    $id = $_GET['edit'];
+    $sql= "SELECT * FROM people WHERE p_id=$id";
+    $result = $conn->query($sql);
+    // $row = mysqli_fetch_assoc($result);
+    $row = $result-> fetch_assoc();
+    $fname = $row['fname'];
+    $lname = $row['lname'];
+    $gender = $row['gender'];
+    $city = $row['city'];
+    $address = $row['address'];
+    $phone = $row['phone'];
+    $role = $row['role'];
+}
+
+if (isset($_POST['update'])){
+    $id = $_POST['p_id'];
+    $fname = $_POST['firstname'];
+    $lname = $_POST['lastname'];
+    $gender = $_POST['gender'];
+    $city = $_POST['city'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $role = $_POST['role'];
+    
+    $sql= "UPDATE people SET fname= '$fname', lname= '$lname', gender= '$gender', city= '$city', address= '$address', phone= '$phone', role= '$role'  WHERE p_id=$id";
+    $result = $conn->query($sql);
+    
+    if($conn->query($sql)){
+
+        echo "<script>myAlert('Record Update Successfully','success','people');</script>";
+        } else{
+        echo "<script>myAlert(Record Update Not Successfully','error','people_edit');</script>";
+        }
+}
 ?>
-
-<!-- Alert script start -->
-<script type="text/javascript">
-    function up_Alert() {
-
-        swal({
-            title: "Update Successfull",
-            type: "success",
-            timer: 2000,
-            showCancelButton: false,
-            showConfirmButton: false,
-            closeOnClickOutside: false,
-        }, function () {
-            window.location.href = "people";
-        });
-    }
-
-    function up_erAlert() {
-        swal({
-            title: "Update is not Successfull",
-            type: "error",
-            timer: 2000,
-            showCancelButton: false,
-            showConfirmButton: false,
-            closeOnClickOutside: false,
-        }, function () {
-            window.location.href = "people";
-        });
-    }
-</script>
-<!-- Alert script end -->
 </head>
 
 <body>
-    <?php 
-    include_once("dbCon.php");
-    $conn = connect();
-
-    if (isset($_GET['edit'])){
-        $id = $_GET['edit'];
-        $sql= "SELECT * FROM people WHERE p_id=$id";
-        $result = $conn->query($sql);
-        // $row = mysqli_fetch_assoc($result);
-        $row = $result-> fetch_assoc();
-        $fname = $row['fname'];
-        $lname = $row['lname'];
-        $gender = $row['gender'];
-        $city = $row['city'];
-        $address = $row['address'];
-        $phone = $row['phone'];
-        $role = $row['role'];
-    }
-    
-    if (isset($_POST['update'])){
-        $id = $_POST['p_id'];
-        $fname = $_POST['firstname'];
-        $lname = $_POST['lastname'];
-        $gender = $_POST['gender'];
-        $city = $_POST['city'];
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-        $role = $_POST['role'];
-        
-        $sql= "UPDATE people SET fname= '$fname', lname= '$lname', gender= '$gender', city= '$city', address= '$address', phone= '$phone', role= '$role'  WHERE p_id=$id";
-        $result = $conn->query($sql);
-        
-        if($conn->query($sql)){
-
-            echo "<script>up_Alert();</script>";
-        } else{
-            echo "<script>up_erAlert();</script>";
-        }
-        
-        // header("location: people.php ");
-    }
-?>
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -158,90 +124,93 @@ include'includes/navbar.php';
         </div>
         <!-- Inner Header end -->
     </section>
+
+    <!-- Footer Section Begin -->
+    <?php include'includes/footer.php';?>
+    <!-- Footer Section End -->
+
+
+    <script>
+        function nullcheck() {
+
+            $(".error").remove();
+
+            $('#submit').removeAttr('disabled', true);
+
+            if ($('#fname').val() == '') {
+                $('#fname').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#lname').val() == '') {
+                $('#lname').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#gender').val() == '') {
+                $('#gender').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#city').val() == '') {
+                $('#city').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#address').val() == '') {
+                $('#address').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#phone').val() == '') {
+                $('#phone').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#role').val() == '') {
+                $('#role').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+        }
+
+        function ontype() {
+            $(".error").remove();
+
+            if ($('#fname').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#fname").val())) {
+                    $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#lname').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#lname").val())) {
+                    $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#city').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#city").val())) {
+                    $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#email').val() !== '') {
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                    $('#email').after('<span class="error">* Type a valid email!!</span>');
+                    return false;
+                }
+            }
+            if ($('#phone').val() !== '') {
+                if (isNaN($("#phone").val())) {
+                    $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
+                    return false;
+                } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
+                    $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
+                    return false;
+                }
+            }
+        }
+    </script>
 </body>
 
-<script>
-    function nullcheck() {
-
-        $(".error").remove();
-
-        $('#submit').removeAttr('disabled', true);
-
-        if ($('#fname').val() == '') {
-            $('#fname').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#lname').val() == '') {
-            $('#lname').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#gender').val() == '') {
-            $('#gender').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#city').val() == '') {
-            $('#city').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#address').val() == '') {
-            $('#address').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#phone').val() == '') {
-            $('#phone').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#role').val() == '') {
-            $('#role').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-    }
-
-    function ontype() {
-        $(".error").remove();
-
-        if ($('#fname').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#fname").val())) {
-                $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
-                return false;
-            }
-        }
-        if ($('#lname').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#lname").val())) {
-                $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
-                return false;
-            }
-        }
-        if ($('#city').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#city").val())) {
-                $('#city').after('<span class="error">*Your city can not be numeric!!</span>');
-                return false;
-            }
-        }
-        if ($('#email').val() !== '') {
-            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-                $('#email').after('<span class="error">* Type a valid email!!</span>');
-                return false;
-            }
-        }
-        if ($('#phone').val() !== '') {
-            if (isNaN($("#phone").val())) {
-                $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
-                return false;
-            } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
-                $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
-                return false;
-            }
-        }
-    }
-</script>
-
-<!-- Footer Section Begin -->
-<?php include'includes/footer.php';?>
-<!-- Footer Section End -->
+</html>

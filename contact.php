@@ -1,41 +1,7 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
-?>
 
-<!-- Alert script start -->
-<script type="text/javascript">
-    function myAlert() {
-
-        swal({
-            title: "Message send Successfully",
-            type: "success",
-            timer: 2000,
-            showCancelButton: false,
-            showConfirmButton: false,
-            closeOnClickOutside: false,
-        }, function () {
-            window.location.href = "contact";
-        });
-    }
-
-    function erAlert() {
-        swal({
-            title: "Message is not send successfully",
-            type: "error",
-            timer: 2000,
-            showCancelButton: false,
-            showConfirmButton: false,
-            closeOnClickOutside: false,
-        }, function () {
-            window.location.href = "contact";
-        });
-    }
-</script>
-<!-- Alert script end -->
-</head>
-
-<body>
-<?php include_once("dbCon.php");
+include_once("dbCon.php");
 $conn = connect();
 
 if (isset($_POST['submit'])){
@@ -48,13 +14,15 @@ if (isset($_POST['submit'])){
         // exit;
         if($conn->query($sql)){
 
-            echo "<script>myAlert();</script>";
+            echo "<script>myAlert('Message is send successfully','success','contact');</script>";
             } else{
-            echo "<script>erAlert();</script>";
+            echo "<script>myAlert('Message is not send successfully','error','contact');</script>";
             }
     }
-
 ?>
+</head>
+
+<body>
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -134,13 +102,15 @@ if (isset($_POST['submit'])){
                             <form class="comment-form" method="POST" onsubmit="return nullcheck();">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" name="name" placeholder="Your name" oninput="ontype();">
+                                        <input type="text" id="name" name="name" placeholder="Your name"
+                                            oninput="ontype();">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" name="email" placeholder="Your email" oninput="ontype();">
+                                        <input type="email" id="email" name="email" placeholder="Your email"
+                                            oninput="ontype();">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea name="message" placeholder="Your message"
+                                        <textarea id="message" name="message" placeholder="Your message"
                                             oninput="ontype();"></textarea>
                                         <button type="submit" class="site-btn" name="submit">Send message</button>
                                     </div>

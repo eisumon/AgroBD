@@ -26,7 +26,7 @@
                             <div>
                                 <label for="gender">Gender:</label><br>
                                 <select id="gender" name="gender">
-                                    <option value="">-</option>
+                                    <option value="">Select</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="others">Others</option>
@@ -35,7 +35,7 @@
                             <div>
                                 <label for="city">City:</label><br>
                                 <select id="city" name="city">
-                                    <option value="">-</option>
+                                    <option value="">Select</option>
                                     <option value="barishal">Barishal</option>
                                     <option value="chitagong">Chitagong</option>
                                     <option value="dhaka">Dhaka</option>
@@ -51,8 +51,7 @@
                         <div class="col-md-5 offset-md-1">
                             <div>
                                 <label for="address">Address:</label><br>
-                                <input type="text" id="address" name="address" placeholder="Your address"
-                                    oninput="ontype();">
+                                <input type="text" id="address" name="address" placeholder="Your address">
                             </div>
                             <div>
                                 <label for="phone">Phone:</label><br>
@@ -61,7 +60,7 @@
                             <div>
                                 <label for="role">Role:</label><br>
                                 <select id="role" name="role">
-                                    <option value="">-</option>
+                                    <option value="">Select</option>
                                     <option value="worker">Worker</option>
                                     <option value="manager">Manager</option>
                                 </select>

@@ -17,7 +17,7 @@
      $result = $conn->query($sql);
  
      if($result->num_rows>0){
-         echo"<script>mailAlert();</script>";
+         echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','people');</script>";
      }else{
          $sql ="INSERT INTO people(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
      
@@ -26,7 +26,7 @@
  
              echo "<script>myAlert('Register New People Successfully','success','people');</script>";
              } else{
-             echo "<script>erAlert();</script>";
+             echo "<script>myAlert(Register Not Successfully','error','people');</script>";
              }
      }
  }
@@ -36,17 +36,16 @@
      $resultt = $conn->query($sql);
      
      if($conn->query($sql)){
-
-       echo "<script>del_Alert();</script>";
-   } else{
-       echo "<script>del_er_Alert();</script>";
-   }
+        echo "<script>myAlert('Record Delete Successfully','success','people');</script>";
+        } else{
+        echo "<script>myAlert(Record Delete Not Successfully','error','people');</script>";
+        }
  }  
 ?>
 </head>
 
 <body>
-    <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section start -->
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
@@ -61,7 +60,7 @@
     </div>
     <!-- Breadcrumb Section Begin -->
 
-    <!-- Feature Section -->
+    <!-- Feature Section start -->
     <section class="homenav">
 
         <!-- Inner Header start -->
@@ -70,10 +69,10 @@
                 <h4>People</h4>
                 <hr>
                 <!-- Essential button -->
-                <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i>
-                    Add New
-                    people</button>
+                <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Add
+                    New people</button>
                 <hr>
+                <!-- Result Table -->
                 <table id="example" class="display">
                     <thead>
                         <tr>
@@ -126,6 +125,7 @@
         <!-- Inner Header end -->
     </section>
 
+    <!-- Modal & Footer Section Begin -->
     <?php 
 include'people_modal.php';
 include'includes/footer.php';
