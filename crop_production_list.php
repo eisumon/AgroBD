@@ -58,10 +58,10 @@ include'includes/navbar.php';
                 <div class="tab">
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>Crop</th>
+                            <th>Production Name</th>
+                            <th>Crop Name</th>
                             <th>Location</th>
-                            <th>Linked area</th>
+                            <th>Area</th>
                             <th>Yield</th>
                             <th>Active season</th>
                             <th></th>

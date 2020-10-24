@@ -66,37 +66,31 @@ include'includes/navbar.php';
                                                 <div>
                                                     <label for="country">Status:</label><br>
                                                     <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
+                                                        <option value="">-</option>
+                                                        <option value="canada">Pending</option>
+                                                        <option value="usa">In progress</option>
+                                                        <option value="usa">Finished</option>
                                                     </select>
                                                 </div>
 
                                             </div>
                                             <div class="col-md-6">
-                                                <h5 style="color: green; border-bottom:1px solid green">Production Type</h5>
-                                                <div>
-                                                    <label for="country">Production Type:</label><br>
-                                                    <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
-                                                    </select>
-                                                </div>
+                                                <h5 style="color: green; border-bottom:1px solid green">Production Type
+                                                </h5>
                                                 <div>
                                                     <label for="country"> Planting Unit:</label><br>
                                                     <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
+                                                        <option value="">-</option>
+                                                        <option value="canada">Weight</option>
+                                                        <option value="usa">Pieces</option>
                                                     </select>
                                                 </div>
                                                 <div>
                                                     <label for="country">Harvest Unit::</label><br>
                                                     <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
+                                                        <option value="">-</option>
+                                                        <option value="canada">Weight</option>
+                                                        <option value="usa">Pieces</option>
                                                     </select>
                                                 </div>
                                                 <div>
@@ -106,8 +100,8 @@ include'includes/navbar.php';
 
                                                     <select id="country" name="country"
                                                         style="width:auto;background-color: silver;">
-                                                        <option value="australia">ha</option>
-                                                        <option value="canada">-</option>
+                                                        <option value="">Kg</option>
+                                                        <option value="mg">-</option>
                                                         <option value="usa">-</option>
                                                     </select>
                                                 </div>

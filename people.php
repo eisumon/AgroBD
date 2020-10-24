@@ -127,10 +127,10 @@
 
     <!-- Modal & Footer Section Begin -->
     <?php 
-include'people_modal.php';
-include'includes/footer.php';
-?>
-    <!-- Footer Section End -->
+        include'people_modal.php';
+        include'includes/footer.php';
+    ?>
+    <!-- Modal & Footer Section End -->
 
     <script>
         $(document).ready(function () {

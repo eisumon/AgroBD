@@ -1,48 +1,8 @@
-<?php session_start();?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <title>Mail </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-
-
-<!-- Mail Alert script start -->
-  <script type="text/javascript">
-
-  function myAlert(){
-    swal({
-      title: "Mail Sent Successfully",
-      type: "success",
-      timer: 2000,
-      showCancelButton: false,
-      showConfirmButton: false,
-      closeOnClickOutside: false,
-    }, function() {
-      window.location.href = "login";
-    });
-  }
-
-  function erAlert(){
-    swal({
-      title: "Mail cannot be sent",
-      type: "error",
-      timer: 2000,
-      showCancelButton: false,
-      showConfirmButton: false,
-      closeOnClickOutside: false,
-    }, function() {
-      window.location.href = "forgotpassword";
-    });
-  }
-  </script>
-<!-- Mail Alert script end -->
-
+<?php include'includes/head.php';
+include'includes/navbar.php';
+?>
 </head>
+
 <body>
   <?php
   include_once 'dbCon.php';
@@ -57,7 +17,7 @@
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
-                                     }
+    }
 	  $token = generateRandomString();
     $usermail = $_GET['email'];
     //echo $usermail;exit;
@@ -218,16 +178,17 @@
     
     if(!$mail->Send())
     {
-      echo '<script>erAlert()</script>';
+      echo "<script>myAlert('Mail Not Sent Successfully', 'error', 'forgotpassword')</script>";
     }
     else
     {
-      $sql = "UPDATE user SET token = '$token' WHERE email= '$usermail'";
+      $sql = "UPDATE users SET token = '$token' WHERE email= '$usermail'";
       $conn->query($sql);
     //  echo $sql;exit;
-      echo '<script>myAlert()</script>';
+      echo "<script>myAlert('Mail Sent Successfully', 'success', 'login')</script>";
     }
   }
   ?>
 </body>
+
 </html>

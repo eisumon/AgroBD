@@ -1,181 +1,185 @@
 <?php include'includes/head.php';
-include'includes/navbar.php';
+ include'includes/navbar.php';
+     
+ include_once("dbCon.php");
+ $conn = connect();
+ if (isset($_POST['submit'])){
+ 
+     $t_name = $_POST['t_name'];
+     $s_date = $_POST['s_date'];
+     $e_date = $_POST['e_date'];
+     $status = $_POST['status'];
+     $categories = $_POST['categories'];
+     $crp_name = $_POST['crp_name'];
+     
+         $sql ="INSERT INTO tasks(t_name, s_date, e_date, status, categories, crp_name) VALUES('$t_name', '$s_date', '$e_date', '$status', '$categories', '$crp_name')";
+         $result = $conn->query($sql);
+         //echo $sql;exit;
+         if($conn->query($sql)){
+ 
+             echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
+             } else{
+             echo "<script>myAlert(Task Create Not Successfull','error','tasks_show');</script>";
+             }
+     }
+     
+ if (isset($_GET['delete'])){
+     $id = $_GET['delete'];
+     $sql= "DELETE FROM tasks WHERE t_id=$id";
+     $resultt = $conn->query($sql);
+     
+     if($conn->query($sql)){
+        echo "<script>myAlert('Record Delete Successfully','success','tasks_show');</script>";
+        } else{
+        echo "<script>myAlert(Record Delete Not Successfully','error','tasks_show');</script>";
+        }
+ }  
 ?>
+</head>
 
-<!-- Feature Section -->
-<section class="homenav">
-
-    <!-- Inner Header start -->
-    <div class="container production_box">
-        <div class="">
-            <h4>Task</h4>
-            <hr>
-            <div class="">
-                <!-- Essential button -->
-                <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
-                    tasks</button>
-                <!-- The Modal box start -->
-                <div id="myModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <!-- Modal header -->
-                        <div class="modal-header">
-                            <h4>Create Task</h4>
-                            <span class="close">&times;</span>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <div class="container">
-                                <form action="action_page.php">
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div>
-                                                <label for="fname">Task Name:</label><br>
-                                                <input type="text" id="note" name="firstname" placeholder="Your name..">
-                                            </div>
-                                            <div>
-                                                <label for="linkdate">Start date:</label><br>
-                                                <input type="date" id="linkdate" name="linkdate">
-                                            </div>
-                                            <div>
-                                                <label for="unlinkdate">End date:</label><br>
-                                                <input type="date" id="unlinkdate" name="unlinkdate">
-                                            </div>
-                                            <div>
-                                                <label for="country">Status:</label><br>
-                                                <select id="country" name="country">
-                                                    <option value="australia">-</option>
-                                                    <option value="canada">Canada</option>
-                                                    <option value="usa">USA</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5 offset-md-1">
-                                            <div>
-                                                <label for="country">Categories:</label><br>
-                                                <select id="country" name="country">
-                                                    <option value="australia">-</option>
-                                                    <option value="canada">Canada</option>
-                                                    <option value="usa">USA</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label for="country">Crop Production:</label><br>
-                                                <select id="country" name="country">
-                                                    <option value="australia">-</option>
-                                                    <option value="canada">Canada</option>
-                                                    <option value="usa">USA</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <hr>
-                                    <div class="sub"><input type="submit" value="Submit"></div>
-                                    <div class="res"><input type="reset" value="Reset"></div>
-
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Modal body end -->
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <!-- <h3>Modal Footer</h3> -->
-                        </div>
-                        <!-- Modal footer end -->
+<body>
+    <!-- Breadcrumb Section start -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="index"><i class="fa fa-home"></i> Home</a>
+                        <a href="tasks_show">Task</a>
                     </div>
-                    <!-- Modal content end -->
                 </div>
-                <!-- The Modal box end -->
-                <hr>
-
-                <!-- Filter Table -->
-                <div class="tab_filter">
-                    <h5>Filter Search result </h5>
-                    <table class="filter">
-                        <tr>
-                            <th>Status:</th>
-                            <th>Crop Production:</th>
-                            <th>Fields: </th>
-                            <th>Categories: </th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td><i class="fa fa-filter fil_search"></i><select id="country" name="country">
-                                    <option value="">-</option>
-                                    <option value="canada">Canada</option>
-                                    <option value="usa">USA</option>
-                                </select></td>
-                            <td><i class="fa fa-map-marker fil_search"></i><select id="country" name="country">
-                                    <option value="">-</option>
-                                    <option value="canada">Canada</option>
-                                    <option value="usa">USA</option>
-                                </select></td>
-                            <td><i class="fa fa-map fil_search"></i><select id="country" name="country">
-                                    <option value="">-</option>
-                                    <option value="canada">Canada</option>
-                                    <option value="usa">USA</option>
-                                </select></td>
-                            <td><i class="fa fa-tag fil_search"></i><select id="country" name="country">
-                                    <option value="">-</option>
-                                    <option value="canada">Canada</option>
-                                    <option value="usa">USA</option>
-                                </select></td>
-                            <td>
-                                <button class="filter_btn" title="Filter"><i class="fa fa-filter"></i></button>
-                                <button class="res_btn" title="Reset"><i class="fa fa-refresh"></i></button>
-                            </td>
-
-                        </tr>
-                    </table>
-                </div>
-                <hr><br>
-                <!-- Filter Table end -->
-
-                <!-- Result Table -->
-                <div class="tab">
-                    <table>
-                        <tr>
-                            <th>Task Name:</th>
-                            <th>Categories:</th>
-                            <th>Start date: </th>
-                            <th>End date:</th>
-                            <th>Production name:</th>
-                            <th>status: </th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Search result</td>
-                            <td>Search result</td>
-                            <td>Search result</td>
-                            <td>Search result</td>
-                            <td>Search result</td>
-                            <td>Search result</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                    <div class="dropdown-content">
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View
-                                            Details</a>
-                                        <a href="#" style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
-                                            Edit</a>
-                                        <a href="#" style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
-                                            Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <!-- Result Table End -->
             </div>
         </div>
     </div>
-    <!-- Inner Header end -->
-</section>
+    <!-- Breadcrumb Section Begin -->
 
 
-<!-- Footer Section Begin -->
-<?php include'includes/footer.php';?>
-<!-- Footer Section End -->
+    <!-- Feature Section -->
+    <section class="homenav">
+
+        <!-- Inner Header start -->
+        <div class="container production_box">
+            <div class="">
+                <h4>Task</h4>
+                <hr>
+                <div class="">
+                    <!-- Essential button -->
+                    <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
+                        tasks</button>
+                    <hr>
+
+                    <!-- Result Table -->
+                    <table id="example" class="display">
+                        <thead>
+                            <tr>
+                                <th>Task Name:</th>
+                                <th>Start date: </th>
+                                <th>End date:</th>
+                                <th>status: </th>
+                                <th>Categories:</th>
+                                <th>Production name:</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php include_once("dbCon.php");
+                            $conn = connect();
+                            $sql= "SELECT * FROM tasks";
+                            $result = $conn->query($sql);
+                                while ($row = $result-> fetch_assoc()): 
+                            ?>
+
+                            <tr>
+                                <td><?php echo $row["t_name"]; ?></td>
+                                <td><?php echo $row["s_date"]; ?></td>
+                                <td><?php echo $row["e_date"]; ?></td>
+                                <td><?php echo $row["status"]; ?></td>
+                                <td><?php echo $row["categories"]; ?></td>
+                                <td><?php echo $row["crp_name"]; ?></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="tasks_show_edit.php?edit=<?php echo $row['t_id'];?>"
+                                                style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
+                                                Edit</a>
+                                            <a href="tasks_show.php?delete=<?php echo $row['t_id'];?>"
+                                                style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endwhile;?>
+                        </tbody>
+                    </table>
+                    <!-- Result Table End -->
+                </div>
+            </div>
+            <!-- Inner Header end -->
+    </section>
+
+
+    <!-- Modal & Footer Section Begin -->
+    <?php 
+        include'people_modal.php';
+        include'includes/footer.php';
+    ?>
+    <!-- Modal & Footer Section End -->
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+
+        function nullcheck() {
+
+            $(".error").remove();
+
+            $('#submit').removeAttr('disabled', true);
+
+            if ($('#t_name').val() == '') {
+                $('#t_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#s_date').val() == '') {
+                $('#s_date').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#e_date').val() == '') {
+                $('#e_date').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#status').val() == '') {
+                $('#status').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#categories').val() == '') {
+                $('#categories').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#crp_name').val() == '') {
+                $('#crp_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+        }
+
+        function ontype() {
+            $(".error").remove();
+
+            if ($('#t_name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#t_name").val())) {
+                    $('#t_name').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -61,48 +61,45 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <div class="">
-                <h4>Machinary</h4>
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container">
-                        <form onsubmit="return nullcheck();" action="" method="POST">
-                            <input type="hidden" name="m_id" value="<?=$id; ?>">
-                            <div>
-                                <label for="machinary_name">Machinary Name:</label><br>
-                                <input type="text" id="machinary_name" name="machinary_name"
-                                    value="<?=$machinary_name;?>" placeholder=" Machinary name" oninput="ontype();">
-                            </div>
-                            <div>
-                                <label for="category">Category:</label><br>
-                                <input type="text" id="category" name="category" value="<?=$category;?>"
-                                    placeholder=" Category" oninput="ontype();">
-                            </div>
-                            <div>
-                                <label for="manufacturer">Manufacturer:</label><br>
-                                <input type="text" id="manufacturer" name="manufacturer" value="<?=$manufacturer;?>"
-                                    placeholder="Manufacturer name" oninput="ontype();">
-                            </div>
+            <h4>Machinary</h4>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+                    <form onsubmit="return nullcheck();" action="" method="POST">
+                        <input type="hidden" name="m_id" value="<?=$id; ?>">
+                        <div>
+                            <label for="machinary_name">Machinary Name:</label><br>
+                            <input type="text" id="machinary_name" name="machinary_name" value="<?=$machinary_name;?>"
+                                placeholder=" Machinary name" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="category">Category:</label><br>
+                            <input type="text" id="category" name="category" value="<?=$category;?>"
+                                placeholder=" Category" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="manufacturer">Manufacturer:</label><br>
+                            <input type="text" id="manufacturer" name="manufacturer" value="<?=$manufacturer;?>"
+                                placeholder="Manufacturer name" oninput="ontype();">
+                        </div>
 
-                            <div>
-                                <label for="model">Model:</label><br>
-                                <input type="text" id="model" name="model" value="<?=$model;?>"
-                                    placeholder="Model name or number">
-                            </div>
-                            <div>
-                                <label for="reg_number">Registration number:</label><br>
-                                <input type="text" id="reg_number" name="reg_number" value="<?=$reg_number;?>"
-                                    placeholder="Registration number">
-                            </div>
-                            <br>
-                            <div class="sub"><input type="submit" value="Update" name="update"></div>
+                        <div>
+                            <label for="model">Model:</label><br>
+                            <input type="text" id="model" name="model" value="<?=$model;?>"
+                                placeholder="Model name or number">
+                        </div>
+                        <div>
+                            <label for="reg_number">Registration number:</label><br>
+                            <input type="text" id="reg_number" name="reg_number" value="<?=$reg_number;?>"
+                                placeholder="Registration number">
+                        </div>
+                        <br>
+                        <div class="sub"><input type="submit" value="Update" name="update"></div>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
-                <!-- Modal body end -->
-
             </div>
+            <!-- Modal body end -->
         </div>
         <!-- Inner Header end -->
     </section>

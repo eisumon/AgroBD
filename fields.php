@@ -75,16 +75,8 @@ include'includes/navbar.php';
                                             </select>
                                         </div>
                                         <div>
-                                            <label for="fname">Notes:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                        </div>
-                                        <div>
                                             <label for="linkdate">Link date:</label><br>
                                             <input type="date" id="linkdate" name="linkdate">
-                                        </div>
-                                        <div>
-                                            <label for="unlinkdate">Unlink date:</label><br>
-                                            <input type="date" id="unlinkdate" name="unlinkdate">
                                         </div>
                                         <br>
                                         <div class="sub"><input type="submit" value="Submit"></div>

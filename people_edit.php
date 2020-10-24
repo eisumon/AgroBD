@@ -65,62 +65,54 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <div class="">
-                <h4>People</h4>
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container">
-                        <form onsubmit="return nullcheck();" action='' method="POST">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <input type="hidden" name="p_id" value="<?=$id; ?>">
-                                    <div>
-                                        <label for="fname">First Name:</label><br>
-                                        <input type="text" id="fname" name="firstname" value="<?=$fname;?>"
-                                            placeholder="Your first name" oninput="ontype();">
-                                    </div>
-                                    <div>
-                                        <label for="lname">Last Name:</label><br>
-                                        <input type="text" id="lname" name="lastname" value="<?php echo $lname;?>"
-                                            placeholder="Your last name" oninput="ontype();">
-                                    </div>
-                                    <div>
-                                        <label for="gender">Gender:</label><br>
-                                        <input type="text" id="gender" name="gender" value="<?php echo $gender;?>"
-                                            placeholder="Your last name" oninput="ontype();">
-                                    </div>
-                                    <div>
-                                        <label for="city">City:</label><br>
-                                        <input type="text" id="city" name="city" value="<?php echo $city;?>"
-                                            placeholder="Your city" oninput="ontype();">
-                                    </div>
-                                </div>
-                                <div class="col-md-5 offset-md-1">
-                                    <div>
-                                        <label for="address">Address:</label><br>
-                                        <input type="text" id="address" name="address" value="<?php echo $address;?>"
-                                            placeholder="Your address" oninput="ontype();">
-                                    </div>
-                                    <div>
-                                        <label for="phone">Phone:</label><br>
-                                        <input type="text" id="phone" name="phone" value="<?php echo $phone;?>"
-                                            placeholder="Your phone" oninput="ontype();">
-                                    </div>
-                                    <div>
-                                        <label for="phone">Role:</label><br>
-                                        <input type="text" id="role" name="role" value="<?php echo $role;?>"
-                                            placeholder="Your role" oninput="ontype();">
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="sub"><input type="submit" value="Update" name="update"></div>
-                            <br>
-                        </form>
-                    </div>
+            <h4>People</h4>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+                    <form onsubmit="return nullcheck();" action='' method="POST">
+                        <input type="hidden" name="p_id" value="<?=$id; ?>">
+                        <div>
+                            <label for="fname">First Name:</label><br>
+                            <input type="text" id="fname" name="firstname" value="<?=$fname;?>"
+                                placeholder="Your first name" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="lname">Last Name:</label><br>
+                            <input type="text" id="lname" name="lastname" value="<?php echo $lname;?>"
+                                placeholder="Your last name" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="gender">Gender:</label><br>
+                            <input type="text" id="gender" name="gender" value="<?php echo $gender;?>"
+                                placeholder="Your last name" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="city">City:</label><br>
+                            <input type="text" id="city" name="city" value="<?php echo $city;?>" placeholder="Your city"
+                                oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="address">Address:</label><br>
+                            <input type="text" id="address" name="address" value="<?php echo $address;?>"
+                                placeholder="Your address" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="phone">Phone:</label><br>
+                            <input type="text" id="phone" name="phone" value="<?php echo $phone;?>"
+                                placeholder="Your phone" oninput="ontype();">
+                        </div>
+                        <div>
+                            <label for="phone">Role:</label><br>
+                            <input type="text" id="role" name="role" value="<?php echo $role;?>" placeholder="Your role"
+                                oninput="ontype();">
+                        </div>
+                        <br>
+                        <div class="sub"><input type="submit" value="Update" name="update"></div>
+                        <br>
+                    </form>
                 </div>
-                <!-- Modal body end -->
             </div>
+            <!-- Modal body end -->
         </div>
         <!-- Inner Header end -->
     </section>

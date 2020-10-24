@@ -1,43 +1,7 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
-?>
 
-<!-- alert script start -->
-<script type="text/javascript">
-
-  function myAlert(){
-
-    swal({
-      title: "Password reset successfully",
-      type: "success",
-      timer: 3000,
-      showCancelButton: false,
-      showConfirmButton: false,
-      closeOnClickOutside: false,
-    }, function() {
-      window.location.href = "login";
-    });
-  }
-
-  function erAlert(){
-    swal({
-      title: "Password reset not successfully",
-      type: "error",
-      timer: 3000,
-      showCancelButton: false,
-      showConfirmButton: false,
-      closeOnClickOutside: false,
-    });
-  }
-</script>
-<!-- alert script end -->
-
-</head>
-
-<body>
-<?php
 include_once("dbCon.php");
-
 $conn =connect();
 
 if(isset($_GET['email'])){
@@ -45,7 +9,7 @@ if(isset($_GET['email'])){
   //echo $mail;exit;
   $token = $_GET['token'];
 
-  $sql = "SELECT * FROM user where email ='$mail' AND token='$token'";
+  $sql = "SELECT * FROM users where email ='$mail' AND token='$token'";
     $result = $conn->query($sql);
   //echo $sql;exit;
     if($result->num_rows>0){
@@ -58,86 +22,90 @@ if(isset($_GET['email'])){
   if(isset($_POST['reset'])){
     $email=$_POST['email'];
     $password=md5($_POST['password']);
-    $sql= "UPDATE user SET password='$password', token='' WHERE email='$email'";
+    $sql= "UPDATE users SET password='$password', token='' WHERE email='$email'";
     //echo $sql;exit;
      $result = $conn->query($sql);
     if(mysqli_affected_rows($conn) >0 ){
-    echo "<script>myAlert();</script>";
+    echo "<script>myAlert('Password reset successfully', 'success', 'login');</script>";
     }
     else{
-    echo "<script>erAlert();</script>";
+    echo "<script>myAlert('Password reset not successfully', 'error', 'resetpassword');</script>";
     }
 }
+?>
 
- ?>
+</head>
 
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="index.php"><i class="fa fa-home"></i> Home</a>
-                        <span>Reset Password</span>
-                    </div>
-                </div>
-            </div>
+<body>
+  <!-- Breadcrumb Form Section Begin -->
+  <div class="breacrumb-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-text">
+            <a href="index.php"><i class="fa fa-home"></i> Home</a>
+            <span>Reset Password</span>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Breadcrumb Form Section Begin -->
-    
+  </div>
+  <!-- Breadcrumb Form Section end -->
 
-    <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Reset Password</h2>
-                        <form action="" onsubmit="return nullcheck();"  method="POST">
-                            <div class="group-input">
-                                <label for="username">Email address *</label>
-                                <input type="email" name="email" value="<?=$_GET['email']?>" >
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="password" id="password"  name="password" placeholder="password">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">Confirm Password *</label>
-                                <input type="password" id="cpassword"  name="cpassword" placeholder="confirm password">
-                            </div>
-                            <button type="submit" class="site-btn login-btn" name="reset">Reset Password</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
+  <!-- Register Section Begin -->
+  <div class="register-login-section spad">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="login-form">
+            <h2>Reset Password</h2>
+            <form action="" onsubmit="return nullcheck();" method="POST">
+              <div class="group-input">
+                <label for="username">Email address *</label>
+                <input type="email" name="email" value="<?=$_GET['email']?>">
+              </div>
+              <div class="group-input">
+                <label for="pass">Password *</label>
+                <input type="password" id="password" name="password" placeholder="password">
+              </div>
+              <div class="group-input">
+                <label for="pass">Confirm Password *</label>
+                <input type="password" id="cpassword" name="cpassword" placeholder="confirm password">
+              </div>
+              <button type="submit" class="site-btn login-btn" name="reset">Reset Password</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Register Form Section End -->
+  </div>
+  <!-- Register Form Section End -->
 
-    
+  <!-- Footer Section Start -->
+  <?php include'includes/footer.php';?>
+  <!-- Footer Section End -->
+
+  <script>
+    function nullcheck() {
+
+      $(".error").remove();
+
+      if ($('#password').val() == '') {
+        $('#password').after('<span class="error">* This field is required</span>');
+        return false;
+      }
+      if ($('#cpassword').val() == '') {
+        $('#cpassword').after('<span class="error">* This field is required</span>');
+        return false;
+      }
+      if ($('#password').val() !== $('#cpassword').val()) {
+        $('#cpassword').after('<span class="error">* Password does not match</span>');
+        return false;
+      }
+    }
+  </script>
+
 </body>
 
-    <script>
-      function nullcheck(){
-
-        $(".error").remove();
-
-        if($('#password').val()==''){
-          $('#password').after('<span class="error">* This field is required</span>');
-          return false;
-        }
-        if($('#cpassword').val()==''){
-          $('#cpassword').after('<span class="error">* This field is required</span>');
-          return false;
-        }
-        if ($('#password').val() !== $('#cpassword').val()) {
-          $('#cpassword').after('<span class="error">* Password does not match</span>');
-          return false;
-        }
-      }
-
-      </script>
-
-    <!-- Partner Logo Section End -->
-<?php include'includes/footer.php';?>
+</html>

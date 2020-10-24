@@ -62,14 +62,6 @@ include'includes/navbar.php';
                                                     <label for="unlinkdate">End date:</label><br>
                                                     <input type="date" id="unlinkdate" name="unlinkdate">
                                                 </div>
-                                                <div>
-                                                    <label for="country">Status:</label><br>
-                                                    <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
-                                                    </select>
-                                                </div>
                                             </div>
                                             <div class="col-md-5 offset-md-1">
                                                 <div>
@@ -81,11 +73,12 @@ include'includes/navbar.php';
                                                     </select>
                                                 </div>
                                                 <div>
-                                                    <label for="country">Crop Production:</label><br>
+                                                    <label for="country">Status:</label><br>
                                                     <select id="country" name="country">
-                                                        <option value="australia">-</option>
-                                                        <option value="canada">Canada</option>
-                                                        <option value="usa">USA</option>
+                                                        <option value="">-</option>
+                                                        <option value="canada">Pending</option>
+                                                        <option value="usa">In progress</option>
+                                                        <option value="usa">Finished</option>
                                                     </select>
                                                 </div>
                                             </div>

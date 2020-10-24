@@ -235,6 +235,7 @@ include'includes/navbar.php';
 <!-- Footer Section Begin -->
 <?php include'includes/footer.php';?>
 <!-- Footer Section End -->
+
 <!-- The Modal box start -->
 <div id="myModal" class="modal">
     <!-- Modal content -->

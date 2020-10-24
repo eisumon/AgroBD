@@ -90,7 +90,7 @@ if (isset($_GET['delete'])){
                             $sql= "SELECT * FROM machinary";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
-                        ?>
+                            ?>
 
                             <tr>
                                 <td><?php echo $row["machinary_name"]; ?></td>
