@@ -8,20 +8,18 @@ if(isset($_POST["login"])){
 $email= mysqli_real_escape_string($conn,$_POST['email']);
 $password= mysqli_real_escape_string($conn,md5($_POST['password']));
 $sql="SELECT * FROM users where email ='$email' AND password='$password'";
-            $result = $conn->query($sql);
-                    // echo "$sql";
-              if($result->num_rows>0){
-                   $_SESSION['isLoggedIn']=TRUE;
-
-                    foreach($result as $row){
-                            $_SESSION['email']=$row['email'];
-                            $_SESSION['name']=$row['name'];
-                    }
-
-             echo "<script>myAlert('Login Successfully', 'success', 'index');</script>";
-                } else{
-             echo "<script>myAlert('Email or password does not match', 'error', 'login');</script>";
-             }        
+$result = $conn->query($sql);
+    // echo "$sql";
+    if($result->num_rows>0){
+        $_SESSION['isLoggedIn']=TRUE;
+            foreach($result as $row){
+                    $_SESSION['email']=$row['email'];
+                    $_SESSION['name']=$row['name'];
+            }
+            echo "<script>myAlert('Login Successfully', 'success', 'index');</script>";
+            } else{
+            echo "<script>myAlert('Email or password does not match', 'error', 'login');</script>";
+            }        
 }
 ?>
 </head>

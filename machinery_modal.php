@@ -4,7 +4,7 @@
     <div class="modal-content">
         <!-- Modal header -->
         <div class="modal-header">
-            <h4>Add Machinary</h4>
+            <h4>Add Machinery</h4>
             <span class="close">&times;</span>
         </div>
         <!-- Modal body -->
@@ -12,8 +12,8 @@
             <div class="container">
                 <form onsubmit="return nullcheck();" action="" method="POST">
                     <div>
-                        <label for="machinary_name">Machinary Name:</label><br>
-                        <input type="text" id="machinary_name" name="machinary_name" placeholder=" Machinary name"
+                        <label for="machinery_name">Machinery Name:</label><br>
+                        <input type="text" id="machinery_name" name="machinery_name" placeholder=" Enter machinery name"
                             oninput="ontype();">
                     </div>
                     <div>

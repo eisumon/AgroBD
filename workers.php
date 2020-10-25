@@ -13,32 +13,32 @@
      $phone = $_POST['phone'];
      $role = $_POST['role'];
      
-     $sql = "SELECT phone FROM people WHERE phone='$phone'";
+     $sql = "SELECT phone FROM workers WHERE phone='$phone'";
      $result = $conn->query($sql);
  
      if($result->num_rows>0){
-         echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','people');</script>";
+         echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','workers');</script>";
      }else{
-         $sql ="INSERT INTO people(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
+         $sql ="INSERT INTO workers(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
      
          //echo $sql;exit;
          if($conn->query($sql)){
  
-             echo "<script>myAlert('Register New People Successfully','success','people');</script>";
+             echo "<script>myAlert('Register New workers Successfully','success','workers');</script>";
              } else{
-             echo "<script>myAlert(Register Not Successfully','error','people');</script>";
+             echo "<script>myAlert(Register Not Successfully','error','workers');</script>";
              }
      }
  }
  if (isset($_GET['delete'])){
      $id = $_GET['delete'];
-     $sql= "DELETE FROM people WHERE p_id=$id";
+     $sql= "DELETE FROM workers WHERE w_id=$id";
      $resultt = $conn->query($sql);
      
      if($conn->query($sql)){
-        echo "<script>myAlert('Record Delete Successfully','success','people');</script>";
+        echo "<script>myAlert('Record Delete Successfully','success','workers');</script>";
         } else{
-        echo "<script>myAlert(Record Delete Not Successfully','error','people');</script>";
+        echo "<script>myAlert(Record Delete Not Successfully','error','workers');</script>";
         }
  }  
 ?>
@@ -52,7 +52,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="people">People</a>
+                        <a href="workers">Workers</a>
                     </div>
                 </div>
             </div>
@@ -65,69 +65,67 @@
 
         <!-- Inner Header start -->
         <div class="container production_box">
-            <div class="">
-                <h4>People</h4>
-                <hr>
-                <!-- Essential button -->
-                <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Add
-                    New people</button>
-                <hr>
-                <!-- Result Table -->
-                <table id="example" class="display">
-                    <thead>
-                        <tr>
-                            <th>First Name:</th>
-                            <th>Last Name:</th>
-                            <th>Gender:</th>
-                            <th>City:</th>
-                            <th>Adreess:</th>
-                            <th>Phone:</th>
-                            <th>Role:</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php include_once("dbCon.php");
+            <h4>Workers</h4>
+            <hr>
+            <!-- Essential button -->
+            <button id="myBtn" class="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Add
+                New workers</button>
+            <hr>
+            <!-- Result Table -->
+            <table id="example" class="display">
+                <thead>
+                    <tr>
+                        <th>First Name:</th>
+                        <th>Last Name:</th>
+                        <th>Gender:</th>
+                        <th>City:</th>
+                        <th>Adreess:</th>
+                        <th>Phone:</th>
+                        <th>Role:</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM people";
+                            $sql= "SELECT * FROM workers";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                         ?>
 
-                        <tr>
-                            <td><?php echo $row["fname"]; ?></td>
-                            <td><?php echo $row["lname"]; ?></td>
-                            <td><?php echo $row["gender"]; ?></td>
-                            <td><?php echo $row["city"]; ?></td>
-                            <td><?php echo $row["address"]; ?></td>
-                            <td><?php echo $row["phone"]; ?></td>
-                            <td><?php echo $row["role"]; ?></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                    <div class="dropdown-content">
-                                        <a href="people_edit.php?edit=<?php echo $row['p_id'];?>"
-                                            style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
-                                            Edit</a>
-                                        <a href="people.php?delete=<?php echo $row['p_id'];?>" style="color: red;"><i
-                                                class="fa fa-trash" aria-hidden="true"></i>
-                                            Delete</a>
-                                    </div>
+                    <tr>
+                        <td><?php echo $row["fname"]; ?></td>
+                        <td><?php echo $row["lname"]; ?></td>
+                        <td><?php echo $row["gender"]; ?></td>
+                        <td><?php echo $row["city"]; ?></td>
+                        <td><?php echo $row["address"]; ?></td>
+                        <td><?php echo $row["phone"]; ?></td>
+                        <td><?php echo $row["role"]; ?></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                <div class="dropdown-content">
+                                    <a href="workers_edit.php?edit=<?php echo $row['w_id'];?>" style="color: green;"><i
+                                            class="fa fa-edit" aria-hidden="true"></i>
+                                        Edit</a>
+                                    <a href="workers.php?delete=<?php echo $row['w_id'];?>" style="color: red;"><i
+                                            class="fa fa-trash" aria-hidden="true"></i>
+                                        Delete</a>
                                 </div>
-                            </td>
-                        </tr>
-                        <?php endwhile;?>
-                    </tbody>
-                </table>
-                <!-- Result Table End -->
-            </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endwhile;?>
+                </tbody>
+            </table>
+            <!-- Result Table End -->
         </div>
         <!-- Inner Header end -->
     </section>
 
     <!-- Modal & Footer Section Begin -->
     <?php 
-        include'people_modal.php';
+        include'workers_modal.php';
         include'includes/footer.php';
     ?>
     <!-- Modal & Footer Section End -->
@@ -184,13 +182,13 @@
 
             if ($('#fname').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#fname").val())) {
-                    $('#fname').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    $('#fname').after('<span class="error">*Workers first name can not be numeric!!</span>');
                     return false;
                 }
             }
             if ($('#lname').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#lname").val())) {
-                    $('#lname').after('<span class="error">*Your last name can not be numeric!!</span>');
+                    $('#lname').after('<span class="error">*Workers last name can not be numeric!!</span>');
                     return false;
                 }
             }

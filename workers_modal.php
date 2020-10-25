@@ -4,7 +4,7 @@
     <div class="modal-content">
         <!-- Modal header -->
         <div class="modal-header">
-            <h4>Add people</h4>
+            <h4>Add worker</h4>
             <span class="close">&times;</span>
         </div>
         <!-- Modal body -->
@@ -15,12 +15,12 @@
                         <div class="col-md-5">
                             <div>
                                 <label for="fname">First Name:</label><br>
-                                <input type="text" id="fname" name="firstname" placeholder="Your first name"
+                                <input type="text" id="fname" name="firstname" placeholder="Worker first name"
                                     oninput="ontype();">
                             </div>
                             <div>
                                 <label for="lname">Last Name:</label><br>
-                                <input type="text" id="lname" name="lastname" placeholder="Your last name"
+                                <input type="text" id="lname" name="lastname" placeholder="Worker last name"
                                     oninput="ontype();">
                             </div>
                             <div>
@@ -51,11 +51,11 @@
                         <div class="col-md-5 offset-md-1">
                             <div>
                                 <label for="address">Address:</label><br>
-                                <input type="text" id="address" name="address" placeholder="Your address">
+                                <input type="text" id="address" name="address" placeholder="Worker address">
                             </div>
                             <div>
                                 <label for="phone">Phone:</label><br>
-                                <input type="text" id="phone" name="phone" placeholder="Your phone" oninput="ontype();">
+                                <input type="text" id="phone" name="phone" placeholder="Worker phone number" oninput="ontype();">
                             </div>
                             <div>
                                 <label for="role">Role:</label><br>

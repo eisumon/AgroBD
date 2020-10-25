@@ -1,39 +1,37 @@
 <?php include'includes/head.php';
- include'includes/navbar.php';
-     
- include_once("dbCon.php");
- $conn = connect();
- if (isset($_POST['submit'])){
- 
-     $t_name = $_POST['t_name'];
-     $s_date = $_POST['s_date'];
-     $e_date = $_POST['e_date'];
-     $status = $_POST['status'];
-     $categories = $_POST['categories'];
-     $crp_name = $_POST['crp_name'];
-     
-         $sql ="INSERT INTO tasks(t_name, s_date, e_date, status, categories, crp_name) VALUES('$t_name', '$s_date', '$e_date', '$status', '$categories', '$crp_name')";
-         $result = $conn->query($sql);
+include'includes/navbar.php';
+
+include_once("dbCon.php");
+$conn = connect();
+if (isset($_POST['submit'])){
+
+    $t_name = $_POST['t_name'];
+    $s_date = $_POST['s_date'];
+    $e_date = $_POST['e_date'];
+    $status = $_POST['status'];
+    $categories = $_POST['categories'];
+    $crp_name = $_POST['crp_name'];
+
+    $sql ="INSERT INTO tasks(t_name, s_date, e_date, status, categories, crp_name) VALUES('$t_name', '$s_date', '$e_date', '$status', '$categories', '$crp_name')";
          //echo $sql;exit;
-         if($conn->query($sql)){
- 
-             echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
-             } else{
-             echo "<script>myAlert(Task Create Not Successfull','error','tasks_show');</script>";
-             }
-     }
-     
- if (isset($_GET['delete'])){
-     $id = $_GET['delete'];
-     $sql= "DELETE FROM tasks WHERE t_id=$id";
-     $resultt = $conn->query($sql);
-     
-     if($conn->query($sql)){
-        echo "<script>myAlert('Record Delete Successfully','success','tasks_show');</script>";
-        } else{
-        echo "<script>myAlert(Record Delete Not Successfully','error','tasks_show');</script>";
-        }
- }  
+    if($conn->query($sql)){
+    echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
+    } else{
+    echo "<script>myAlert(Task Create Not Successfull','error','tasks_show');</script>";
+    }
+}
+
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $sql= "DELETE FROM tasks WHERE t_id=$id";
+    $resultt = $conn->query($sql);
+    
+    if($conn->query($sql)){
+    echo "<script>myAlert('Record Delete Successfully','success','tasks_show');</script>";
+    } else{
+    echo "<script>myAlert(Record Delete Not Successfully','error','tasks_show');</script>";
+    }
+}  
 ?>
 </head>
 
@@ -122,7 +120,7 @@
 
     <!-- Modal & Footer Section Begin -->
     <?php 
-        include'people_modal.php';
+        include'tasks_show_modal.php';
         include'includes/footer.php';
     ?>
     <!-- Modal & Footer Section End -->
@@ -174,7 +172,7 @@
 
             if ($('#t_name').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#t_name").val())) {
-                    $('#t_name').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    $('#t_name').after('<span class="error">*Task name can not be numeric!!</span>');
                     return false;
                 }
             }

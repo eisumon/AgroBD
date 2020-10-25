@@ -6,7 +6,7 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM tasks WHERE p_id=$id";
+    $sql= "SELECT * FROM tasks WHERE t_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
@@ -15,7 +15,7 @@ if (isset($_GET['edit'])){
     $e_date = $row['e_date'];
     $status = $row['status'];
     $categories = $row['categories'];
-    $crp_name = $_POST['crp_name'];
+    $crp_name = $row['crp_name'];
 }
 
 if (isset($_POST['update'])){
@@ -69,8 +69,7 @@ if (isset($_POST['update'])){
                         <input type="hidden" name="t_id" value="<?=$id; ?>">
                         <div>
                             <label for="t_name">Task Name:</label><br>
-                            <input type="text" id="t_name" name="t_name" placeholder="Task Name" oninput="ontype();"
-                                value="<?=$t_name; ?>">
+                            <input type="text" id="t_name" name="t_name" oninput="ontype();" value="<?=$t_name; ?>">
                         </div>
                         <div>
                             <label for="s_date">Start date:</label><br>
@@ -82,28 +81,17 @@ if (isset($_POST['update'])){
                         </div>
                         <div>
                             <label for="status">Status:</label><br>
-                            <select id="status" name="status" value="<?=$status; ?>">
-                                <option value="">Select</option>
-                                <option value="Pending">Pending</option>
-                                <option value="In progress">In progress</option>
-                                <option value="Finished">Finished</option>
-                            </select>
+                            <input type="text" id="status" name="status" oninput="ontype();" value="<?=$status; ?>">
                         </div>
                         <div>
                             <label for="categories">Categories:</label><br>
-                            <select id="categories" name="categories" value="<?=$categories; ?>">
-                                <option value="">Select</option>
-                                <option value="Planting">Planting</option>
-                                <option value="Fertilizing">Fertilizing</option>
-                            </select>
+                            <input type="text" id="categories" name="categories" oninput="ontype();"
+                                value="<?=$categories; ?>">
                         </div>
                         <div>
                             <label for="crp_name">Crop Production Name:</label><br>
-                            <select id="crp_name" name="crp_name" value="<?=$crp_name; ?>">
-                                <option value="australia">-</option>
-                                <option value="Something">Something</option>
-                                <option value="Something">Something</option>
-                            </select>
+                            <input type="text" id="crp_name" name="crp_name" oninput="ontype();"
+                                value="<?=$crp_name; ?>">
                         </div>
                         <br>
                         <hr>
@@ -164,7 +152,7 @@ if (isset($_POST['update'])){
 
             if ($('#t_name').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#t_name").val())) {
-                    $('#t_name').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    $('#t_name').after('<span class="error">*Task name can not be numeric!!</span>');
                     return false;
                 }
             }

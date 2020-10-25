@@ -6,11 +6,11 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM machinary WHERE m_id=$id";
+    $sql= "SELECT * FROM machinery WHERE m_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
-    $machinary_name = $row['machinary_name'];
+    $machinery_name = $row['machinery_name'];
     $category = $row['category'];
     $manufacturer = $row['manufacturer'];
     $model = $row['model'];
@@ -19,20 +19,20 @@ if (isset($_GET['edit'])){
 
 if (isset($_POST['update'])){
     $id = $_POST['m_id'];
-    $machinary_name = $_POST['machinary_name'];
+    $machinery_name = $_POST['machinery_name'];
     $category = $_POST['category'];
     $manufacturer = $_POST['manufacturer'];
     $model = $_POST['model'];
     $reg_number = $_POST['reg_number'];
     
-    $sql= "UPDATE machinary SET machinary_name= '$machinary_name', category= '$category', manufacturer= '$manufacturer', model= '$model', reg_number= '$reg_number'  WHERE m_id=$id";
+    $sql= "UPDATE machinery SET machinery_name= '$machinery_name', category= '$category', manufacturer= '$manufacturer', model= '$model', reg_number= '$reg_number'  WHERE m_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
 
-        echo "<script>myAlert('Record Update Successfully','success','machinary');</script>";
+        echo "<script>myAlert('Record Update Successfully','success','machinery');</script>";
         } else{
-        echo "<script>myAlert(Record Update Not Successfully','error','machinary_edit');</script>";
+        echo "<script>myAlert(Record Update Not Successfully','error','machinery_edit');</script>";
         }
 }
 ?>
@@ -47,8 +47,8 @@ if (isset($_POST['update'])){
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="machinary">Machinary</a>
-                        <span>Edit Machinary</span>
+                        <a href="machinery">Machinery</a>
+                        <span>Edit machinery</span>
                     </div>
                 </div>
             </div>
@@ -61,16 +61,16 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <h4>Machinary</h4>
+            <h4>Machinery</h4>
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="container">
                     <form onsubmit="return nullcheck();" action="" method="POST">
                         <input type="hidden" name="m_id" value="<?=$id; ?>">
                         <div>
-                            <label for="machinary_name">Machinary Name:</label><br>
-                            <input type="text" id="machinary_name" name="machinary_name" value="<?=$machinary_name;?>"
-                                placeholder=" Machinary name" oninput="ontype();">
+                            <label for="machinery_name">Machinery Name:</label><br>
+                            <input type="text" id="machinery_name" name="machinery_name" value="<?=$machinery_name;?>"
+                                placeholder=" Machinery name" oninput="ontype();">
                         </div>
                         <div>
                             <label for="category">Category:</label><br>
@@ -115,8 +115,8 @@ if (isset($_POST['update'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#machinary_name').val() == '') {
-                $('#machinary_name').after('<span class="error">* This field is required</span>');
+            if ($('#machinery_name').val() == '') {
+                $('#machinery_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
@@ -144,21 +144,21 @@ if (isset($_POST['update'])){
         function ontype() {
             $(".error").remove();
 
-            if ($('#machinary_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#machinary_name").val())) {
-                    $('#machinary_name').after('<span class="error">*Your first name can not be numeric!!</span>');
+            if ($('#machinery_name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#machinery_name").val())) {
+                    $('#machinery_name').after('<span class="error">*Machinery name can not be numeric!!</span>');
                     return false;
                 }
             }
             if ($('#category').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#category").val())) {
-                    $('#category').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    $('#category').after('<span class="error">*Category can not be numeric!!</span>');
                     return false;
                 }
             }
             if ($('#manufacturer').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#manufacturer").val())) {
-                    $('#manufacturer').after('<span class="error">*Your last name can not be numeric!!</span>');
+                    $('#manufacturer').after('<span class="error">*Manufacturer name can not be numeric!!</span>');
                     return false;
                 }
             }

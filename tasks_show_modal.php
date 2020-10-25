@@ -16,7 +16,8 @@
                         <div class="col-md-5">
                             <div>
                                 <label for="t_name">Task Name:</label><br>
-                                <input type="text" id="t_name" name="t_name" placeholder="Task Name" oninput="ontype();">
+                                <input type="text" id="t_name" name="t_name" placeholder="Task Name"
+                                    oninput="ontype();">
                             </div>
                             <div>
                                 <label for="s_date">Start date:</label><br>
@@ -48,7 +49,7 @@
                             <div>
                                 <label for="crp_name">Crop Production Name:</label><br>
                                 <select id="crp_name" name="crp_name">
-                                    <option value="australia">-</option>
+                                    <option value="">Select</option>
                                     <option value="Something">Something</option>
                                     <option value="Something">Something</option>
                                 </select>
@@ -57,7 +58,7 @@
                     </div>
                     <br>
                     <hr>
-                    <div class="sub"><input type="submit" value="Submit"></div>
+                    <div class="sub"><input type="submit" value="Submit" name="submit"></div>
                     <div class="res"><input type="reset" value="Reset"></div>
 
                 </form>
