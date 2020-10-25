@@ -31,9 +31,9 @@
                                 <label for="status">Status:</label><br>
                                 <select id="status" name="status">
                                     <option value="">Select</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="In progress">In progress</option>
-                                    <option value="Finished">Finished</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="in progress">In progress</option>
+                                    <option value="finished">Finished</option>
                                 </select>
                             </div>
                         </div>
@@ -42,16 +42,16 @@
                                 <label for="categories">Categories:</label><br>
                                 <select id="categories" name="categories">
                                     <option value="">Select</option>
-                                    <option value="Planting">Planting</option>
-                                    <option value="Fertilizing">Fertilizing</option>
+                                    <option value="planting">Planting</option>
+                                    <option value="fertilizing">Fertilizing</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="crp_name">Crop Production Name:</label><br>
                                 <select id="crp_name" name="crp_name">
                                     <option value="">Select</option>
-                                    <option value="Something">Something</option>
-                                    <option value="Something">Something</option>
+                                    <option value="something">Something</option>
+                                    <option value="something">Something</option>
                                 </select>
                             </div>
                         </div>

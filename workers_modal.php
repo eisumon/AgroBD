@@ -39,10 +39,10 @@
                                     <option value="barishal">Barishal</option>
                                     <option value="chitagong">Chitagong</option>
                                     <option value="dhaka">Dhaka</option>
-                                    <option value="barishal">Mymensingh </option>
+                                    <option value="mymensingh">Mymensingh </option>
                                     <option value="khulna">Khulna</option>
                                     1<option value="rajshahi">Rajshahi</option>
-                                    <option value="comillaSylhet">Rangpur</option>
+                                    <option value="rangpur">Rangpur</option>
                                     <option value="sylhet">Sylhet</option>
                                 </select>
                             </div>

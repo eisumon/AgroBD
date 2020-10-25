@@ -65,9 +65,10 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <h4>Workers</h4>
+
             <!-- Modal body -->
             <div class="modal-body">
+                <h3 style="text-align: center; color:#3D9E0F;">Workers</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" action='' method="POST">
                         <input type="hidden" name="w_id" value="<?=$id; ?>">
@@ -77,32 +78,63 @@ if (isset($_POST['update'])){
                         </div>
                         <div>
                             <label for="lname">Last Name:</label><br>
-                            <input type="text" id="lname" name="lastname" value="<?php echo $lname;?>" oninput="ontype();">
-                        </div>
-                        <div>
-                            <label for="gender">Gender:</label><br>
-                            <input type="text" id="gender" name="gender" value="<?php echo $gender;?>" oninput="ontype();">
-                        </div>
-                        <div>
-                            <label for="city">City:</label><br>
-                            <input type="text" id="city" name="city" value="<?php echo $city;?>"
+                            <input type="text" id="lname" name="lastname" value="<?php echo $lname;?>"
                                 oninput="ontype();">
                         </div>
                         <div>
+                            <label for="gender">Gender:</label><br>
+                            <select id="gender" name="gender">
+                                <option value="">Select</option>
+                                <option value="male" <?php if ($row["gender"]=='male'){echo "selected";}?>>Male</option>
+                                <option value="female" <?php if ($row["gender"]=='female'){echo "selected";}?>>Female</option>
+                                <option value="others" <?php if ($row["gender"]=='others'){echo "selected";}?>>Others</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="city">City:</label><br>
+                            <select id="city" name="city">
+                                <option value="">Select</option>
+                                <option value="barishal" <?php if ($row["city"]=='barishal'){echo "selected";}?>>
+                                    Barishal</option>
+                                <option value="chitagong" <?php if ($row["city"]=='chitagong'){echo "selected";}?>>
+                                    Chitagong</option>
+                                <option value="dhaka" <?php if ($row["city"]=='dhaka'){echo "selected";}?>>Dhaka
+                                </option>
+                                <option value="mymensingh" <?php if ($row["city"]=='mymensingh'){echo "selected";}?>>
+                                    Mymensingh </option>
+                                <option value="khulna" <?php if ($row["city"]=='khulna'){echo "selected";}?>>Khulna
+                                </option>
+                                1<option value="rajshahi" <?php if ($row["city"]=='rajshahi'){echo "selected";}?>>
+                                    Rajshahi</option>
+                                <option value="rangpur" <?php if ($row["city"]=='rangpur'){echo "selected";}?>>Rangpur
+                                </option>
+                                <option value="sylhet" <?php if ($row["city"]=='sylhet'){echo "selected";}?>>Sylhet
+                                </option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="address">Address:</label><br>
-                            <input type="text" id="address" name="address" value="<?php echo $address;?>" oninput="ontype();">
+                            <input type="text" id="address" name="address" value="<?php echo $address;?>"
+                                oninput="ontype();">
                         </div>
                         <div>
                             <label for="phone">Phone:</label><br>
                             <input type="text" id="phone" name="phone" value="<?php echo $phone;?>" oninput="ontype();">
                         </div>
                         <div>
-                            <label for="phone">Role:</label><br>
-                            <input type="text" id="role" name="role" value="<?php echo $role;?>" oninput="ontype();">
-                        </div>
-                        <br>
-                        <div class="sub"><input type="submit" value="Update" name="update"></div>
-                        <br>
+                            <div>
+                                <label for="role">Role:</label><br>
+                                <select id="role" name="role">
+                                    <option value="">Select</option>
+                                    <option value="worker" <?php if ($row["role"]=='worker'){echo "selected";}?>>Worker
+                                    </option>
+                                    <option value="manager" <?php if ($row["role"]=='manager'){echo "selected";}?>>
+                                        Manager</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="sub"><input type="submit" value="Update" name="update"></div>
+                            <br>
                     </form>
                 </div>
             </div>
@@ -174,24 +206,9 @@ if (isset($_POST['update'])){
                     return false;
                 }
             }
-            if ($('#city').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#city").val())) {
-                    $('#city').after('<span class="error">*Workers city can not be numeric!!</span>');
-                    return false;
-                }
-            }
             if ($('#email').val() !== '') {
                 if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
                     $('#email').after('<span class="error">* Type a valid email!!</span>');
-                    return false;
-                }
-            }
-            if ($('#phone').val() !== '') {
-                if (isNaN($("#phone").val())) {
-                    $('#phone').after('<span class="error">* Phone Number should be numeric!!</span>');
-                    return false;
-                } else if (!/^[0-9]{11}$/.test($("#phone").val())) {
-                    $('#phone').after('<span class="error">* Input 11 digit phone number!!</span>');
                     return false;
                 }
             }

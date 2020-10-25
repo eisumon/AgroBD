@@ -20,30 +20,29 @@
                         <label for="category">Category:</label><br>
                         <select id="category" name="category">
                             <option value="">Select</option>
-                            <option value="Attachment">Attachment</option>
-                            <option value="Baler">Baler</option>
-                            <option value="Combine">Combine</option>
-                            <option value="Cultivator">Cultivator</option>
-                            <option value="Feed wagon">Feed wagon</option>
-                            <option value="Fertilizer">Fertilizer spreader</option>
-                            <option value="Grader">Grader</option>
-                            <option value="Harrow">Harrow</option>
-                            <option value="Loader">Loader</option>
-                            <option value="Manure spreader">Manure spreader</option>
-                            <option value="Mower">Mower</option>
-                            <option value="Other">Other</option>
-                            <option value="Planter">Planter</option>
-                            <option value="Plow">Plow</option>
-                            <option value="Roller">Roller</option>
-                            <option value="Seed drill">Seed drill</option>
-                            <option value="Sprayer">Sprayer</option>
-                            <option value="Tools">Tools</option>
-                            <option value="Tractor">Tractor</option>
-                            <option value="Trailer">Trailer</option>
-                            <option value="Truck">Truck</option>
-                            <option value="Windrower">Windrower</option>
+                            <option value="attachment">Attachment</option>
+                            <option value="baler">Baler</option>
+                            <option value="combine">Combine</option>
+                            <option value="cultivator">Cultivator</option>
+                            <option value="feed wagon">Feed wagon</option>
+                            <option value="fertilizer">Fertilizer spreader</option>
+                            <option value="grader">Grader</option>
+                            <option value="harrow">Harrow</option>
+                            <option value="loader">Loader</option>
+                            <option value="manure spreader">Manure spreader</option>
+                            <option value="mower">Mower</option>
+                            <option value="planter">Planter</option>
+                            <option value="plow">Plow</option>
+                            <option value="roller">Roller</option>
+                            <option value="seed drill">Seed drill</option>
+                            <option value="sprayer">Sprayer</option>
+                            <option value="tools">Tools</option>
+                            <option value="tractor">Tractor</option>
+                            <option value="trailer">Trailer</option>
+                            <option value="truck">Truck</option>
+                            <option value="windrower">Windrower</option>
+                            <option value="other">Other</option>
                         </select>
-
                     </div>
                     <div>
                         <label for="manufacturer">Manufacturer:</label><br>

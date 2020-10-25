@@ -73,10 +73,33 @@ if (isset($_POST['update'])){
                                 placeholder=" Machinery name" oninput="ontype();">
                         </div>
                         <div>
-                            <label for="category">Category:</label><br>
-                            <input type="text" id="category" name="category" value="<?=$category;?>"
-                                placeholder=" Category" oninput="ontype();">
-                        </div>
+                        <label for="category">Category:</label><br>
+                        <select id="category" name="category">
+                            <option value="">Select</option>
+                            <option value="attachment" <?php if ($row["category"]=='attachment'){echo "selected";}?>>Attachment</option>
+                            <option value="baler" <?php if ($row["category"]=='baler'){echo "selected";}?>>Baler</option>
+                            <option value="combine" <?php if ($row["category"]=='combine'){echo "selected";}?>>Combine</option>
+                            <option value="cultivator" <?php if ($row["category"]=='cultivator'){echo "selected";}?>>Cultivator</option>
+                            <option value="feed wagon" <?php if ($row["category"]=='feed wagon'){echo "selected";}?>>Feed wagon</option>
+                            <option value="fertilizer" <?php if ($row["category"]=='fertilizer'){echo "selected";}?>>Fertilizer spreader</option>
+                            <option value="grader" <?php if ($row["category"]=='grader'){echo "selected";}?>>Grader</option>
+                            <option value="harrow" <?php if ($row["category"]=='harrow'){echo "selected";}?>>Harrow</option>
+                            <option value="loader" <?php if ($row["category"]=='loader'){echo "selected";}?>>Loader</option>
+                            <option value="manure spreader" <?php if ($row["category"]=='manure spreader'){echo "selected";}?>>Manure spreader</option>
+                            <option value="mower" <?php if ($row["category"]=='mower'){echo "selected";}?>>Mower</option>
+                            <option value="planter" <?php if ($row["category"]=='planter'){echo "selected";}?>>Planter</option>
+                            <option value="plow" <?php if ($row["category"]=='plow'){echo "selected";}?>>Plow</option>
+                            <option value="roller" <?php if ($row["category"]=='roller'){echo "selected";}?>>Roller</option>
+                            <option value="seed drill" <?php if ($row["category"]=='seed drill'){echo "selected";}?>>Seed drill</option>
+                            <option value="sprayer" <?php if ($row["category"]=='sprayer'){echo "selected";}?>>Sprayer</option>
+                            <option value="tools" <?php if ($row["category"]=='tools'){echo "selected";}?>>Tools</option>
+                            <option value="tractor" <?php if ($row["category"]=='tractor'){echo "selected";}?>>Tractor</option>
+                            <option value="trailer" <?php if ($row["category"]=='trailer'){echo "selected";}?>>Trailer</option>
+                            <option value="truck" <?php if ($row["category"]=='truck'){echo "selected";}?>>Truck</option>
+                            <option value="windrower" <?php if ($row["category"]=='windrower'){echo "selected";}?>>Windrower</option>
+                            <option value="other" <?php if ($row["category"]=='other'){echo "selected";}?>>Other</option>
+                        </select>
+                    </div>
                         <div>
                             <label for="manufacturer">Manufacturer:</label><br>
                             <input type="text" id="manufacturer" name="manufacturer" value="<?=$manufacturer;?>"
@@ -147,12 +170,6 @@ if (isset($_POST['update'])){
             if ($('#machinery_name').val() !== '') {
                 if (!/^[a-z ]+$/i.test($("#machinery_name").val())) {
                     $('#machinery_name').after('<span class="error">*Machinery name can not be numeric!!</span>');
-                    return false;
-                }
-            }
-            if ($('#category').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#category").val())) {
-                    $('#category').after('<span class="error">*Category can not be numeric!!</span>');
                     return false;
                 }
             }

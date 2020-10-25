@@ -1,46 +1,46 @@
 <?php include'includes/head.php';
- include'includes/navbar.php';
-     
- include_once("dbCon.php");
- $conn = connect();
- if (isset($_POST['submit'])){
- 
-     $fname = $_POST['firstname'];
-     $lname = $_POST['lastname'];
-     $gender = $_POST['gender'];
-     $city = $_POST['city'];
-     $address = $_POST['address'];
-     $phone = $_POST['phone'];
-     $role = $_POST['role'];
-     
-     $sql = "SELECT phone FROM workers WHERE phone='$phone'";
-     $result = $conn->query($sql);
- 
-     if($result->num_rows>0){
-         echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','workers');</script>";
-     }else{
-         $sql ="INSERT INTO workers(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
-     
-         //echo $sql;exit;
-         if($conn->query($sql)){
- 
-             echo "<script>myAlert('Register New workers Successfully','success','workers');</script>";
-             } else{
-             echo "<script>myAlert(Register Not Successfully','error','workers');</script>";
-             }
-     }
- }
- if (isset($_GET['delete'])){
-     $id = $_GET['delete'];
-     $sql= "DELETE FROM workers WHERE w_id=$id";
-     $resultt = $conn->query($sql);
-     
-     if($conn->query($sql)){
+include'includes/navbar.php';
+
+include_once("dbCon.php");
+$conn = connect();
+if (isset($_POST['submit'])){
+
+    $fname = $_POST['firstname'];
+    $lname = $_POST['lastname'];
+    $gender = $_POST['gender'];
+    $city = $_POST['city'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $role = $_POST['role'];
+    
+    $sql = "SELECT phone FROM workers WHERE phone='$phone'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows>0){
+        echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','workers');</script>";
+    }else{
+        $sql ="INSERT INTO workers(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
+    
+        //echo $sql;exit;
+        if($conn->query($sql)){
+
+            echo "<script>myAlert('Register New workers Successfully','success','workers');</script>";
+            } else{
+            echo "<script>myAlert(Register Not Successfully','error','workers');</script>";
+            }
+    }
+}
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $sql= "DELETE FROM workers WHERE w_id=$id";
+    $resultt = $conn->query($sql);
+    
+    if($conn->query($sql)){
         echo "<script>myAlert('Record Delete Successfully','success','workers');</script>";
         } else{
         echo "<script>myAlert(Record Delete Not Successfully','error','workers');</script>";
         }
- }  
+} 
 ?>
 </head>
 

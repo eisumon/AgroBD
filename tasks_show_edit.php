@@ -81,17 +81,28 @@ if (isset($_POST['update'])){
                         </div>
                         <div>
                             <label for="status">Status:</label><br>
-                            <input type="text" id="status" name="status" oninput="ontype();" value="<?=$status; ?>">
+                            <select id="status" name="status">
+                                <option value="">Select</option>
+                                <option value="pending" <?php if ($row["status"]=='pending'){echo "selected";}?>>Pending</option>
+                                <option value="in progress" <?php if ($row["status"]=='in progress'){echo "selected";}?>>In progress</option>
+                                <option value="finished" <?php if ($row["status"]=='finished'){echo "selected";}?>>Finished</option>
+                            </select>
                         </div>
                         <div>
                             <label for="categories">Categories:</label><br>
-                            <input type="text" id="categories" name="categories" oninput="ontype();"
-                                value="<?=$categories; ?>">
+                            <select id="categories" name="categories">
+                                <option value="">Select</option>
+                                <option value="planting" <?php if ($row["categories"]=='planting'){echo "selected";}?>>Planting</option>
+                                <option value="fertilizing" <?php if ($row["categories"]=='fertilizing'){echo "selected";}?>>Fertilizing</option>
+                            </select>
                         </div>
                         <div>
                             <label for="crp_name">Crop Production Name:</label><br>
-                            <input type="text" id="crp_name" name="crp_name" oninput="ontype();"
-                                value="<?=$crp_name; ?>">
+                            <select id="crp_name" name="crp_name">
+                                <option value="">Select</option>
+                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>Something</option>
+                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>Something</option>
+                            </select>
                         </div>
                         <br>
                         <hr>
