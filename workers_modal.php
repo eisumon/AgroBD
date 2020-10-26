@@ -10,7 +10,7 @@
         <!-- Modal body -->
         <div class="modal-body">
             <div class="container">
-                <form onsubmit="return nullcheck();" action="" method="POST">
+                <form onsubmit="return nullcheck();" method="POST">
                     <div class="row">
                         <div class="col-md-5">
                             <div>

@@ -106,9 +106,9 @@
                                     </li>
                                     <li><a href="#">Resources</a>
                                         <ul class="dropdown">
-                                            <li><a href="people.php">People</a></li>
-                                            <li><a href="machinary.php">Machinary</a></li>
-                                            <li><a href="fields_show.php">Fields</a></li>
+                                            <li><a href="workers.php">Workers</a></li>
+                                            <li><a href="machinery.php">Machinery</a></li>
+                                            <li><a href="fieldsShow.php">Fields</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="fields">Dashboard</a></li>

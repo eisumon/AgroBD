@@ -76,7 +76,7 @@ if (isset($_GET['delete'])){
                                 <th>status: </th>
                                 <th>Categories:</th>
                                 <th>Production name:</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

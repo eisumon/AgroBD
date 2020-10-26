@@ -151,7 +151,6 @@ include'includes/navbar.php';
                                         <br>
                                         <div class="sub"><input type="submit" value="Submit"></div>
                                         <div class="res"><input type="reset" value="Reset"></div>
-
                                     </form>
                                 </div>
                             </div>
