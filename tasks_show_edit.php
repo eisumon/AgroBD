@@ -10,9 +10,9 @@ if (isset($_GET['edit'])){
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
-    $t_name = $row['t_name'];
-    $s_date = $row['s_date'];
-    $e_date = $row['e_date'];
+    $task_name = $row['task_name'];
+    $start_date = $row['start_date'];
+    $end_date = $row['end_date'];
     $status = $row['status'];
     $categories = $row['categories'];
     $crp_name = $row['crp_name'];
@@ -20,14 +20,14 @@ if (isset($_GET['edit'])){
 
 if (isset($_POST['update'])){
     $id = $_POST['t_id'];
-    $t_name = $_POST['t_name'];
-    $s_date = $_POST['s_date'];
-    $e_date = $_POST['e_date'];
+    $task_name = $_POST['task_name'];
+    $start_date = $_POST['start_date'];
+    $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
     $crp_name = $_POST['crp_name'];
     
-    $sql= "UPDATE tasks SET t_name= '$t_name', s_date= '$s_date', e_date= '$e_date', status= '$status', categories= '$categories', crp_name= '$crp_name' WHERE t_id=$id";
+    $sql= "UPDATE tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories', crp_name= '$crp_name' WHERE t_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -49,7 +49,7 @@ if (isset($_POST['update'])){
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
                         <a href="tasks_show">Task</a>
-                        <a href="tasks_show_edit"> Edit Task</a>
+                        <span>Edit Task</span>
                     </div>
                 </div>
             </div>
@@ -61,52 +61,60 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <h4>People</h4>
             <!-- Modal body -->
             <div class="modal-body">
+                <h3 style="text-align: center; color:#3D9E0F;">Edit Task</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" action="" method="POST">
                         <input type="hidden" name="t_id" value="<?=$id; ?>">
                         <div>
-                            <label for="t_name">Task Name:</label><br>
-                            <input type="text" id="t_name" name="t_name" oninput="ontype();" value="<?=$t_name; ?>">
+                            <label for="task_name">Task Name:</label><br>
+                            <input type="text" id="task_name" name="task_name" oninput="ontype();" value="<?=$task_name; ?>">
                         </div>
                         <div>
-                            <label for="s_date">Start date:</label><br>
-                            <input type="date" id="s_date" name="s_date" value="<?=$s_date; ?>">
+                            <label for="start_date">Start date:</label><br>
+                            <input type="date" id="start_date" name="start_date" value="<?=$start_date; ?>">
                         </div>
                         <div>
-                            <label for="e_date">End date:</label><br>
-                            <input type="date" id="e_date" name="e_date" value="<?=$e_date; ?>">
+                            <label for="end_date">End date:</label><br>
+                            <input type="date" id="end_date" name="end_date" value="<?=$end_date; ?>">
                         </div>
                         <div>
                             <label for="status">Status:</label><br>
                             <select id="status" name="status">
                                 <option value="">Select</option>
-                                <option value="pending" <?php if ($row["status"]=='pending'){echo "selected";}?>>Pending</option>
-                                <option value="in progress" <?php if ($row["status"]=='in progress'){echo "selected";}?>>In progress</option>
-                                <option value="finished" <?php if ($row["status"]=='finished'){echo "selected";}?>>Finished</option>
+                                <option value="pending" <?php if ($row["status"]=='pending'){echo "selected";}?>>Pending
+                                </option>
+                                <option value="in progress"
+                                    <?php if ($row["status"]=='in progress'){echo "selected";}?>>In progress</option>
+                                <option value="finished" <?php if ($row["status"]=='finished'){echo "selected";}?>>
+                                    Finished</option>
                             </select>
                         </div>
                         <div>
                             <label for="categories">Categories:</label><br>
                             <select id="categories" name="categories">
                                 <option value="">Select</option>
-                                <option value="planting" <?php if ($row["categories"]=='planting'){echo "selected";}?>>Planting</option>
-                                <option value="fertilizing" <?php if ($row["categories"]=='fertilizing'){echo "selected";}?>>Fertilizing</option>
+                                <option value="planting" <?php if ($row["categories"]=='planting'){echo "selected";}?>>
+                                    Planting</option>
+                                <option value="fertilizing"
+                                    <?php if ($row["categories"]=='fertilizing'){echo "selected";}?>>Fertilizing
+                                </option>
                             </select>
                         </div>
                         <div>
                             <label for="crp_name">Crop Production Name:</label><br>
                             <select id="crp_name" name="crp_name">
                                 <option value="">Select</option>
-                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>Something</option>
-                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>Something</option>
+                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>
+                                    Something</option>
+                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>
+                                    Something</option>
                             </select>
                         </div>
                         <br>
-                        <hr>
                         <div class="sub"><input type="submit" value="Update" name="update"></div>
+                        <br>
                     </form>
                 </div>
             </div>
@@ -127,18 +135,18 @@ if (isset($_POST['update'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#t_name').val() == '') {
-                $('#t_name').after('<span class="error">* This field is required</span>');
+            if ($('#task_name').val() == '') {
+                $('#task_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#s_date').val() == '') {
-                $('#s_date').after('<span class="error">* This field is required</span>');
+            if ($('#start_date').val() == '') {
+                $('#start_date').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#e_date').val() == '') {
-                $('#e_date').after('<span class="error">* This field is required</span>');
+            if ($('#end_date').val() == '') {
+                $('#end_date').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
@@ -161,9 +169,9 @@ if (isset($_POST['update'])){
         function ontype() {
             $(".error").remove();
 
-            if ($('#t_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#t_name").val())) {
-                    $('#t_name').after('<span class="error">*Task name can not be numeric!!</span>');
+            if ($('#task_name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#task_name").val())) {
+                    $('#task_name').after('<span class="error">*Task name can not be numeric!!</span>');
                     return false;
                 }
             }

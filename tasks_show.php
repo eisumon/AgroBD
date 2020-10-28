@@ -5,14 +5,14 @@ include_once("dbCon.php");
 $conn = connect();
 if (isset($_POST['submit'])){
 
-    $t_name = $_POST['t_name'];
-    $s_date = $_POST['s_date'];
-    $e_date = $_POST['e_date'];
+    $task_name = $_POST['task_name'];
+    $start_date = $_POST['start_date'];
+    $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
     $crp_name = $_POST['crp_name'];
 
-    $sql ="INSERT INTO tasks(t_name, s_date, e_date, status, categories, crp_name) VALUES('$t_name', '$s_date', '$e_date', '$status', '$categories', '$crp_name')";
+    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, crp_name) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
@@ -43,7 +43,7 @@ if (isset($_GET['delete'])){
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="tasks_show">Task</a>
+                        <span>Task</span>
                     </div>
                 </div>
             </div>
@@ -88,9 +88,9 @@ if (isset($_GET['delete'])){
                             ?>
 
                             <tr>
-                                <td><?php echo $row["t_name"]; ?></td>
-                                <td><?php echo $row["s_date"]; ?></td>
-                                <td><?php echo $row["e_date"]; ?></td>
+                                <td><?php echo $row["task_name"]; ?></td>
+                                <td><?php echo $row["start_date"]; ?></td>
+                                <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
                                 <td><?php echo $row["crp_name"]; ?></td>
@@ -136,18 +136,18 @@ if (isset($_GET['delete'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#t_name').val() == '') {
-                $('#t_name').after('<span class="error">* This field is required</span>');
+            if ($('#task_name').val() == '') {
+                $('#task_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#s_date').val() == '') {
-                $('#s_date').after('<span class="error">* This field is required</span>');
+            if ($('#start_date').val() == '') {
+                $('#start_date').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#e_date').val() == '') {
-                $('#e_date').after('<span class="error">* This field is required</span>');
+            if ($('#end_date').val() == '') {
+                $('#end_date').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
@@ -170,9 +170,9 @@ if (isset($_GET['delete'])){
         function ontype() {
             $(".error").remove();
 
-            if ($('#t_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#t_name").val())) {
-                    $('#t_name').after('<span class="error">*Task name can not be numeric!!</span>');
+            if ($('#task_name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#task_name").val())) {
+                    $('#task_name').after('<span class="error">*Task name can not be numeric!!</span>');
                     return false;
                 }
             }

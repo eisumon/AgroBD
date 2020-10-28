@@ -108,6 +108,7 @@
                                         <ul class="dropdown">
                                             <li><a href="workers.php">Workers</a></li>
                                             <li><a href="machinery.php">Machinery</a></li>
+                                            <li><a href="inventory.php">Inventory</a></li>
                                             <li><a href="fieldsShow.php">Fields</a></li>
                                         </ul>
                                     </li>

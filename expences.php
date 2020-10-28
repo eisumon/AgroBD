@@ -5,13 +5,13 @@ include_once("dbCon.php");
 $conn = connect();
 if (isset($_POST['submit'])){
 
-    $iname = $_POST['iname'];
+    $item_name = $_POST['item_name'];
     $category = $_POST['category'];
     $net_amount = $_POST['net_amount'];
     $invoice_no = $_POST['invoice_no'];
     $date = $_POST['date'];
 
-    $sql ="INSERT INTO expences(iname, category, net_amount, invoice_no, date) VALUES('$iname', '$category', '$net_amount', '$invoice_no', '$date')";
+    $sql ="INSERT INTO expences(item_name, category, net_amount, invoice_no, date) VALUES('$item_name', '$category', '$net_amount', '$invoice_no', '$date')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('Expences Record Create Successfully','success','expences');</script>";
@@ -42,7 +42,7 @@ if (isset($_GET['delete'])){
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="">expences</a>
+                        <span>Expences</span>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ if (isset($_GET['delete'])){
                             ?>
 
                             <tr>
-                                <td><?php echo $row["iname"]; ?></td>
+                                <td><?php echo $row["item_name"]; ?></td>
                                 <td><?php echo $row["category"]; ?></td>
                                 <td><?php echo $row["net_amount"]; ?></td>
                                 <td><?php echo $row["invoice_no"]; ?></td>
@@ -131,8 +131,8 @@ include'includes/footer.php';?>
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#iname').val() == '') {
-                $('#iname').after('<span class="error">* This field is required</span>');
+            if ($('#item_name').val() == '') {
+                $('#item_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
@@ -160,9 +160,9 @@ include'includes/footer.php';?>
         function ontype() {
             $(".error").remove();
 
-            if ($('#iname').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#iname").val())) {
-                    $('#iname').after('<span class="error">*Task name can not be numeric!!</span>');
+            if ($('#item_name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#item_name").val())) {
+                    $('#item_name').after('<span class="error">*Task name can not be numeric!!</span>');
                     return false;
                 }
             }

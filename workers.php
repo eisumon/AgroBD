@@ -52,7 +52,7 @@ if (isset($_GET['delete'])){
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="workers">Workers</a>
+                        <span>Workers</span>
                     </div>
                 </div>
             </div>

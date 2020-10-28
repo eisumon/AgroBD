@@ -6,33 +6,31 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM expences WHERE e_id=$id";
+    $sql= "SELECT * FROM inventory WHERE i_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
     $item_name = $row['item_name'];
     $category = $row['category'];
-    $net_amount = $row['net_amount'];
-    $invoice_no = $row['invoice_no'];
+    $quantity = $row['quantity'];
     $date = $row['date'];
 }
 
 if (isset($_POST['update'])){
-    $id = $_POST['e_id'];
+    $id = $_POST['i_id'];
     $item_name = $_POST['item_name'];
     $category = $_POST['category'];
-    $net_amount = $_POST['net_amount'];
-    $invoice_no = $_POST['invoice_no'];
+    $quantity = $_POST['quantity'];
     $date = $_POST['date'];
     
-    $sql= "UPDATE expences SET item_name= '$item_name', category= '$category', net_amount= '$net_amount', invoice_no= '$invoice_no', date= '$date' WHERE e_id=$id";
+    $sql= "UPDATE inventory SET item_name= '$item_name', category= '$category', quantity= '$quantity', date= '$date' WHERE i_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
 
-        echo "<script>myAlert('Record Update Successfully','success','expences');</script>";
+        echo "<script>myAlert('Record Update Successfully','success','inventory');</script>";
         } else{
-        echo "<script>myAlert(Record Update Not Successfully','error','expences_edit');</script>";
+        echo "<script>myAlert(Record Update Not Successfully','error','inventory_edit');</script>";
         }
 }
 ?>
@@ -46,8 +44,8 @@ if (isset($_POST['update'])){
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index"><i class="fa fa-home"></i> Home</a>
-                        <a href="expences">Expences</a>
-                        <span>Edit Expences Record</span>
+                        <a href="inventory">Inventory</a>
+                        <span>Edit Inventory Record</span>
                     </div>
                 </div>
             </div>
@@ -61,14 +59,14 @@ if (isset($_POST['update'])){
         <div class="container production_box">
             <!-- Modal body -->
             <div class="modal-body">
-                <h3 style="text-align: center; color:#3D9E0F;">Edit Expences</h3><br>
+                <h3 style="text-align: center; color:#3D9E0F;">Edit Inventory</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" method="POST">
-                        <input type="hidden" name="e_id" value="<?=$id; ?>">
+                        <input type="hidden" name="i_id" value="<?=$id; ?>">
                         <div>
                             <label for="item_name">Item Name:</label><br>
                             <input type="text" id="item_name" name="item_name" placeholder="Enter item name"
-                                value="<?=$item_name;?>" oninput="ontype();">
+                                value="<?=$item_name; ?>" oninput="ontype();">
                         </div>
                         <div>
                             <label for="category">Category:</label><br>
@@ -85,26 +83,15 @@ if (isset($_POST['update'])){
                                 </option>
                                 <option value="seed" <?php if ($row["category"]=='seed'){echo "selected";}?>>Seed
                                 </option>
-                                <option value="field" <?php if ($row["category"]=='field'){echo "selected";}?>>Field
-                                </option>
-                                <option value="machinery" <?php if ($row["category"]=='machinery'){echo "selected";}?>>
-                                    Machinery</option>
                                 <option value="others" <?php if ($row["category"]=='others'){echo "selected";}?>>Others
                                 </option>
-                                <option value="service" <?php if ($row["category"]=='service'){echo "selected";}?>>
-                                    Service</option>
                             </select>
                         </div>
                         <div>
                             <div>
-                                <label for="net_amount">Net amount (tk):</label><br>
-                                <input type="text" id="net_amount" name="net_amount" value="<?=$net_amount; ?>"
+                                <label for="quantity">Quantity</label><br>
+                                <input type="text" id="quantity" name="quantity" value="<?=$quantity; ?>"
                                     placeholder="Enter net amount">
-                            </div>
-                            <div>
-                                <label for="invoice_no">Invoice No:</label><br>
-                                <input type="text" id="invoice_no" name="invoice_no" value="<?=$invoice_no; ?>"
-                                    placeholder="Enter invoice number">
                             </div>
                             <div>
                                 <label for="date">Date:</label><br>
@@ -146,13 +133,8 @@ if (isset($_POST['update'])){
                 return false;
             }
 
-            if ($('#net_amount').val() == '') {
-                $('#net_amount').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
-            if ($('#invoice_no').val() == '') {
-                $('#invoice_no').after('<span class="error">* This field is required</span>');
+            if ($('#quantity').val() == '') {
+                $('#quantity').after('<span class="error">* This field is required</span>');
                 return false;
             }
 

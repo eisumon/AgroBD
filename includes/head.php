@@ -23,18 +23,15 @@
   <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <!-- Individual column searching (css cdn) -->
+  <!--Searching (css cdn) -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
 
 
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-  <!-- Individual column searching (js cdn) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <!--Searching -->
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
   <!-- Alert Script -->

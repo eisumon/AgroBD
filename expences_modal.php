@@ -14,8 +14,8 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div>
-                                <label for="iname">Item Name:</label><br>
-                                <input type="text" id="iname" name="iname" placeholder="Enter item name"
+                                <label for="item_name">Item Name:</label><br>
+                                <input type="text" id="item_name" name="item_name" placeholder="Enter item name"
                                     oninput="ontype();">
                             </div>
                             <div>
@@ -23,7 +23,7 @@
                                 <select id="category" name="category">
                                     <option value="">Select</option>
                                     <option value="fertilizer">Fertilizer</option>
-                                    <option value="Protection product">protection product</option>
+                                    <option value="protection product">Protection product</option>
                                     <option value="fuel">Fuel</option>
                                     <option value="crop">Crop</option>
                                     <option value="seed">Seed</option>

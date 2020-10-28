@@ -61,9 +61,9 @@ if (isset($_POST['update'])){
     <section class="homenav">
         <!-- Inner Header start -->
         <div class="container production_box">
-            <h4>Machinery</h4>
             <!-- Modal body -->
             <div class="modal-body">
+            <h3 style="text-align: center; color:#3D9E0F;">Edit Field</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" action="" method="POST">
                         <input type="hidden" name="f_id" value="<?=$id; ?>">
@@ -140,6 +140,7 @@ if (isset($_POST['update'])){
                         </div>
                         <br>
                         <div class="sub"><input type="submit" value="Update" name="update"></div>
+                        <br>
                     </form>
                 </div>
             </div>

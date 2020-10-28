@@ -14,8 +14,8 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div>
-                                <label for="iname">Item Name:</label><br>
-                                <input type="text" id="iname" name="iname" placeholder="Enter item name" oninput="ontype();">
+                                <label for="item_name">Item Name:</label><br>
+                                <input type="text" id="item_name" name="item_name" placeholder="Enter item name" oninput="ontype();">
                             </div>
                             <div>
                                 <label for="category">Category:</label><br>
@@ -52,12 +52,12 @@
                                 <input type="date" id="date" name="date">
                             </div>
                             <div>
-                                <label for="c_name">Customer Name:</label><br>
-                                <input type="text" id="c_name" name="c_name" placeholder="Enter customer name">
+                                <label for="customer_name">Customer Name:</label><br>
+                                <input type="text" id="customer_name" name="customer_name" placeholder="Enter customer name">
                             </div>
                             <div>
-                                <label for="c_number">Customer No:</label><br>
-                                <input type="text" id="c_number" name="c_number"
+                                <label for="customer_no">Customer No:</label><br>
+                                <input type="text" id="customer_no" name="customer_no"
                                     placeholder="Enter customer phone number">
                             </div>
                         </div>

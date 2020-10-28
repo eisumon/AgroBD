@@ -15,17 +15,17 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div>
-                                <label for="t_name">Task Name:</label><br>
-                                <input type="text" id="t_name" name="t_name" placeholder="Task Name"
+                                <label for="task_name">Task Name:</label><br>
+                                <input type="text" id="task_name" name="task_name" placeholder="Task Name"
                                     oninput="ontype();">
                             </div>
                             <div>
-                                <label for="s_date">Start date:</label><br>
-                                <input type="date" id="s_date" name="s_date">
+                                <label for="start_date">Start date:</label><br>
+                                <input type="date" id="start_date" name="start_date">
                             </div>
                             <div>
-                                <label for="e_date">End date:</label><br>
-                                <input type="date" id="e_date" name="e_date">
+                                <label for="end_date">End date:</label><br>
+                                <input type="date" id="end_date" name="end_date">
                             </div>
                             <div>
                                 <label for="status">Status:</label><br>

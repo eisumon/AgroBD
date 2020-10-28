@@ -161,7 +161,9 @@ if (isset($_POST['submit'])){
                                     <div class="col-lg-12">
                                         <textarea id="message" name="message" placeholder="Messages"
                                             oninput="ontype();"></textarea>
-                                        <button type="submit" name="submit" class="site-btn">Send message</button>
+                                        <div>
+                                            <button type="submit" name="submit" class="site-btn">Send message</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
