@@ -2155,6 +2155,44 @@ tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
+
+.seasonPlan-section {
+	padding-top: 75px;
+	padding-bottom: 80px;
+}
+
+.seasonPlan-title {
+	margin-bottom: 30px;
+}
+
+.seasonPlan-title h4 {
+	color: #252525;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+.seasonPlan-widget .cw-item {
+	background: #ffffff;
+	margin-bottom: 11px;
+	-webkit-box-shadow: 0px 8px 35px 10px #E8E8E8;
+	box-shadow: 0px 8px 35px 10px #E8E8E8;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+}
+
+.seasonPlan-widget .cw-item .ci-text {
+	display: table;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.seasonPlan-widget .cw-item .ci-text span {
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+}
+
 /*---------------------
   Modal
 -----------------------*/

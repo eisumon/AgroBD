@@ -18,10 +18,10 @@ include'includes/navbar.php';
 <!-- Breadcrumb Section end -->
 
 
-<!-- Contact Section Begin -->
-<section class="contact-section spad">
+<!-- seasonPlan Section Begin -->
+<section class="seasonPlan-section spad">
     <div class="container">
-        <div class="contact-title" style="text-align: center;">
+        <div class="seasonPlan-title" style="text-align: center;">
             <h2>Season plan</h2>
             <p>Select the boxes to filter out the result and click to submit button to choose your plan.</p>
         </div>
@@ -30,19 +30,19 @@ include'includes/navbar.php';
 
         <div class="row">
             <div class="col-lg-3">
-                <div class="contact-title">
+                <div class="seasonPlan-title">
                     <h4>Choose plan</h4>
                     <p>Select the boxes to filter out the result and choose your plan.</p>
                 </div>
-                <div class="contact-widget">
+                <div class="seasonPlan-widget">
                     <div class="cw-item">
                         <div class="ci-text">
                             <span>Season:</span>
                             <select class="form-control" id="sel1">
                                 <option>Select</option>
-                                <option>Winter</option>
-                                <option>Summer</option>
-                                <option>Rainy</option>
+                                <option>Kharif- 1 (Mid March to mid July)</option>
+                                <option>Kharif- 2 (Mid July to mid November)</option>
+                                <option>Rabi (Mid November to mid March)</option>
                             </select>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ include'includes/navbar.php';
                     </div>
                     <div class="cw-item">
                         <div class="ci-text">
-                            <span>Crop Category</span>
+                            <span>Crop Category:</span>
                             <select class="form-control" id="sel1">
                                 <option>Select</option>
                                 <option>Flowers</option>
@@ -95,12 +95,12 @@ include'includes/navbar.php';
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class="">
-                    <div class="contact-title">
+                    <div class="seasonPlan-title">
                         <h4>Crop List</h4>
                         <p>Select your crop</p>
                     </div>
                 </div><br>
-                <div class="contact-widget">
+                <div class="seasonPlan-widget">
                     <div class="tab" style="overflow-x:auto;">
                         <table>
                             <tr>
@@ -124,7 +124,7 @@ include'includes/navbar.php';
         </div>
     </div>
 </section>
-<!-- Contact Section End -->
+<!-- seasonPlan Section End -->
 
 
 

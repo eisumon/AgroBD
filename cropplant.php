@@ -33,12 +33,7 @@ include'includes/navbar.php';
                     <div class="cw-item">
                         <div class="ci-text">
                             <span class="cp_txt">Crop name:</span>
-                            <select class="form-control cp_if" id="sel1">
-                                <option>-</option>
-                                <option>Winter</option>
-                                <option>Summer</option>
-                                <option>Rainy</option>
-                            </select>
+                            <input type="text" class="form-control cp_if" name="" placeholder="Enter Crop name" autofocus>
                         </div>
                     </div>
                 </div>
@@ -48,7 +43,7 @@ include'includes/navbar.php';
                     <div class="cw-item">
                         <div class="ci-text">
                             <span class="cp_txt">Crop Production name:</span>
-                            <input type="text" class="form-control cp_if" name="" placeholder="Crop production name">
+                            <input type="text" class="form-control cp_if" name="" placeholder="Enter production name">
                         </div>
                     </div>
                 </div>
@@ -58,7 +53,7 @@ include'includes/navbar.php';
                     <div class="cw-item">
                         <div class="ci-text">
                             <span class="cp_txt">Location:</span>
-                            <input type="text" class="form-control cp_if" name="" placeholder="Your Location">
+                            <input type="text" class="form-control cp_if" name="" placeholder="Enter Your Location">
                         </div>
                     </div>
                 </div>
@@ -66,7 +61,6 @@ include'includes/navbar.php';
         </div><hr>
     </div>
     <div class="contact-title" style="text-align: center; margin-top: 30px;">
-        <button type="submit" class="site-btn login-btn">+ Add crop</button>
         <button type="submit" class="site-btn login-btn">Save</button>
     </div>
     </div>
