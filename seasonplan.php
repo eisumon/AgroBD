@@ -1,133 +1,183 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
 ?>
+</head>
 
-<!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb-text">
-                    <a href="index.php"><i class="fa fa-home"></i> Home</a>
-                    <span>Season plan</span>
+<body>
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="index.php"><i class="fa fa-home"></i> Home</a>
+                        <span>Season plan</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Breadcrumb Section end -->
+    <!-- Breadcrumb Section end -->
 
 
-<!-- seasonPlan Section Begin -->
-<section class="seasonPlan-section spad">
-    <div class="container">
-        <div class="seasonPlan-title" style="text-align: center;">
-            <h2>Season plan</h2>
-            <p>Select the boxes to filter out the result and click to submit button to choose your plan.</p>
-        </div>
-        <br>
-        <hr><br>
+    <!-- seasonPlan Section Begin -->
+    <section class="seasonPlan-section spad">
+        <div class="container">
+            <div class="seasonPlan-title" style="text-align: center;">
+                <h2>Season plan</h2>
+                <p>Select the boxes to filter out the result and click to submit button to choose your plan.</p>
+            </div>
+            <br>
+            <hr><br>
 
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="seasonPlan-title">
-                    <h4>Choose plan</h4>
-                    <p>Select the boxes to filter out the result and choose your plan.</p>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="seasonPlan-title">
+                        <h4>Choose plan</h4>
+                        <p>Select the boxes to filter out the result and choose your plan.</p>
+                    </div>
+                    <div class="seasonPlan-widget">
+                        <form action="" method="POST">
+                            <div class="cw-item">
+                                <div class="ci-text">
+                                    <span>Season:</span>
+                                    <select name="season" class="form-control" id="sel1">
+                                        <option>Select</option>
+                                        <option value="Kharif- 1">Kharif- 1 (Mid March to mid July)</option>
+                                        <option value="Kharif- 2">Kharif- 2 (Mid July to mid November)</option>
+                                        <option>Rabi (Mid November to mid March)</option>
+                                        <option>All Season</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cw-item">
+                                <div class="ci-text">
+                                    <span>Soil type:</span>
+                                    <select name="soil_type" class="form-control" id="sel1">
+                                        <option>Select</option>
+                                        <option value="Clay">Clay</option>
+                                        <option value="9">Clay loam</option>
+                                        <option value="6">Loam</option>
+                                        <option value="2">Loamy sand</option>
+                                        <option value="1">Sand</option>
+                                        <option value="10">Sandy clay</option>
+                                        <option value="7">Sandy clay loam</option>
+                                        <option value="3">Sandy loam</option>
+                                        <option value="5">Silt</option>
+                                        <option value="4">Silt loam</option>
+                                        <option value="11">Silty clay</option>
+                                        <option value="8">Silty clay loam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cw-item">
+                                <div class="ci-text">
+                                    <span>Crop Category:</span>
+                                    <select name="crop_category" class="form-control" id="sel1">
+                                        <option>Select</option>
+                                        <option value="Grain">Grain</option>
+                                        <option>Flowers</option>
+                                        <option>Fruit</option>
+                                        <option>Nursery</option>
+                                        <option>Tree</option>
+                                        <option>Vegetables</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cw-item">
+                                <div class="ci-text">
+                                    <span>Duration:</span>
+                                    <select name="duration" class="form-control" id="sel1">
+                                        <option>Select</option>
+                                        <option value="Seasonal - summer">Seasonal</option>
+                                        <option>Half year</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <button type="submit" name="submit" class="site-btn login-btn">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="seasonPlan-widget">
-                    <div class="cw-item">
-                        <div class="ci-text">
-                            <span>Season:</span>
-                            <select class="form-control" id="sel1">
-                                <option>Select</option>
-                                <option>Kharif- 1 (Mid March to mid July)</option>
-                                <option>Kharif- 2 (Mid July to mid November)</option>
-                                <option>Rabi (Mid November to mid March)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="cw-item">
-                        <div class="ci-text">
-                            <span>Soil type:</span>
-                            <select class="form-control" id="sel1">
-                                <option>Select</option>
-                                <option value="12">Clay</option>
-                                <option value="9">Clay loam</option>
-                                <option value="6">Loam</option>
-                                <option value="2">Loamy sand</option>
-                                <option value="1">Sand</option>
-                                <option value="10">Sandy clay</option>
-                                <option value="7">Sandy clay loam</option>
-                                <option value="3">Sandy loam</option>
-                                <option value="5">Silt</option>
-                                <option value="4">Silt loam</option>
-                                <option value="11">Silty clay</option>
-                                <option value="8">Silty clay loam</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="cw-item">
-                        <div class="ci-text">
-                            <span>Crop Category:</span>
-                            <select class="form-control" id="sel1">
-                                <option>Select</option>
-                                <option>Flowers</option>
-                                <option>Fruit</option>
-                                <option>Nursery</option>
-                                <option>Tree</option>
-                                <option>Vegetables</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="cw-item">
-                        <div class="ci-text">
-                            <span>Duration:</span>
-                            <select class="form-control" id="sel1">
-                                <option>Select</option>
-                                <option>Seasonal</option>
-                                <option>Half year</option>
-                                <option>Yearly</option>
-                            </select>
+
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="">
+                        <div class="seasonPlan-title">
+                            <h4>Crop List</h4>
+                            <p>Select your crop</p>
                         </div>
                     </div><br>
-                    <button type="submit" class="site-btn login-btn">Submit</button>
-                </div>
-            </div>
-            <div class="col-lg-8 offset-lg-1">
-                <div class="">
-                    <div class="seasonPlan-title">
-                        <h4>Crop List</h4>
-                        <p>Select your crop</p>
-                    </div>
-                </div><br>
-                <div class="seasonPlan-widget">
-                    <div class="tab" style="overflow-x:auto;">
-                        <table>
-                            <tr>
-                                <th>Crop Name</th>
-                                <th>Crop Category</th>
-                                <th>Soil type</th>
-                                <th>Season</th>
-                                <th>Duration</th>
-                            </tr>
-                            <tr>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                            </tr>
-                        </table>
+                    <div class="seasonPlan-widget">
+                        <div class="tab" style="overflow-x:auto;">
+                            <table>
+                                <tr>
+                                    <th>Crop Name</th>
+                                    <th>Crop Category</th>
+                                    <th>Soil type</th>
+                                    <th>Season</th>
+                                    <th>Duration</th>
+                                </tr>
+                                <tbody>
+                                    <?php 
+                                include("dbCon.php");
+                                $conn = connect();
+                                if(!isset($_POST['submit'])){
+                                
+                                }
+                                else{
+                                    $crop_category = $_POST['crop_category'];
+                                    $soil_type = $_POST['soil_type'];
+                                    $season = $_POST['season'];
+                                    $duration = $_POST['duration'];
+                
+                                    if($crop_category != "" || $soil_type != "" || $season != "" || $duration != ""){
+                                        $sql = "SELECT * FROM crop_lists WHERE crop_category = '$crop_category' OR soil_type = '$soil_type' OR season = '$season' OR duration = '$duration'";
+
+                                        $data = mysqli_query($conn, $sql) or die('error');
+                                        if(mysqli_num_rows($data) >0){
+                                        while ($row = mysqli_fetch_assoc($data)) {
+                                            $crop_name = $row['crop_name'];
+                                            $crop_category = $row['crop_category'];
+                                            $soil_type = $row['soil_type'];
+                                            $season = $row['season'];
+                                            $duration = $row['duration'];
+                                ?>
+                                    <tr>
+                                        <td> <?php echo $crop_name; ?></td>
+                                        <td> <?php echo $crop_category; ?></td>
+                                        <td> <?php echo $soil_type; ?></td>
+                                        <td> <?php echo $season; ?></td>
+                                        <td> <?php echo $duration; ?></td>
+                                    </tr>
+                                    <?php 
+                                }
+                                }
+                                else{
+                                    ?>
+                                    <tr>
+                                        <td>Records not found</td>
+                                    </tr>
+                                    <?php 
+                                }
+                                }
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- seasonPlan Section End -->
+    </section>
+    <!-- seasonPlan Section End -->
 
 
 
-<!-- Footer Section Begin -->
-<?php include'includes/footer.php';?>
-<!-- Footer Section End -->
+    <!-- Footer Section Begin -->
+    <?php include'includes/footer.php';?>
+    <!-- Footer Section End -->
+
+</body>
+
+</html>
