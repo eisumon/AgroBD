@@ -84,17 +84,7 @@ include'includes/navbar.php';
                                     </select>
                                 </div>
                             </div>
-                            <div class="cw-item">
-                                <div class="ci-text">
-                                    <span>Duration:</span>
-                                    <select name="duration" class="form-control" id="sel1">
-                                        <option>Select</option>
-                                        <option value="Seasonal - summer">Seasonal</option>
-                                        <option>Half year</option>
-                                        <option>Yearly</option>
-                                    </select>
-                                </div>
-                            </div><br>
+                            <br>
                             <button type="submit" name="submit" class="site-btn login-btn">Submit</button>
                         </form>
                     </div>
@@ -128,10 +118,9 @@ include'includes/navbar.php';
                                     $crop_category = $_POST['crop_category'];
                                     $soil_type = $_POST['soil_type'];
                                     $season = $_POST['season'];
-                                    $duration = $_POST['duration'];
                 
-                                    if($crop_category != "" || $soil_type != "" || $season != "" || $duration != ""){
-                                        $sql = "SELECT * FROM crop_lists WHERE crop_category = '$crop_category' OR soil_type = '$soil_type' OR season = '$season' OR duration = '$duration'";
+                                    if($crop_category != "" || $soil_type != "" || $season != ""){
+                                        $sql = "SELECT * FROM crop_lists WHERE crop_category = '$crop_category' OR soil_type = '$soil_type' OR season = '$season'";
 
                                         $data = mysqli_query($conn, $sql) or die('error');
                                         if(mysqli_num_rows($data) >0){

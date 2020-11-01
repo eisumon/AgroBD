@@ -126,49 +126,52 @@ if (isset($_POST['submit'])){
         </div>
     </section>
     <!-- Contact Section End -->
+
+    <!-- Footer Section Begin -->
+    <?php include'includes/footer.php';?>
+    <!-- Footer Section End -->
+
+    <script>
+        function nullcheck() {
+
+            $(".error").remove();
+
+            $('#submit').removeAttr('disabled', true);
+
+            if ($('#name').val() == '') {
+                $('#name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#email').val() == '') {
+                $('#email').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#message').val() == '') {
+                $('#message').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+        }
+
+        function ontype() {
+            $(".error").remove();
+
+            if ($('#name').val() !== '') {
+                if (!/^[a-z ]+$/i.test($("#name").val())) {
+                    $('#name').after('<span class="error">*Your first name can not be numeric!!</span>');
+                    return false;
+                }
+            }
+            if ($('#email').val() !== '') {
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
+                    $('#email').after('<span class="error">* Type a valid email!!</span>');
+                    return false;
+                }
+            }
+        }
+    </script>
+
 </body>
 
-<script>
-    function nullcheck() {
-
-        $(".error").remove();
-
-        $('#submit').removeAttr('disabled', true);
-
-        if ($('#name').val() == '') {
-            $('#name').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#email').val() == '') {
-            $('#email').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-
-        if ($('#message').val() == '') {
-            $('#message').after('<span class="error">* This field is required</span>');
-            return false;
-        }
-    }
-
-    function ontype() {
-        $(".error").remove();
-
-        if ($('#name').val() !== '') {
-            if (!/^[a-z ]+$/i.test($("#name").val())) {
-                $('#name').after('<span class="error">*Your first name can not be numeric!!</span>');
-                return false;
-            }
-        }
-        if ($('#email').val() !== '') {
-            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-                $('#email').after('<span class="error">* Type a valid email!!</span>');
-                return false;
-            }
-        }
-    }
-</script>
-
-<!-- Footer Section Begin -->
-<?php include'includes/footer.php';?>
-<!-- Footer Section End -->
+</html>
