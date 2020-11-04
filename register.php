@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
                     <div class="register-form">
                         <h2>Register</h2>
                         <hr>
-                        <form class="form-horizontal" onsubmit="return nullcheck();" action="" method="POST">
+                        <form class="form-horizontal" onsubmit="return nullcheck();" method="POST">
                             <div class="group-input">
                                 <label for="name"><i class="fa fa-user icon"></i> Your Name*</label>
                                 <input type="text" id="name" oninput="ontype();" name="name"

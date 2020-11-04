@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="style.css">
 
 <script type="text/javascript">
-  function myAlert() {
 
+  function myAlert() {
     swal({
       title: "Login Successfully",
       type: "success",
@@ -40,7 +40,7 @@
 </head>
 
 <body>
-  <?php include_once("dbcon.php");
+  <?php include("../dbCon.php");
 $conn =connect();
 if(isset($_POST["login"])){
 
@@ -68,10 +68,10 @@ $sql="SELECT * FROM admin where email ='$email' AND password='$password'";
       <h1>Admin Login Panel</h1>
     <div class="container">
       <label for="email"><b>Username</b></label>
-      <input type="email" placeholder="Enter Username" name="email" required>
+      <input type="email" id="email" placeholder="Enter Username" name="email" required>
 
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" id="password" placeholder="Enter Password" name="password" required>
 
       <button type="submit" name="login">Login</button>
     </div>
@@ -80,28 +80,3 @@ $sql="SELECT * FROM admin where email ='$email' AND password='$password'";
 </body>
 
 </html>
-
-<script>
-  function nullcheck() {
-
-    $(".error").remove();
-
-    if ($('#email').val() == '') {
-      $('#email').after('<span class="error">This field is required *</span>');
-      return false;
-    }
-
-    if ($('#password').val() == '') {
-      $('#password').after('<span class="error">This field is required *</span>');
-      return false;
-    }
-
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-
-      $('#email').after('<span class="error">Type a valid email!! *</span>');
-      return false;
-
-    }
-  }
-
-</script>

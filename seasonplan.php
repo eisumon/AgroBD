@@ -108,8 +108,7 @@ include'includes/navbar.php';
                                     <th>Duration</th>
                                 </tr>
                                 <tbody>
-                                    <?php 
-                                include("dbCon.php");
+                                <?php
                                 $conn = connect();
                                 if(!isset($_POST['submit'])){
                                 

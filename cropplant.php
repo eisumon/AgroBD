@@ -5,11 +5,11 @@ include_once("dbCon.php");
 $conn = connect();
 
 if (isset($_POST['submit'])){
-    $crop_name = $_POST['crop_name'];
     $cropProduction_name = $_POST['cropProduction_name'];
+    $crop_name = $_POST['crop_name'];
     $location = $_POST['location'];
 
-        $sql ="INSERT INTO crop_productions(crop_name, cropProduction_name, location) VALUES('$crop_name', '$cropProduction_name', '$location')";
+        $sql ="INSERT INTO crop_productions(cropProduction_name, crop_name,  location) VALUES('$cropProduction_name', '$crop_name',  '$location')";
         // echo $sql;
         // exit;
         if($conn->query($sql)){
@@ -51,24 +51,24 @@ if (isset($_POST['submit'])){
             <hr><br>
             <form method="POST" onsubmit="return nullcheck();">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="contact-widget">
-                            <div class="cw-item">
-                                <div class="ci-text">
-                                    <span class="cp_txt">Crop name:</span>
-                                    <input type="text" class="form-control cp_if" name="crop_name"
-                                        placeholder="Enter Crop name" autofocus>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-4 ">
                         <div class="contact-widget">
                             <div class="cw-item">
                                 <div class="ci-text">
                                     <span class="cp_txt">Crop Production name:</span>
                                     <input type="text" class="form-control cp_if" name="cropProduction_name"
-                                        placeholder="Enter production name">
+                                        placeholder="Enter production name" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-widget">
+                            <div class="cw-item">
+                                <div class="ci-text">
+                                    <span class="cp_txt">Crop name:</span>
+                                    <input type="text" class="form-control cp_if" name="crop_name"
+                                        placeholder="Enter Crop name">
                                 </div>
                             </div>
                         </div>
@@ -107,16 +107,14 @@ if (isset($_POST['submit'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#crop_name').val() == '') {
-                $('#crop_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
             if ($('#cropProduction_name').val() == '') {
                 $('#cropProduction_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
-
+            if ($('#crop_name').val() == '') {
+                $('#crop_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
             if ($('#location').val() == '') {
                 $('#location').after('<span class="error">* This field is required</span>');
                 return false;

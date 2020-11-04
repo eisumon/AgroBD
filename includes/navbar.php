@@ -218,7 +218,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li id="mBtn" class="cart-icon" title="Notification">
+                        <li id="userBtn" class="cart-icon" title="Notification">
                             <a href="#" title="User Profile">
                                 <i class=" icon_profile"></i>
                             </a>
@@ -234,3 +234,5 @@
     <!-- Last Header end -->
 </header>
 <!-- Header End -->
+
+<?php include "userProfile_modal.php"; ?>

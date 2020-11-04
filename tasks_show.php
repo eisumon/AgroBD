@@ -12,7 +12,7 @@ if (isset($_POST['submit'])){
     $categories = $_POST['categories'];
     $crp_name = $_POST['crp_name'];
 
-    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, crp_name) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name')";
+    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, crp_id) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
@@ -93,7 +93,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
-                                <td><?php echo $row["crp_name"]; ?></td>
+                                <td><?php echo $row["crp_id"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>

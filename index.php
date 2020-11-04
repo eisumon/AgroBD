@@ -1,7 +1,9 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
 ?>
+</head>
 
+<body>
 <?php if(isset($_SESSION['isLoggedIn'])){?>
 
 <!-- Hero Section Begin if logged in -->
@@ -236,75 +238,6 @@ include'includes/navbar.php';
 <?php include'includes/footer.php';?>
 <!-- Footer Section End -->
 
-<!-- The Modal box start -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <!-- Modal header -->
-        <div class="modal-header">
-            <h4>User Profile</h4>
-            <span class="close">&times;</span>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div class="container">
-                <form action="action_page.php">
-                    <div>
-                        <label for="fname">First Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Last Name:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Email Address:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your email.." disabled>
-                    </div>
-                    <div>
-                        <label for="fname">Phone Number:</label><br>
-                        <input type="text" id="fname" name="firstname" placeholder="Your Number.." disabled>
-                    </div>
-                    <br>
-                    <div class="sub"><input type="submit" value="Edit"></div>
+</body>
 
-                </form>
-            </div>
-        </div>
-        <!-- Modal body end -->
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <!-- <h3>Modal Footer</h3> -->
-        </div>
-        <!-- Modal footer end -->
-    </div>
-    <!-- Modal content end -->
-</div>
-<!-- The Modal box end -->
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("mBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
+</html>

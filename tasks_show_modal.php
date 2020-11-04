@@ -51,7 +51,6 @@
                                 <select id="crp_name" name="crp_name">
                                     <option value="">Select</option>
                                     <option value="something">Something</option>
-                                    <option value="something">Something</option>
                                 </select>
                             </div>
                         </div>
