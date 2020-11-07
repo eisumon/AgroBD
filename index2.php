@@ -23,7 +23,7 @@ include'includes/navbar.php';
                 <hr>
                 <div class="row sug_box">
                     <div class="col-md-6 sug_btn">
-                        <a href="fields.php"><i class="fa fa-link" aria-hidden="true"></i> Link field</a>
+                        <a href="fields.php"><i class="fa fa-link" aria-hidden="true"></i> Add Existing Field</a>
                     </div>
                     <div class="col-md-6 sug_btn">
                         <a href="fields.php"><i class="fa fa-plus" aria-hidden="true"></i> Create Field</a>

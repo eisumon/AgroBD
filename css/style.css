@@ -2192,7 +2192,9 @@ tr:nth-child(even) {
 	font-size: 16px;
 	font-weight: bold;
 }
-
+.select:hover{
+	color: darkgoldenrod;
+}
 /*---------------------
   Modal
 -----------------------*/

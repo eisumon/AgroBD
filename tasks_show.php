@@ -3,6 +3,7 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
 if (isset($_POST['submit'])){
 
     $task_name = $_POST['task_name'];
@@ -10,10 +11,10 @@ if (isset($_POST['submit'])){
     $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
-    $crp_name = $_POST['crp_name'];
+    $cropProduction_id = $_POST['cropProduction_id'];
 
-    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, crp_id) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name')";
-         //echo $sql;exit;
+    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, cropProduction_id, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$cropProduction_id', '$uid')";
+       //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
     } else{
@@ -82,7 +83,7 @@ if (isset($_GET['delete'])){
                         <tbody>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM tasks";
+                            $sql= "SELECT * FROM tasks WHERE uid = '$uid'";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -93,7 +94,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
-                                <td><?php echo $row["crp_id"]; ?></td>
+                                <td><?php echo $row["cropProduction_id"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>

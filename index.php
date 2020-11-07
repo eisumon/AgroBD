@@ -3,7 +3,7 @@ include'includes/navbar.php';
 ?>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".nav-menu">
 <?php if(isset($_SESSION['isLoggedIn'])){?>
 
 <!-- Hero Section Begin if logged in -->
@@ -57,11 +57,11 @@ include'includes/navbar.php';
 <!-- How It Works Section End -->
 
 <!-- Core Feature Section Begin-->
-<section class="spad deal_bg">
+<section id="feature" class="spad deal_bg">
     <div class="container">
         <div class="text-center core_fea">
             <div class="section-title">
-                <h2>Who Are You?</h2>
+                <h2>Our Features</h2>
                 <p>Whether you are a small or large farmer, looking for a tailor-made solution, we have one for you.
                     Powerful farm analytics let you make the right decisions at the right time. Say no to gut-feeling
                     decisions and welcome data-driven farm management.</p>
@@ -141,7 +141,7 @@ include'includes/navbar.php';
 <!-- Testimonial section End -->
 
 <!-- Latest Blog Section Begin -->
-<section class="latest-blog spad deal_bg">
+<section id="blog" class="latest-blog spad deal_bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

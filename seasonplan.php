@@ -94,11 +94,11 @@ include'includes/navbar.php';
                     <div class="">
                         <div class="seasonPlan-title">
                             <h4>Crop List</h4>
-                            <p>Select your crop</p>
+                            <p>Select your crop and start to create crop production</p>
                         </div>
                     </div><br>
                     <div class="seasonPlan-widget">
-                        <div class="tab" style="overflow-x:auto;">
+                        <div class="tab">
                             <table>
                                 <tr>
                                     <th>Crop Name</th>
@@ -106,6 +106,7 @@ include'includes/navbar.php';
                                     <th>Soil type</th>
                                     <th>Season</th>
                                     <th>Duration</th>
+                                    <th>Action</th>
                                 </tr>
                                 <tbody>
                                 <?php
@@ -136,6 +137,7 @@ include'includes/navbar.php';
                                         <td> <?php echo $soil_type; ?></td>
                                         <td> <?php echo $season; ?></td>
                                         <td> <?php echo $duration; ?></td>
+                                        <td><a class="select" href="cropplant?cropname=<?=$crop_name?>">Select</a></td>
                                     </tr>
                                     <?php 
                                 }

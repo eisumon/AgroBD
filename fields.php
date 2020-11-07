@@ -1,255 +1,175 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
+
+include_once("dbCon.php");
+$conn = connect();
+// $cropProduction_id = $_SESSION['cropProduction_id'];
+$uid = $_SESSION['uid'];
+
+if (isset($_POST['submit'])){
+
+    $field_name = $_POST['field_name'];
+    $location = $_POST['location'];
+    $usable_area = $_POST['usable_area'];
+    $soil_type = $_POST['soil_type'];
+    $ownership_type = $_POST['ownership_type'];
+
+    $sql ="INSERT INTO production_field(field_name, location, usable_area, soil_type, ownership_type, uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$uid')";
+    
+        //echo $sql;exit;
+    if($conn->query($sql)){
+
+    echo "<script>myAlert('Register New fields Successfully','success','fields');</script>";
+    } else{
+    echo "<script>myAlert(Register Not Successfully','error','fields');</script>";
+    }
+}    
+    
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $sql= "DELETE FROM production_field WHERE field_id=$id";
+    $resultt = $conn->query($sql);
+    
+    if($conn->query($sql)){
+        echo "<script>myAlert('Record Delete Successfully','success','fields');</script>";
+        } else{
+        echo "<script>myAlert(Record Delete Not Successfully','error','fields');</script>";
+        }
+}  
 ?>
+</head>
 
-<!-- Feature Section -->
-<section class="homenav">
+<body>
 
-    <!-- Inner Header start -->
-    <div class="container">
-        <div class="">
-            <h4 style="padding-bottom: 20px;">Production Name</h4>
-            <hr><br>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <!-- Nav bar start -->
-                    <div class="nav-item2">
-                        <div class="container">
-                            <!-- navigation bar start -->
-                            <nav class="nav-menu mobile-menu">
-                                <ul>
-                                    <li class="active"><a href="">Fields</a></li>
-                                    <li><a href="create_season.php">Create Seasons</a></li>
-                                    <li><a href="tasks.php">Tasks</a></li>
-                                    <li><a href="pest.php">Pest</a></li>
-                                </ul>
-                            </nav>
-                            <!-- navigation bar end -->
+    <!-- Feature Section -->
+    <section class="homenav">
+        <!-- Inner Header start -->
+        <div class="container">
+            <div class="">
+                <h4 style="padding-bottom: 20px;">
+                    <?php if(isset($_GET['production_name'])){ echo $_GET['production_name'];}; ?></h4>
+                <hr><br>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <!-- Nav bar start -->
+                        <div class="nav-item2">
+                            <div class="container">
+                                <!-- navigation bar start -->
+                                <nav class="nav-menu mobile-menu">
+                                    <ul>
+                                        <li class="active"><a href="">Fields</a></li>
+                                        <li><a href="createSeason.php">Create Seasons</a></li>
+                                        <li><a href="tasks.php">Tasks</a></li>
+                                        <li><a href="pest.php">Pest</a></li>
+                                    </ul>
+                                </nav>
+                                <!-- navigation bar end -->
+                            </div>
                         </div>
+                        <!-- Nav bar end -->
                     </div>
-                    <!-- Nav bar end -->
-                </div>
-                <!-- production box -->
-                <div class="col-lg-9 col-md-9 production_box">
-                    <!-- Essential button -->
-                    <button id="linkBtn"><i class="fa fa-link" aria-hidden="true"></i> Link field</button>
-                    <!-- The Modal box start -->
-                    <div id="linkModal" class="modal">
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <!-- Modal header -->
-                            <div class="modal-header">
-                                <h4>Link Field</h4>
-                                <span class="close1">&times;</span>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="action_page.php">
-                                        <div>
-                                            <label for="country">Field:</label><br>
-                                            <select id="country" name="country">
-                                                <option value="australia">Select Field</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label for="country">Useable area:</label>
-                                            <span>--</span>
-                                        </div>
-                                        <div>
-                                            <label for="country">Available area:</label>
-                                            <span>--</span>
-                                        </div>
-                                        <div>
-                                            <label for="country">Linked area:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                                                style="width:735px; float: left;">
+                    <!-- production box -->
+                    <div class="col-lg-9 col-md-9 production_box">
+                        <!-- Essential button -->
+                        <button id="linkBtn"><i class="fa fa-link" aria-hidden="true"></i> Add Existing Field</button>
+                        <button id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i> Create new field</button>
+                        <hr>
 
-                                            <select id="country" name="country"
-                                                style="width:150px; background-color: silver;">
-                                                <option value="australia">ha</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label for="linkdate">Link date:</label><br>
-                                            <input type="date" id="linkdate" name="linkdate">
-                                        </div>
-                                        <br>
-                                        <div class="sub"><input type="submit" value="Submit"></div>
-                                        <div class="res"><input type="reset" value="Reset"></div>
 
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Modal body end -->
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <!-- <h3>Modal Footer</h3> -->
-                            </div>
-                            <!-- Modal footer end -->
-                        </div>
-                        <!-- Modal content end -->
-                    </div>
-                    <!-- The Modal box end -->
 
-                    <button id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i> Create new field</button>
-                    <!-- The Modal box start -->
-                    <div id="myModal" class="modal">
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <!-- Modal header -->
-                            <div class="modal-header">
-                                <h4>Create Field</h4>
-                                <span class="close">&times;</span>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="action_page.php">
-                                        <div>
-                                            <label for="fname">Field Name:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                        </div>
-                                        <div>
-                                            <label for="fname">Location:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                                        </div>
-                                        <div>
-                                            <label for="country">Usable area:</label><br>
-                                            <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                                                style="width:735px; float: left;">
+                        <!-- Result Table -->
+                        <table id="example" class="display">
+                            <thead>
+                                <tr>
+                                    <th>Field Name:</th>
+                                    <th>Location:</th>
+                                    <th>Usable area:</th>
+                                    <th>Soil type:</th>
+                                    <th>Ownership type:</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php include_once("dbCon.php");
+                            $conn = connect();
+                            $sql= "SELECT * FROM production_field";
+                            $result = $conn->query($sql);
+                                while ($row = $result-> fetch_assoc()): 
+                            ?>
 
-                                            <select id="country" name="country"
-                                                style="width:150px; background-color: silver;">
-                                                <option value="australia">ha</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
+                                <tr>
+                                    <td><?php echo $row["field_name"]; ?></td>
+                                    <td><?php echo $row["location"]; ?></td>
+                                    <td><?php echo $row["usable_area"]; ?></td>
+                                    <td><?php echo $row["soil_type"]; ?></td>
+                                    <td><?php echo $row["ownership_type"]; ?></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                            <div class="dropdown-content">
+                                                <a href="fields_edit.php?edit=<?php echo $row['field_id'];?>"
+                                                    style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
+                                                    Edit</a>
+                                                <a href="fields.php?delete=<?php echo $row['field_id'];?>"
+                                                    style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                    Delete</a>
+                                            </div>
                                         </div>
-
-                                        <div>
-                                            <label for="country">Soil type:</label><br>
-                                            <select id="country" name="country">
-                                                <option value="australia">Australia</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label for="country">Ownership type:</label><br>
-                                            <select id="country" name="country">
-                                                <option value="australia">Australia</option>
-                                                <option value="canada">Canada</option>
-                                                <option value="usa">USA</option>
-                                            </select>
-                                        </div>
-                                        <br>
-                                        <div class="sub"><input type="submit" value="Submit"></div>
-                                        <div class="res"><input type="reset" value="Reset"></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Modal body end -->
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <!-- <h3>Modal Footer</h3> -->
-                            </div>
-                            <!-- Modal footer end -->
-                        </div>
-                        <!-- Modal content end -->
-                    </div>
-                    <!-- The Modal box end -->
-                    <hr>
-
-                    <!-- Filter Table -->
-                    <div class="tab_filter">
-                        <h5>Filter Search result </h5>
-                        <table class="filter">
-                            <tr>
-                                <th>Field Name:</th>
-                                <th>Location:</th>
-                                <th>Usable area:</th>
-                                <th>Soil type:</th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-filter fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td><i class="fa fa-map-marker fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td><i class="fa fa-map fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td><i class="fa fa-map fil_search"></i><select id="country" name="country">
-                                        <option value="">-</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td>
-                                    <button class="filter_btn" title="Filter"><i class="fa fa-filter"></i></button>
-                                    <button class="res_btn" title="Reset"><i class="fa fa-refresh"></i></button>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                                <?php endwhile;?>
+                            </tbody>
                         </table>
+                        <!-- Result Table End -->
                     </div>
-                    <hr><br>
-                    <!-- Filter Table end -->
-
-                    <!-- Result Table -->
-                    <div class="tab">
-                        <table>
-                            <tr>
-                                <th>Field Name:</th>
-                                <th>Location:</th>
-                                <th>Usable area: </th>
-                                <th>Soil type:</th>
-                                <th>Ownership type:</th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                        <div class="dropdown-content">
-                                            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> View
-                                                Details</a>
-                                            <a href="#" style="color: green;"><i class="fa fa-edit"
-                                                    aria-hidden="true"></i> Edit</a>
-                                            <a href="#" style="color: red;"><i class="fa fa-trash"
-                                                    aria-hidden="true"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- Result Table End -->
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Inner Header end -->
-</section>
+                <!-- Inner Header end -->
+    </section>
+    <!-- Feature Section end -->
 
+    <!-- Modal & Footer Section Begin -->
+    <?php 
+include'fields_modal.php';
+include'includes/footer.php';
+?>
+    <!-- Footer Section End -->
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
 
-<!-- Footer Section Begin -->
-<?php include'includes/footer.php';?>
-<!-- Footer Section End -->
+        function nullcheck() {
+
+            $(".error").remove();
+
+            $('#submit').removeAttr('disabled', true);
+
+            if ($('#field_name').val() == '') {
+                $('#field_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#location').val() == '') {
+                $('#location').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#usable_area').val() == '') {
+                $('#usable_area').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#soil_type').val() == '') {
+                $('#soil_type').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#ownership_type').val() == '') {
+                $('#ownership_type').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

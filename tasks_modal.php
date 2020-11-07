@@ -10,7 +10,7 @@
         <!-- Modal body -->
         <div class="modal-body">
             <div class="container">
-                <form onsubmit="return nullcheck();" action="" method="POST">
+                <form onsubmit="return nullcheck();" method="POST">
 
                     <div class="row">
                         <div class="col-md-5">
@@ -44,13 +44,6 @@
                                     <option value="">Select</option>
                                     <option value="planting">Planting</option>
                                     <option value="fertilizing">Fertilizing</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="cropProduction_id">Crop Production Name:</label><br>
-                                <select id="cropProduction_id" name="cropProduction_id">
-                                    <option value="">Select</option>
-                                    <option value=""><?php echo $row['production_name'];?></option>
                                 </select>
                             </div>
                         </div>

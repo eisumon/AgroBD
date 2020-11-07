@@ -52,16 +52,22 @@
                             <!-- navigation bar start -->
                             <nav class="nav-menu mobile-menu">
                                 <ul>
-                                    <li class="active"><a href="index.php">Home</a></li>
-                                    <li><a href="./blog.html">Features</a></li>
-                                    <li><a href="./blog.php">Blog</a></li>
-                                    <li><a href="./contact.php">Contact Us</a></li>
+
                                     <?php if(isset($_SESSION['isLoggedIn'])){?>
+                                    <li class="active"><a href="index.php">Home</a></li>
+                                    <li><a href="./contact.php">Contact Us</a></li>
+                                    <li><a href="./blog.php">Blog</a></li>
                                     <li><a href="seasonplan">Season Plan</a></li>
                                     <li><a href="cropplant">Create Production</a></li>
                                     <?php }else{ ?>
+                                    <li class="active"><a href="index.php">Home</a></li>
+                                    <li><a href="#feature">Features</a></li>
+                                    <li><a href="#blog">Blog</a></li>
+                                    <li><a href="./contact.php">Contact</a></li>
                                     <li><a href="./faq">Faq</a></li>
+                                    <li><a href="login.php">Log In</a></li>
                                     <a href="register.php" class="nav-primary-btn">Get Started</a>
+                                    
                                     <?php } ?>
                                 </ul>
                             </nav>
@@ -88,15 +94,7 @@
                             <!-- navigation bar start -->
                             <nav class="nav-menu mobile-menu">
                                 <ul>
-                                    <li><a href="#" style="padding-left: 0px;">Crop Management</a>
-                                        <ul class="dropdown">
-                                            <li style="border-bottom: 0.5px solid white;">
-                                                <a href="crop_production_list">Crop
-                                                    Productions</a>
-                                            </li>
-                                            <li><a href="index2.php">Dragon</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="crop_production_list" style="padding-left: 0px;">Crop Production List</a></li>
                                     <li><a href="tasks_show.php">Task</a></li>
                                     <li><a href="#">Finance</a>
                                         <ul class="dropdown">

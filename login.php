@@ -15,6 +15,7 @@ $result = $conn->query($sql);
             foreach($result as $row){
                     $_SESSION['email']=$row['email'];
                     $_SESSION['name']=$row['name'];
+                    $_SESSION['uid']=$row['uid'];
             }
             echo "<script>myAlert('Login Successfully', 'success', 'index');</script>";
             } else{

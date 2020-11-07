@@ -3,18 +3,20 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
 
 if (isset($_POST['submit'])){
     $cropProduction_name = $_POST['cropProduction_name'];
     $crop_name = $_POST['crop_name'];
     $location = $_POST['location'];
 
-        $sql ="INSERT INTO crop_productions(cropProduction_name, crop_name,  location) VALUES('$cropProduction_name', '$crop_name',  '$location')";
+        $sql ="INSERT INTO crop_productions(cropProduction_name, crop_name, location, uid) VALUES('$cropProduction_name', '$crop_name',  '$location', '$uid')";
         // echo $sql;
         // exit;
         if($conn->query($sql)){
 
-            echo "<script>myAlert('Crop Production is create successfully','success','fields');</script>";
+            echo "<script>myAlert('Crop Production is create successfully','success','fields?production_name=$cropProduction_name');</script>";
+        
             } else{
             echo "<script>myAlert('Crop Production is not create successfully','error','cropplant');</script>";
             }
@@ -56,7 +58,7 @@ if (isset($_POST['submit'])){
                             <div class="cw-item">
                                 <div class="ci-text">
                                     <span class="cp_txt">Crop Production name:</span>
-                                    <input type="text" class="form-control cp_if" name="cropProduction_name"
+                                    <input type="text" id="cropProduction_name" class="form-control cp_if" name="cropProduction_name"
                                         placeholder="Enter production name" autofocus>
                                 </div>
                             </div>
@@ -67,8 +69,8 @@ if (isset($_POST['submit'])){
                             <div class="cw-item">
                                 <div class="ci-text">
                                     <span class="cp_txt">Crop name:</span>
-                                    <input type="text" class="form-control cp_if" name="crop_name"
-                                        placeholder="Enter Crop name">
+                                    <input type="text" id="crop_name" class="form-control cp_if" name="crop_name"
+                                        placeholder="Enter Crop name"  value="<?php if(isset($_GET['cropname'])){ echo $_GET['cropname'];}; ?>">
                                 </div>
                             </div>
                         </div>
@@ -78,7 +80,7 @@ if (isset($_POST['submit'])){
                             <div class="cw-item">
                                 <div class="ci-text">
                                     <span class="cp_txt">Location:</span>
-                                    <input type="text" class="form-control cp_if" name="location"
+                                    <input type="text" id="location" class="form-control cp_if" name="location"
                                         placeholder="Enter Your Location">
                                 </div>
                             </div>

@@ -19,7 +19,7 @@ include'includes/navbar.php';
                             <nav class="nav-menu mobile-menu">
                                 <ul>
                                     <li><a href="fields.php">Fields</a></li>
-                                    <li><a href="create_season.php">Create Seasons</a></li>
+                                    <li><a href="createSeason.php">Create Seasons</a></li>
                                     <li><a href="tasks.php">Tasks</a></li>
                                     <li class="active"><a href="">Pest</a></li>
                                 </ul>
@@ -34,65 +34,48 @@ include'includes/navbar.php';
                     <button id="myBtn" style="float: none;">Start live chat</button>
                     <hr>
 
-                    <!-- Filter Table -->
-                    <div class="tab_filter">
-                        <h5>Filter Search result </h5>
-                        <table class="filter">
-                            <tr>
-                                <th>Pest Category:</th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-tag fil_search"></i><select id="country" name="country">
-                                        <option value="">All</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select></td>
-                                <td style="float: right;"><button class="filter_btn" title="Filter"><i class="fa fa-filter"></i></button>
-                                    <button class="res_btn" title="Reset"><i class="fa fa-refresh"></i></button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <hr><br>
-                    <!-- Filter Table end -->
-
                     <!-- Result Table -->
-                    <div class="tab">
-                        <table>
+                    <table id="example" class="display">
+                        <thead>
                             <tr>
                                 <th>Pests name:</th>
                                 <th>Type:</th>
                                 <th>Desciption:</th>
-                                <th></th>
                             </tr>
-                            <tr>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>Search result</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                        <div class="dropdown-content">
-                                            <a href="#" style="color: green;"><i class="fa fa-edit"
-                                                    aria-hidden="true"></i> Edit</a>
-                                            <a href="#" style="color: red;"><i class="fa fa-trash"
-                                                    aria-hidden="true"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                            <thead>
+                            <tbody>
+                                <?php include_once("dbCon.php");
+                            $conn = connect();
+                            $sql= "SELECT * FROM pests";
+                            $result = $conn->query($sql);
+                                while ($row = $result-> fetch_assoc()): 
+                            ?>
+                                <tr>
+                                    <td><?php echo $row["pests_name"]; ?></td>
+                                    <td><?php echo $row["pests_type"]; ?></td>
+                                    <td><?php echo $row["description"]; ?></td>
+                                    
+                                </tr>
+                                <?php endwhile;?>
+                            </tbody>
+                    </table>
                     <!-- Result Table End -->
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Inner Header end -->
+            <!-- Inner Header end -->
 </section>
 
 
 <!-- Footer Section Begin -->
 <?php include'includes/footer.php';?>
 <!-- Footer Section End -->
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+
+</body>
+
+</html>

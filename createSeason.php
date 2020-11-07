@@ -5,37 +5,37 @@ include_once("dbCon.php");
 $conn = connect();
 $uid = $_SESSION['uid'];
 if (isset($_POST['submit'])){
-
-    $task_name = $_POST['task_name'];
-    $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
+    $seasonName = $_POST['seasonName'];
+    $startDate = $_POST['startDate'];
+    $endDate = $_POST['endDate'];
     $status = $_POST['status'];
-    $categories = $_POST['categories'];
+    $expectedYield = $_POST['expectedYield'];
 
-    $sql ="INSERT INTO production_tasks(task_name, start_date, end_date, status, categories, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$uid')";
+    $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, uid) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$uid')";
        //  echo $sql;exit;
     if($conn->query($sql)){
-    echo "<script>myAlert('New Task Create Successfully','success','tasks');</script>";
+    echo "<script>myAlert('New Task Create Successfully','success','createSeason');</script>";
     } else{
-    echo "<script>myAlert(Task Create Not Successfull','error','tasks');</script>";
+    echo "<script>myAlert(Task Create Not Successfull','error','createSeason');</script>";
     }
 }
 
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $sql= "DELETE FROM production_tasks WHERE task_id=$id";
+    $sql= "DELETE FROM create_seasons WHERE createSeason_id=$id";
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
-    echo "<script>myAlert('Record Delete Successfully','success','tasks');</script>";
+    echo "<script>myAlert('Record Delete Successfully','success','createSeason');</script>";
     } else{
-    echo "<script>myAlert(Record Delete Not Successfully','error','tasks');</script>";
+    echo "<script>myAlert(Record Delete Not Successfully','error','createSeason');</script>";
     }
 }  
 ?>
 </head>
 
 <body>
+
     <!-- Feature Section -->
     <section class="homenav">
 
@@ -53,8 +53,8 @@ if (isset($_GET['delete'])){
                                 <nav class="nav-menu mobile-menu">
                                     <ul>
                                         <li><a href="fields.php">Fields</a></li>
-                                        <li><a href="createSeason.php">Create Seasons</a></li>
-                                        <li class="active"><a href="">Tasks</a></li>
+                                        <li class="active"><a href="">Create Seasons</a></li>
+                                        <li><a href="tasks.php">Tasks</a></li>
                                         <li><a href="pest.php">Pest</a></li>
                                     </ul>
                                 </nav>
@@ -65,9 +65,10 @@ if (isset($_GET['delete'])){
                     </div>
                     <div class="col-lg-9 col-md-9 production_box">
                         <!-- Essential button -->
-                        <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create new
-                            tasks</button>
+                        <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
+                            Season</button>
                         <hr>
+
                         <!-- Result Table -->
                         <table id="example" class="display">
                             <thead>
@@ -75,33 +76,33 @@ if (isset($_GET['delete'])){
                                     <th>Task Name:</th>
                                     <th>Start date: </th>
                                     <th>End date:</th>
+                                    <th>Expected Yield:</th>
                                     <th>status: </th>
-                                    <th>Categories:</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM production_tasks WHERE uid = '$uid'";
+                            $sql= "SELECT * FROM create_seasons WHERE uid = '$uid'";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
 
                                 <tr>
-                                    <td><?php echo $row["task_name"]; ?></td>
-                                    <td><?php echo $row["start_date"]; ?></td>
-                                    <td><?php echo $row["end_date"]; ?></td>
+                                    <td><?php echo $row["seasonName"]; ?></td>
+                                    <td><?php echo $row["startDate"]; ?></td>
+                                    <td><?php echo $row["endDate"]; ?></td>
                                     <td><?php echo $row["status"]; ?></td>
-                                    <td><?php echo $row["categories"]; ?></td>
+                                    <td><?php echo $row["expectedYield"]; ?></td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="dropbtn"><i class="fa fa-bars"></i></button>
                                             <div class="dropdown-content">
-                                                <a href="tasks_edit.php?edit=<?php echo $row['task_id'];?>"
+                                                <a href="createSeason_edit.php?edit=<?php echo $row['createSeason_id'];?>"
                                                     style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
                                                     Edit</a>
-                                                <a href="tasks.php?delete=<?php echo $row['task_id'];?>"
+                                                <a href="createSeason.php?delete=<?php echo $row['createSeason_id'];?>"
                                                     style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
                                                     Delete</a>
                                             </div>
@@ -120,10 +121,11 @@ if (isset($_GET['delete'])){
 
     <!-- Modal & Footer Section Begin -->
     <?php 
-        include'tasks_modal.php';
+        include'createSeason_modal.php';
         include'includes/footer.php';
     ?>
     <!-- Modal & Footer Section End -->
+
 
     <script>
         $(document).ready(function () {
@@ -136,18 +138,18 @@ if (isset($_GET['delete'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#task_name').val() == '') {
-                $('#task_name').after('<span class="error">* This field is required</span>');
+            if ($('#seasonName').val() == '') {
+                $('#seasonName').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#start_date').val() == '') {
-                $('#start_date').after('<span class="error">* This field is required</span>');
+            if ($('#startDate').val() == '') {
+                $('#startDate').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#end_date').val() == '') {
-                $('#end_date').after('<span class="error">* This field is required</span>');
+            if ($('#endDate').val() == '') {
+                $('#endDate').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
@@ -156,25 +158,9 @@ if (isset($_GET['delete'])){
                 return false;
             }
 
-            if ($('#categories').val() == '') {
-                $('#categories').after('<span class="error">* This field is required</span>');
+            if ($('#expectedYield').val() == '') {
+                $('#expectedYield').after('<span class="error">* This field is required</span>');
                 return false;
-            }
-
-            if ($('#crp_name').val() == '') {
-                $('#crp_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-        }
-
-        function ontype() {
-            $(".error").remove();
-
-            if ($('#task_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#task_name").val())) {
-                    $('#task_name').after('<span class="error">*Task name can not be numeric!!</span>');
-                    return false;
-                }
             }
         }
     </script>
