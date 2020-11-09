@@ -3,8 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-// $cropProduction_id = $_SESSION['cropProduction_id'];
-$uid = $_SESSION['uid'];
+$production_id = $_SESSION['production_id'];
+//echo $production_id;exit;
 
 if (isset($_POST['submit'])){
 
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])){
     $soil_type = $_POST['soil_type'];
     $ownership_type = $_POST['ownership_type'];
 
-    $sql ="INSERT INTO production_field(field_name, location, usable_area, soil_type, ownership_type, uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$uid')";
+    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id')";
     
         //echo $sql;exit;
     if($conn->query($sql)){
@@ -23,11 +23,19 @@ if (isset($_POST['submit'])){
     } else{
     echo "<script>myAlert(Register Not Successfully','error','fields');</script>";
     }
+   
 }    
+
+if(isset($_SESSION['production_id'])){ 
+    $id = $_SESSION['production_id'];
+    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
+    $result = $conn->query($sql);
+    $row = $result-> fetch_assoc();
+}
     
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $sql= "DELETE FROM production_field WHERE field_id=$id";
+    $sql= "DELETE FROM fields WHERE f_id=$id";
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -47,7 +55,7 @@ if (isset($_GET['delete'])){
         <div class="container">
             <div class="">
                 <h4 style="padding-bottom: 20px;">
-                    <?php if(isset($_GET['production_name'])){ echo $_GET['production_name'];}; ?></h4>
+                    <?php  echo $row['cropProduction_name'];?></h4>
                 <hr><br>
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
@@ -90,9 +98,8 @@ if (isset($_GET['delete'])){
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php include_once("dbCon.php");
-                            $conn = connect();
-                            $sql= "SELECT * FROM production_field";
+                                <?php 
+                            $sql= "SELECT * FROM fields WHERE cropProduction_id = $production_id ";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -107,10 +114,10 @@ if (isset($_GET['delete'])){
                                         <div class="dropdown">
                                             <button class="dropbtn"><i class="fa fa-bars"></i></button>
                                             <div class="dropdown-content">
-                                                <a href="fields_edit.php?edit=<?php echo $row['field_id'];?>"
+                                                <a href="fields_edit.php?edit=<?php echo $row['f_id'];?>"
                                                     style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
                                                     Edit</a>
-                                                <a href="fields.php?delete=<?php echo $row['field_id'];?>"
+                                                <a href="fields.php?delete=<?php echo $row['f_id'];?>"
                                                     style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
                                                     Delete</a>
                                             </div>

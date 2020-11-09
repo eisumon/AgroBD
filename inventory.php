@@ -3,6 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
+
 if (isset($_POST['submit'])){
 
     $item_name = $_POST['item_name'];
@@ -10,7 +12,7 @@ if (isset($_POST['submit'])){
     $quantity = $_POST['quantity'];
     $date = $_POST['date'];
 
-    $sql ="INSERT INTO inventory(item_name, category, quantity, date) VALUES('$item_name', '$category', '$quantity','$date')";
+    $sql ="INSERT INTO inventory(item_name, category, quantity, date, uid) VALUES('$item_name', '$category', '$quantity','$date', '$uid')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('Inventory Record Create Successfully','success','inventory');</script>";

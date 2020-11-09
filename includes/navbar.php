@@ -94,7 +94,7 @@
                             <!-- navigation bar start -->
                             <nav class="nav-menu mobile-menu">
                                 <ul>
-                                    <li><a href="crop_production_list" style="padding-left: 0px;">Crop Production List</a></li>
+                                    <li><a href="cropProductionLists" style="padding-left: 0px;">Crop Production List</a></li>
                                     <li><a href="tasks_show.php">Task</a></li>
                                     <li><a href="#">Finance</a>
                                         <ul class="dropdown">
@@ -110,7 +110,7 @@
                                             <li><a href="fieldsShow.php">Fields</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="fields">Dashboard</a></li>
+                                    <li><a href="">Dashboard</a></li>
                                 </ul>
                             </nav>
                             <!-- navigation bar end -->

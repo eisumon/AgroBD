@@ -126,13 +126,6 @@ if (isset($_POST['update'])){
                     return false;
                 }
             }
-
-            // if ($('#email').val() !== '') {
-            //     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())) {
-            //         $('#email').after('<span class="error">* Type a valid email!!</span>');
-            //         return false;
-            //     }
-            // }
         }
     </script>
 </body>

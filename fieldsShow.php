@@ -3,6 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
+
 if (isset($_POST['submit'])){
 
     $field_name = $_POST['field_name'];
@@ -11,7 +13,7 @@ if (isset($_POST['submit'])){
     $soil_type = $_POST['soil_type'];
     $ownership_type = $_POST['ownership_type'];
 
-    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type')";
+    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$uid')";
     
         //echo $sql;exit;
     if($conn->query($sql)){

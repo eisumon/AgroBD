@@ -3,6 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
+
 if (isset($_POST['submit'])){
 
     $fname = $_POST['firstname'];
@@ -19,7 +21,7 @@ if (isset($_POST['submit'])){
     if($result->num_rows>0){
         echo"<script>myAlert('Register Not Successfully. This phone number is already added. Try with another number.','error','workers');</script>";
     }else{
-        $sql ="INSERT INTO workers(fname, lname, gender, city, address, phone, role) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role')";
+        $sql ="INSERT INTO workers(fname, lname, gender, city, address, phone, role, uid) VALUES('$fname', '$lname', '$gender', '$city', '$address', '$phone', '$role', '$uid')";
     
         //echo $sql;exit;
         if($conn->query($sql)){

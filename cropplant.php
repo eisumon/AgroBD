@@ -11,11 +11,11 @@ if (isset($_POST['submit'])){
     $location = $_POST['location'];
 
         $sql ="INSERT INTO crop_productions(cropProduction_name, crop_name, location, uid) VALUES('$cropProduction_name', '$crop_name',  '$location', '$uid')";
-        // echo $sql;
-        // exit;
         if($conn->query($sql)){
+            $last_id = $conn->insert_id;
+          //  echo $last_id;exit;
 
-            echo "<script>myAlert('Crop Production is create successfully','success','fields?production_name=$cropProduction_name');</script>";
+            echo "<script>myAlert('Crop Production is create successfully','success','sessionData?view=$last_id');</script>";
         
             } else{
             echo "<script>myAlert('Crop Production is not create successfully','error','cropplant');</script>";

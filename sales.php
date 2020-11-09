@@ -3,6 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
+
 if (isset($_POST['submit'])){
 
     $item_name = $_POST['item_name'];
@@ -14,7 +16,7 @@ if (isset($_POST['submit'])){
     $customer_name = $_POST['customer_name'];
     $customer_no = $_POST['customer_no'];
 
-    $sql ="INSERT INTO sales(item_name, category, quantity, net_amount, invoice_no, date, customer_name, customer_no) VALUES('$item_name', '$category', '$quantity', '$net_amount', '$invoice_no', '$date', '$customer_name', '$customer_no')";
+    $sql ="INSERT INTO sales(item_name, category, quantity, net_amount, invoice_no, date, customer_name, customer_no, uid) VALUES('$item_name', '$category', '$quantity', '$net_amount', '$invoice_no', '$date', '$customer_name', '$customer_no', '$uid')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('Sales Record Create Successfull','success','sales');</script>";

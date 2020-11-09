@@ -3,7 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-$uid = $_SESSION['uid'];
+$production_id = $_SESSION['production_id'];
+
 if (isset($_POST['submit'])){
 
     $task_name = $_POST['task_name'];
@@ -13,7 +14,7 @@ if (isset($_POST['submit'])){
     $categories = $_POST['categories'];
     $cropProduction_id = $_POST['cropProduction_id'];
 
-    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, cropProduction_id, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$cropProduction_id', '$uid')";
+    $sql ="INSERT INTO production_tasks(task_name, start_date, end_date, status, categories, cropProduction_id) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$production_id')";
        //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
@@ -22,9 +23,16 @@ if (isset($_POST['submit'])){
     }
 }
 
+if(isset($_SESSION['production_id'])){ 
+    $id = $_SESSION['production_id'];
+    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
+    $result = $conn->query($sql);
+    $row = $result-> fetch_assoc();
+}
+
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $sql= "DELETE FROM tasks WHERE t_id=$id";
+    $sql= "DELETE FROM production_tasks WHERE task_id=$id";
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -76,14 +84,14 @@ if (isset($_GET['delete'])){
                                 <th>End date:</th>
                                 <th>status: </th>
                                 <th>Categories:</th>
-                                <th>Production name:</th>
+                                <th>Production Name:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM tasks WHERE uid = '$uid'";
+                            $sql= "SELECT * FROM production_tasks";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -94,15 +102,15 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
-                                <td><?php echo $row["cropProduction_id"]; ?></td>
+                                <td><?php echo $row["cropProduction_name"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="tasks_show_edit.php?edit=<?php echo $row['t_id'];?>"
+                                            <a href="tasks_show_edit.php?edit=<?php echo $row['task_id'];?>"
                                                 style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
                                                 Edit</a>
-                                            <a href="tasks_show.php?delete=<?php echo $row['t_id'];?>"
+                                            <a href="tasks_show.php?delete=<?php echo $row['task_id'];?>"
                                                 style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
                                                 Delete</a>
                                         </div>

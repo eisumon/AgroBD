@@ -6,7 +6,7 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM production_field WHERE field_id=$id";
+    $sql= "SELECT * FROM fields WHERE f_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
@@ -18,14 +18,14 @@ if (isset($_GET['edit'])){
 }
 
 if (isset($_POST['update'])){
-    $id = $_POST['field_id'];
+    $id = $_POST['f_id'];
     $field_name = $_POST['field_name'];
     $location = $_POST['location'];
     $usable_area = $_POST['usable_area'];
     $soil_type = $_POST['soil_type'];
     $ownership_type = $_POST['ownership_type'];
     
-    $sql= "UPDATE production_field SET field_name= '$field_name', location= '$location', usable_area= '$usable_area', soil_type= '$soil_type', ownership_type= '$ownership_type'  WHERE field_id=$id";
+    $sql= "UPDATE fields SET field_name= '$field_name', location= '$location', usable_area= '$usable_area', soil_type= '$soil_type', ownership_type= '$ownership_type'  WHERE f_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -66,7 +66,7 @@ if (isset($_POST['update'])){
             <h3 style="text-align: center; color:#3D9E0F;">Edit Field</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" action="" method="POST">
-                        <input type="hidden" name="field_id" value="<?=$id; ?>">
+                        <input type="hidden" name="f_id" value="<?=$id; ?>">
                         <div>
                             <label for="field_name">Field Name:</label><br>
                             <input type="text" id="field_name" name="field_name" value="<?=$field_name; ?>"

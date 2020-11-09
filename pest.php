@@ -1,5 +1,16 @@
 <?php include'includes/head.php';
 include'includes/navbar.php';
+
+include_once("dbCon.php");
+$conn = connect();
+$production_id = $_SESSION['production_id'];
+
+if(isset($_SESSION['production_id'])){ 
+    $id = $_SESSION['production_id'];
+    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
+    $result = $conn->query($sql);
+    $row = $result-> fetch_assoc();
+}
 ?>
 
 <!-- Feature Section -->
@@ -8,7 +19,7 @@ include'includes/navbar.php';
     <!-- Inner Header start -->
     <div class="container">
         <div class="">
-            <h4 style="padding-bottom: 20px;">Production Name</h4>
+            <h4 style="padding-bottom: 20px;"><?php  echo $row['cropProduction_name'];?></h4>
             <hr><br>
             <div class="row">
                 <div class="col-lg-3 col-md-3">
@@ -44,8 +55,7 @@ include'includes/navbar.php';
                             </tr>
                             <thead>
                             <tbody>
-                                <?php include_once("dbCon.php");
-                            $conn = connect();
+                                <?php
                             $sql= "SELECT * FROM pests";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 

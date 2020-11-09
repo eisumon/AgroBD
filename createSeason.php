@@ -3,7 +3,8 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-$uid = $_SESSION['uid'];
+$production_id = $_SESSION['production_id'];
+
 if (isset($_POST['submit'])){
     $seasonName = $_POST['seasonName'];
     $startDate = $_POST['startDate'];
@@ -11,13 +12,20 @@ if (isset($_POST['submit'])){
     $status = $_POST['status'];
     $expectedYield = $_POST['expectedYield'];
 
-    $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, uid) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$uid')";
+    $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, cropProduction_id) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$production_id')";
        //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','createSeason');</script>";
     } else{
     echo "<script>myAlert(Task Create Not Successfull','error','createSeason');</script>";
     }
+}
+
+if(isset($_SESSION['production_id'])){ 
+    $id = $_SESSION['production_id'];
+    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
+    $result = $conn->query($sql);
+    $row = $result-> fetch_assoc();
 }
 
 if (isset($_GET['delete'])){
@@ -42,7 +50,7 @@ if (isset($_GET['delete'])){
         <!-- Inner Header start -->
         <div class="container">
             <div class="">
-                <h4 style="padding-bottom: 20px;">Production Name</h4>
+                <h4 style="padding-bottom: 20px;"><?php  echo $row['cropProduction_name'];?></h4>
                 <hr><br>
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
@@ -82,9 +90,8 @@ if (isset($_GET['delete'])){
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php include_once("dbCon.php");
-                            $conn = connect();
-                            $sql= "SELECT * FROM create_seasons WHERE uid = '$uid'";
+                                <?php
+                            $sql= "SELECT * FROM create_seasons WHERE cropProduction_id = $production_id ";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>

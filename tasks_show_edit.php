@@ -6,7 +6,7 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM tasks WHERE t_id=$id";
+    $sql= "SELECT * FROM production_tasks WHERE task_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
@@ -15,11 +15,10 @@ if (isset($_GET['edit'])){
     $end_date = $row['end_date'];
     $status = $row['status'];
     $categories = $row['categories'];
-    $crp_name = $row['crp_name'];
 }
 
 if (isset($_POST['update'])){
-    $id = $_POST['t_id'];
+    $id = $_POST['task_id'];
     $task_name = $_POST['task_name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
@@ -27,7 +26,7 @@ if (isset($_POST['update'])){
     $categories = $_POST['categories'];
     $crp_name = $_POST['crp_name'];
     
-    $sql= "UPDATE tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories', crp_name= '$crp_name' WHERE t_id=$id";
+    $sql= "UPDATE production_tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories' WHERE task_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -66,7 +65,7 @@ if (isset($_POST['update'])){
                 <h3 style="text-align: center; color:#3D9E0F;">Edit Task</h3><br>
                 <div class="container">
                     <form onsubmit="return nullcheck();" action="" method="POST">
-                        <input type="hidden" name="t_id" value="<?=$id; ?>">
+                        <input type="hidden" name="task_id" value="<?=$id; ?>">
                         <div>
                             <label for="task_name">Task Name:</label><br>
                             <input type="text" id="task_name" name="task_name" oninput="ontype();" value="<?=$task_name; ?>">

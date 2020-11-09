@@ -3,22 +3,29 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-$uid = $_SESSION['uid'];
-if (isset($_POST['submit'])){
+$production_id = $_SESSION['production_id'];
 
+if (isset($_POST['submit'])){
     $task_name = $_POST['task_name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
 
-    $sql ="INSERT INTO production_tasks(task_name, start_date, end_date, status, categories, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$uid')";
+    $sql ="INSERT INTO production_tasks(task_name, start_date, end_date, status, categories, cropProduction_id) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$production_id')";
        //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks');</script>";
     } else{
     echo "<script>myAlert(Task Create Not Successfull','error','tasks');</script>";
     }
+}
+
+if(isset($_SESSION['production_id'])){ 
+    $id = $_SESSION['production_id'];
+    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
+    $result = $conn->query($sql);
+    $row = $result-> fetch_assoc();
 }
 
 if (isset($_GET['delete'])){
@@ -42,7 +49,7 @@ if (isset($_GET['delete'])){
         <!-- Inner Header start -->
         <div class="container">
             <div class="">
-                <h4 style="padding-bottom: 20px;">Production Name</h4>
+                <h4 style="padding-bottom: 20px;"><?php  echo $row['cropProduction_name'];?></h4>
                 <hr><br>
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
@@ -81,9 +88,8 @@ if (isset($_GET['delete'])){
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php include_once("dbCon.php");
-                            $conn = connect();
-                            $sql= "SELECT * FROM production_tasks WHERE uid = '$uid'";
+                                <?php
+                            $sql= "SELECT * FROM production_tasks WHERE cropProduction_id = $production_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
