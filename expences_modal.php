@@ -47,6 +47,13 @@
                                 <label for="date">Date:</label><br>
                                 <input type="date" id="date" name="date">
                             </div>
+                            <div>
+                                <label for="cropProduction_id">Crop Production Name:</label><br>
+                                <select id="cropProduction_id" name="cropProduction_id">
+                                    <option value="">Select</option>
+                                    <option value=""><?php echo $row['production_name'];?></option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <br>

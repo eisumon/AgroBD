@@ -2664,10 +2664,13 @@ input[type=reset] {
 }
 
 .fin_body_box img,
-h5,
 p,
 a {
 	padding-bottom: 20px;
+}
+
+.fin_body_box h5{
+	padding-bottom: 50px;
 }
 
 .fin_body_box a {

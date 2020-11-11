@@ -3,7 +3,6 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-$production_id = $_SESSION['production_id'];
 
 if (isset($_POST['submit'])){
 

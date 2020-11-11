@@ -49,7 +49,7 @@ $result = $conn->query($sql);
                     <div class="login-form">
                         <h2>Login</h2>
                         <hr>
-                        <form action="" onsubmit="return nullcheck();" method="POST">
+                        <form onsubmit="return nullcheck();" method="POST">
                             <div class="group-input">
                                 <label for="email"><i class="fa fa-envelope icon"></i> Email address</label>
                                 <input type="text" id="email" name="email" placeholder="Enter your email address"

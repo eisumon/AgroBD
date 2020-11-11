@@ -16,15 +16,12 @@ if (isset($_POST['submit'])){
 
     $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id')";
     
-        //echo $sql;exit;
     if($conn->query($sql)){
-
     echo "<script>myAlert('Register New fields Successfully','success','fields');</script>";
     } else{
     echo "<script>myAlert(Register Not Successfully','error','fields');</script>";
     }
-   
-}    
+}
 
 if(isset($_SESSION['production_id'])){ 
     $id = $_SESSION['production_id'];

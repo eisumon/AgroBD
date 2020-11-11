@@ -73,6 +73,7 @@ if (isset($_GET['delete'])){
                                 <th>Net amount (tk):</th>
                                 <th>Invoice No:</th>
                                 <th>Date:</th>
+                                <th>Production Name:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -90,6 +91,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["net_amount"]; ?></td>
                                 <td><?php echo $row["invoice_no"]; ?></td>
                                 <td><?php echo $row["date"]; ?></td>
+                                <td></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
