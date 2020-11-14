@@ -56,13 +56,11 @@
                                     <?php if(isset($_SESSION['isLoggedIn'])){?>
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="./contact.php">Contact Us</a></li>
-                                    <li><a href="./blog.php">Blog</a></li>
                                     <li><a href="seasonplan">Season Plan</a></li>
                                     <li><a href="cropplant">Create Production</a></li>
                                     <?php }else{ ?>
                                     <li class="active"><a href="index.php">Home</a></li>
                                     <li><a href="#feature">Features</a></li>
-                                    <li><a href="#blog">Blog</a></li>
                                     <li><a href="./contact.php">Contact</a></li>
                                     <li><a href="./faq">Faq</a></li>
                                     <li><a href="login.php">Log In</a></li>

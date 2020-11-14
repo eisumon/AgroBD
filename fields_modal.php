@@ -12,12 +12,26 @@
             <div class="container">
                 <form action="">
                     <div>
+                        <?php
+include_once("dbCon.php");
+$conn = connect();
+$uid = $_SESSION['uid'];
+$sql= "SELECT * FROM fields WHERE uid=$uid";
+
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+?>
                         <label for="">Choose Existing Field:</label><br>
                         <select id="" name="">
-                            <option value="">Select Field</option>
-                            <option value="">Field 1</option>
-                            <option value="">Field 2</option>
-                        </select>
+                            <option value="<?=$row['id']?>">Select Field</option>
+                            <?php 
+                            
+                            foreach($row as $field){
+                                <option value="<?=$row['id']?>">Select Field</option>
+
+                            };
+                            ?>
+{}                        </select>
                     </div>
                     <br>
                     <div class="sub"><input type="submit" value="Save"></div>

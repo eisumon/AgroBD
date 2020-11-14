@@ -4,6 +4,7 @@ include'includes/navbar.php';
 include_once("dbCon.php");
 $conn = connect();
 $production_id = $_SESSION['production_id'];
+$uid = $_SESSION['uid'];
 //echo $production_id;exit;
 
 if (isset($_POST['submit'])){
@@ -14,7 +15,7 @@ if (isset($_POST['submit'])){
     $soil_type = $_POST['soil_type'];
     $ownership_type = $_POST['ownership_type'];
 
-    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id')";
+    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id,uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id','$uid')";
     
     if($conn->query($sql)){
     echo "<script>myAlert('Register New fields Successfully','success','fields');</script>";

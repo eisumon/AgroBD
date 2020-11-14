@@ -41,9 +41,6 @@ if(isset($_SESSION['production_id'])){
                     <!-- Nav bar end -->
                 </div>
                 <div class="col-lg-9 col-md-9 production_box">
-                    <!-- Essential button -->
-                    <button id="myBtn" style="float: none;">Start live chat</button>
-                    <hr>
 
                     <!-- Result Table -->
                     <table id="example" class="display">

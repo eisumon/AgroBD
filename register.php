@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
 
     $sql="SELECT email FROM users WHERE email='$email'";
     $result = $conn->query($sql);
-                    //  print_r($result);
+    //  print_r($result);
     if($result->num_rows>0){
 
         echo "<script>myAlert('This email has already registered. Try with another email.', 'error', 'register');</script>";
