@@ -18,11 +18,11 @@ if (isset($_POST['submit'])){
         //echo $sql;exit;
     if($conn->query($sql)){
 
-    echo "<script>myAlert('Register New fields Successfully','success','fieldsShow');</script>";
+    echo "<script>myAlert('Register New Fields Successfully','success','fieldsShow');</script>";
     } else{
     echo "<script>myAlert(Register Not Successfully','error','fieldsShow');</script>";
     }
-}    
+}
     
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];

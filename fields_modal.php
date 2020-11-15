@@ -1,3 +1,11 @@
+<?php
+include_once("dbCon.php");
+$conn = connect();
+$uid = $_SESSION['uid'];
+
+$sql= "SELECT * FROM fields WHERE uid=$uid  AND cropProduction_id IS NULL";
+$row = $conn->query($sql);
+?>
 <!-- The Modal box start -->
 <div id="linkModal" class="modal">
     <!-- Modal content -->
@@ -10,32 +18,21 @@
         <!-- Modal body -->
         <div class="modal-body">
             <div class="container">
-                <form action="">
+                <form action="" method="POST">
                     <div>
-                        <?php
-include_once("dbCon.php");
-$conn = connect();
-$uid = $_SESSION['uid'];
-$sql= "SELECT * FROM fields WHERE uid=$uid";
-
-$result = $conn->query($sql);
-$row = $result-> fetch_assoc();
-?>
-                        <label for="">Choose Existing Field:</label><br>
-                        <select id="" name="">
-                            <option value="<?=$row['id']?>">Select Field</option>
+                        <label for="select_field">Choose Existing Field:</label><br>
+                        <select id="select_field" name="select_field">
+                            <option>Select Field</option>
                             <?php 
-                            
                             foreach($row as $field){
-                                <option value="<?=$row['id']?>">Select Field</option>
-
-                            };
                             ?>
-{}                        </select>
+                            <option value="<?=$field['f_id']?>"><?=$field['field_name']?></option>
+                            <?php } ?>
+
+                        </select>
                     </div>
                     <br>
-                    <div class="sub"><input type="submit" value="Save"></div>
-
+                    <div class="sub"><input type="submit" value="Save" name="save"></div>
                 </form>
             </div>
         </div>
@@ -62,7 +59,7 @@ $row = $result-> fetch_assoc();
         <!-- Modal body -->
         <div class="modal-body">
             <div class="container">
-                <form onsubmit="return nullcheck();" action="" method="POST">
+                <form onsubmit="return nullcheck();" method="POST">
                     <div>
                         <label for="field_name">Field Name:</label><br>
                         <input type="text" id="field_name" name="field_name" placeholder=" Enter field name">

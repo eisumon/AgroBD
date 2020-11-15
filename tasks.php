@@ -72,7 +72,7 @@ if (isset($_GET['delete'])){
                     </div>
                     <div class="col-lg-9 col-md-9 production_box">
                         <!-- Essential button -->
-                        <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create new
+                        <button id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i> Create new
                             tasks</button>
                         <hr>
                         <!-- Result Table -->

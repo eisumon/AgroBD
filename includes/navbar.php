@@ -108,7 +108,7 @@
                                             <li><a href="fieldsShow.php">Fields</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="">Dashboard</a></li>
+                                    <li><a href="dashboard.php">Dashboard</a></li>
                                 </ul>
                             </nav>
                             <!-- navigation bar end -->

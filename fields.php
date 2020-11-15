@@ -5,7 +5,6 @@ include_once("dbCon.php");
 $conn = connect();
 $production_id = $_SESSION['production_id'];
 $uid = $_SESSION['uid'];
-//echo $production_id;exit;
 
 if (isset($_POST['submit'])){
 
@@ -15,7 +14,7 @@ if (isset($_POST['submit'])){
     $soil_type = $_POST['soil_type'];
     $ownership_type = $_POST['ownership_type'];
 
-    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id,uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id','$uid')";
+    $sql ="INSERT INTO fields(field_name, location, usable_area, soil_type, ownership_type, cropProduction_id, uid) VALUES('$field_name', '$location', '$usable_area', '$soil_type', '$ownership_type', '$production_id','$uid')";
     
     if($conn->query($sql)){
     echo "<script>myAlert('Register New fields Successfully','success','fields');</script>";
@@ -41,7 +40,22 @@ if (isset($_GET['delete'])){
         } else{
         echo "<script>myAlert(Record Delete Not Successfully','error','fields');</script>";
         }
-}  
+}
+
+if (isset($_POST['save'])){
+    $select_field = $_POST['select_field'];
+    
+    $sql= "UPDATE fields SET cropProduction_id= '$select_field' WHERE f_id=$_SESSION[production_id]";
+    // echo $sql;
+    $result = $conn->query($sql);
+    
+    if($conn->query($sql)){
+
+        echo "<script>myAlert('Record Update Successfully','success','fields');</script>";
+        } else{
+        echo "<script>myAlert(Record Update Not Successfully','error','fields_edit');</script>";
+        }
+}
 ?>
 </head>
 

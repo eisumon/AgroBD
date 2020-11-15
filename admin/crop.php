@@ -149,7 +149,7 @@ if (isset($_GET['delete'])){
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="crop.php"><i class="fa fa-angle-double-right"></i> Pests Data
+                            <li><a href="pests.php"><i class="fa fa-angle-double-right"></i> Pests Data
                                     tables</a></li>
                         </ul>
                     </li>
