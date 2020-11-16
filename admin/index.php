@@ -25,6 +25,24 @@
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+    <?php
+
+include_once("dbCon.php");
+$conn = connect();
+
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $sql= "DELETE FROM contact_us WHERE c_id=$id";
+    $resultt = $conn->query($sql);
+    
+    if($conn->query($sql)){
+    echo "<script>myAlert('Record Delete Successfully','success','index.php');</script>";
+    } else{
+    echo "<script>myAlert(Record Delete Not Successfully','error','index.php');</script>";
+    }
+}  
+?>
 </head>
 
 
@@ -185,10 +203,11 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Message</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php include_once("dbCon.php");
+                                        <?php include_once("dbCon.php");
                                             $conn = connect();
                                             $sql= "SELECT * FROM contact_us";
                                             $result = $conn->query($sql);
@@ -198,6 +217,12 @@
                                             <td><?php echo $row["name"]; ?></td>
                                             <td><?php echo $row["email"]; ?></td>
                                             <td><?php echo $row["message"]; ?></td>
+                                            <td>
+                                                <button><a href="index.php?delete=<?php echo $row['c_id'];?>"
+                                                        style="color: red;"><i class="fa fa-trash"
+                                                            aria-hidden="true"></i>
+                                                        Delete</a></button>
+                                            </td>
                                         </tr>
                                         <?php endwhile;?>
                                     </tbody>
@@ -206,6 +231,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Message</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>

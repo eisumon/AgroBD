@@ -52,21 +52,6 @@
 include_once("dbCon.php");
 $conn = connect();
 
-if (isset($_POST['submit'])){
-
-    $pests_name = $_POST['pests_name'];
-    $pests_type = $_POST['pests_type'];
-    $description = $_POST['description'];
-
-    $sql ="INSERT INTO pests(pests_name, pests_type, description) VALUES('$pests_name', '$pests_type', '$description')";
-         //echo $sql;exit;
-    if($conn->query($sql)){
-    echo "<script>myAlert('Pests Record Create Successfull','success','pests.php');</script>";
-    } else{
-    echo "<script>myAlert(Pests Record Create Not Successfull','error','pests.php');</script>";
-    }
-}
-
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
     $sql= "DELETE FROM pests WHERE pests_id=$id";
@@ -180,42 +165,22 @@ if (isset($_GET['delete'])){
                 </ol>
             </section>
 
+            <!-- Insert new data form button -->
             <section class="col-lg-12 col-md-12 connectedSortable">
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Insert New Pests Data</h3>
+                        <h3 class="box-title">Insert New Pest Data</h3>
                     </div><!-- /.box-header -->
-                    <!-- form start -->
-                    <form role="form" onsubmit="return nullcheck();" method="POST">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="pests_name"> Pest Name</label>
-                                <input type="text" class="form-control" id="pests_name" name="pests_name"
-                                    placeholder="Enter Pest Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="pests_type">Pest Type</label>
-                                <input type="text" class="form-control" id="pests_type" name="pests_type"
-                                    placeholder="Enter Pest Type">
-                            </div>
-                            <!-- textarea -->
-                            <div class="form-group">
-                                <label for="description">Pest Description</label>
-                                <input class="form-control" rows="3" id="description" name="description"
-                                    placeholder="Enter Pest Description">
-                            </div>
-                        </div><!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="box-body">
+                        <p>Click the button to insert the  new pest data</p>
+                        <button class="myBtn"> <a href="pest_form"><i class="fa fa-plus"></i> Insert New Pest
+                                Data</a></button><br><br>
+                    </div>
+                </div><br>
                 <!-- /.box -->
-
             </section><!-- /.Left col -->
+
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -302,28 +267,6 @@ if (isset($_GET['delete'])){
                 "bAutoWidth": false
             });
         });
-
-        function nullcheck() {
-
-            $(".error").remove();
-
-            $('#submit').removeAttr('disabled', true);
-
-            if ($('#pests_name').val() == '') {
-                $('#pests_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
-            if ($('#pests_type').val() == '') {
-                $('#pests_type').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
-            if ($('#description').val() == '') {
-                $('#description').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-        }
     </script>
 
 </body>

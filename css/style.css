@@ -2182,19 +2182,43 @@ Dashboard Card Design
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	padding: 16px;
 	text-align: center;
-	background-color: #3D9E0F;
 }
-
-.card:hover {
-	box-shadow: 0 4px 8px 0 #3D9E0F;
-	padding: 16px;
-	text-align: center;
+.card:hover h3{
+	font-size: 50px;
+	transition: .5s;
 }
 
 .card h3, p{
 	color: white;
 }
 
+.card1{
+	background-color: #3D9E0F;
+}
+.card1:hover {
+	box-shadow: 0 4px 8px 0 #3D9E0F;
+}
+
+.card2{
+	background-color: #e21e1e;
+}
+.card2:hover {
+	box-shadow: 0 4px 8px 0 #e21e1e;
+}
+
+.card3{
+	background-color: #039af1;
+}
+.card3:hover {
+	box-shadow: 0 4px 8px 0 #039af1;
+}
+
+.card4{
+	background-color: #1ba587;
+}
+.card4:hover {
+	box-shadow: 0 4px 8px 0 #1ba587;
+}
 /* ------------------------------ Responsive Media Styles ---------------------------- */
 
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {

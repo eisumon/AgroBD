@@ -6,7 +6,7 @@ $conn = connect();
 
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
-    $sql= "SELECT * FROM production_tasks WHERE task_id=$id";
+    $sql= "SELECT * FROM tasks WHERE task_id=$id";
     $result = $conn->query($sql);
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
@@ -26,7 +26,7 @@ if (isset($_POST['update'])){
     $categories = $_POST['categories'];
     $crp_name = $_POST['crp_name'];
     
-    $sql= "UPDATE production_tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories' WHERE task_id=$id";
+    $sql= "UPDATE tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories' WHERE task_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){

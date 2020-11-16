@@ -3,17 +3,17 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
 
 if (isset($_POST['submit'])){
-
     $task_name = $_POST['task_name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
-    $cropProduction_id = $_POST['cropProduction_id'];
+    $crp_name = $_POST['crp_name'];
 
-    $sql ="INSERT INTO production_tasks(task_name, start_date, end_date, status, categories, cropProduction_id) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$production_id')";
+    $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, cropProduction_id, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name', '$uid')";
        //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
@@ -22,16 +22,9 @@ if (isset($_POST['submit'])){
     }
 }
 
-if(isset($_SESSION['production_id'])){ 
-    $id = $_SESSION['production_id'];
-    $sql = "SELECT * FROM crop_productions WHERE cropProduction_id = $id ";
-    $result = $conn->query($sql);
-    $row = $result-> fetch_assoc();
-}
-
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $sql= "DELETE FROM production_tasks WHERE task_id=$id";
+    $sql= "DELETE FROM tasks WHERE task_id=$id";
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -90,7 +83,7 @@ if (isset($_GET['delete'])){
                         <tbody>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM production_tasks";
+                            $sql= "SELECT * FROM tasks";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -101,7 +94,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
-                                <td><?php echo $row["cropProduction_name"]; ?></td>
+                                <td></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
@@ -169,10 +162,10 @@ if (isset($_GET['delete'])){
                 return false;
             }
 
-            if ($('#crp_name').val() == '') {
-                $('#crp_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
+            // if ($('#crp_name').val() == '') {
+            //     $('#crp_name').after('<span class="error">* This field is required</span>');
+            //     return false;
+            // }
         }
 
         function ontype() {

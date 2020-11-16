@@ -2802,3 +2802,23 @@ Component: timeline
 .pace-inactive {
   display: none;
 }
+
+/* button */
+
+.myBtn {
+	width: auto;
+	height: 45px;
+	background-color: #5cb85c;
+	border: none;
+	padding: 0 20px;
+}
+
+.myBtn:hover {
+	background-color: yellowgreen;
+}
+
+.myBtn a{
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: bold;
+}

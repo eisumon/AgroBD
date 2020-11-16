@@ -3,6 +3,7 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
 if (isset($_POST['submit'])){
 
     $machinery_name = $_POST['machinery_name'];
@@ -17,7 +18,7 @@ if (isset($_POST['submit'])){
     if($result->num_rows>0){
         echo"<script>myAlert('Register Not Successfull. This registration number is already added. Try with another number.','error','machinery');</script>";
     }else{
-        $sql ="INSERT INTO machinery(machinery_name, category, manufacturer, model, reg_number) VALUES('$machinery_name', '$category', '$manufacturer', '$model', '$reg_number')";
+        $sql ="INSERT INTO machinery(machinery_name, category, manufacturer, model, reg_number, uid) VALUES('$machinery_name', '$category', '$manufacturer', '$model', '$reg_number', '$uid')";
     
         //echo $sql;exit;
         if($conn->query($sql)){
