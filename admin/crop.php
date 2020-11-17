@@ -16,29 +16,6 @@
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <!-- sweet alert -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-
-    <!-- sweet alert -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-
-    <!-- Alert Script -->
-    <script>
-        function myAlert(msg, type, redirectTo) {
-            swal({
-                title: msg,
-                // text: "",
-                type: type,
-                timer: 2000,
-                showCancelButton: false,
-                showConfirmButton: false,
-                closeOnClickOutside: false,
-            }, function () {
-                window.location.href = redirectTo;
-            });
-        }
-    </script>
 
     <style>
         .error {
@@ -63,9 +40,9 @@ if (isset($_POST['submit'])){
     $sql ="INSERT INTO crop_lists(crop_name, crop_category, soil_type, season, duration) VALUES('$crop_name', '$crop_category', '$soil_type', '$season', '$duration')";
          //echo $sql;exit;
     if($conn->query($sql)){
-    echo "<script>myAlert('Rests Record Create Successfull','success','crop.php');</script>";
+        header("location:crop.php");
     } else{
-    echo "<script>myAlert(Rests Record Create Not Successfull','error','crop.php');</script>";
+        header("location:crop.php");
     }
 }
 
@@ -190,9 +167,9 @@ if (isset($_GET['delete'])){
                         <h3 class="box-title">Insert New Crop Data</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p>Click the button to insert the new crop data</p>
-                        <button class="myBtn"> <a href="crop_form"><i class="fa fa-plus"></i> Insert New Crop
-                                Data</a></button><br><br>
+                        <p>Click the button to insert the new crop data</p><br>
+                        <a class="myBtn" href="crop_form"><i class="fa fa-plus"></i> Insert New Crop
+                                Data</a><br><br>
                     </div>
                 </div><br>
                 <!-- /.box -->

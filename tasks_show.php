@@ -14,7 +14,7 @@ if (isset($_POST['submit'])){
     $crp_name = $_POST['crp_name'];
 
     $sql ="INSERT INTO tasks(task_name, start_date, end_date, status, categories, cropProduction_id, uid) VALUES('$task_name', '$start_date', '$end_date', '$status', '$categories', '$crp_name', '$uid')";
-       //  echo $sql;exit;
+    //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','tasks_show');</script>";
     } else{
@@ -83,7 +83,7 @@ if (isset($_GET['delete'])){
                         <tbody>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM tasks";
+                            $sql= "SELECT * FROM tasks as t, crop_productions as c WHERE t.cropProduction_id = c.cropProduction_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -94,7 +94,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["end_date"]; ?></td>
                                 <td><?php echo $row["status"]; ?></td>
                                 <td><?php echo $row["categories"]; ?></td>
-                                <td></td>
+                                <td><?php echo $row["cropProduction_name"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
@@ -162,10 +162,10 @@ if (isset($_GET['delete'])){
                 return false;
             }
 
-            // if ($('#crp_name').val() == '') {
-            //     $('#crp_name').after('<span class="error">* This field is required</span>');
-            //     return false;
-            // }
+            if ($('#crp_name').val() == '') {
+                $('#crp_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
         }
 
         function ontype() {

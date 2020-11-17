@@ -3,16 +3,18 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-if (isset($_POST['submit'])){
+$uid = $_SESSION['uid'];
 
+if (isset($_POST['submit'])){
     $item_name = $_POST['item_name'];
     $category = $_POST['category'];
     $net_amount = $_POST['net_amount'];
     $invoice_no = $_POST['invoice_no'];
     $date = $_POST['date'];
+    $crp_name = $_POST['crp_name'];
 
-    $sql ="INSERT INTO expences(item_name, category, net_amount, invoice_no, date) VALUES('$item_name', '$category', '$net_amount', '$invoice_no', '$date')";
-         //echo $sql;exit;
+    $sql ="INSERT INTO expences(item_name, category, net_amount, invoice_no, date, cropProduction_id, uid) VALUES('$item_name', '$category', '$net_amount', '$invoice_no', '$date', '$crp_name', '$uid')";
+    //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('Expences Record Create Successfully','success','expences');</script>";
     } else{
@@ -80,7 +82,7 @@ if (isset($_GET['delete'])){
                         <tbody>
                             <?php include_once("dbCon.php");
                             $conn = connect();
-                            $sql= "SELECT * FROM expences";
+                            $sql= "SELECT * FROM expences as e, crop_productions as c WHERE e.cropProduction_id = c.cropProduction_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
@@ -91,7 +93,7 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["net_amount"]; ?></td>
                                 <td><?php echo $row["invoice_no"]; ?></td>
                                 <td><?php echo $row["date"]; ?></td>
-                                <td></td>
+                                <td><?php echo $row["cropProduction_name"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
@@ -155,6 +157,11 @@ include'includes/footer.php';?>
 
             if ($('#date').val() == '') {
                 $('#date').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#crp_name').val() == '') {
+                $('#crp_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
         }

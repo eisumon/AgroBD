@@ -16,29 +16,6 @@
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <!-- sweet alert -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-
-    <!-- sweet alert -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-
-    <!-- Alert Script -->
-    <script>
-        function myAlert(msg, type, redirectTo) {
-            swal({
-                title: msg,
-                // text: "",
-                type: type,
-                timer: 2000,
-                showCancelButton: false,
-                showConfirmButton: false,
-                closeOnClickOutside: false,
-            }, function () {
-                window.location.href = redirectTo;
-            });
-        }
-    </script>
 
     <style>
         .error {
@@ -59,11 +36,11 @@ if (isset($_POST['submit'])){
     $description = $_POST['description'];
 
     $sql ="INSERT INTO pests(pests_name, pests_type, description) VALUES('$pests_name', '$pests_type', '$description')";
-         //echo $sql;exit;
+    //echo $sql;exit;
     if($conn->query($sql)){
-    echo "<script>myAlert('Pests Record Create Successfull','success','pests.php');</script>";
+    header("location:pests.php");
     } else{
-    echo "<script>myAlert(Pests Record Create Not Successfull','error','pest_form.php');</script>";
+        header("location:pests_form.php");
     }
 }  
 ?>

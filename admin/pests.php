@@ -16,29 +16,6 @@
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <!-- sweet alert -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-
-    <!-- sweet alert -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-
-    <!-- Alert Script -->
-    <script>
-        function myAlert(msg, type, redirectTo) {
-            swal({
-                title: msg,
-                // text: "",
-                type: type,
-                timer: 2000,
-                showCancelButton: false,
-                showConfirmButton: false,
-                closeOnClickOutside: false,
-            }, function () {
-                window.location.href = redirectTo;
-            });
-        }
-    </script>
 
     <style>
         .error {
@@ -58,9 +35,9 @@ if (isset($_GET['delete'])){
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
-    echo "<script>myAlert('Record Delete Successfully','success','pests.php');</script>";
+    header("location:pests.php");
     } else{
-    echo "<script>myAlert(Record Delete Not Successfully','error','pests.php');</script>";
+    header("location:pests.php");
     }
 }  
 ?>
@@ -173,9 +150,9 @@ if (isset($_GET['delete'])){
                         <h3 class="box-title">Insert New Pest Data</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <p>Click the button to insert the  new pest data</p>
-                        <button class="myBtn"> <a href="pest_form"><i class="fa fa-plus"></i> Insert New Pest
-                                Data</a></button><br><br>
+                        <p>Click the button to insert the new pest data</p><br>
+                        <a href="pest_form" class="myBtn"><i class="fa fa-plus"></i> Insert New Pest
+                            Data</a><br><br>
                     </div>
                 </div><br>
                 <!-- /.box -->

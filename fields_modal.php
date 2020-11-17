@@ -6,6 +6,7 @@ $uid = $_SESSION['uid'];
 $sql= "SELECT * FROM fields WHERE uid=$uid  AND cropProduction_id IS NULL";
 $row = $conn->query($sql);
 ?>
+
 <!-- The Modal box start -->
 <div id="linkModal" class="modal">
     <!-- Modal content -->
@@ -46,6 +47,7 @@ $row = $conn->query($sql);
     <!-- Modal content end -->
 </div>
 <!-- The Modal box end -->
+
 
 <!-- modal form start -->
 <div id="myModal" class="modal">

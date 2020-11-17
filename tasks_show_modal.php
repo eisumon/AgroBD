@@ -1,3 +1,12 @@
+<?php
+include_once("dbCon.php");
+$conn = connect();
+$uid = $_SESSION['uid'];
+
+$sql= "SELECT * FROM crop_productions";
+$row = $conn->query($sql);
+?>
+
 <!-- The Modal box start -->
 <div id="myModal" class="modal">
     <!-- Modal content -->
@@ -31,9 +40,9 @@
                                 <label for="status">Status:</label><br>
                                 <select id="status" name="status">
                                     <option value="">Select</option>
-                                    <option value="pending">Pending</option>
-                                    <option value="in progress">In progress</option>
-                                    <option value="finished">Finished</option>
+                                    <option value="-1">Pending</option>
+                                    <option value="0">In progress</option>
+                                    <option value="1">Finished</option>
                                 </select>
                             </div>
                         </div>
@@ -50,6 +59,11 @@
                                 <label for="crp_name">Crop Production Name:</label><br>
                                 <select id="crp_name" name="crp_name">
                                     <option value="">Select</option>
+                                    <?php 
+                                    foreach($row as $cropProduction){
+                                    ?>
+                                    <option value="<?=$cropProduction['cropProduction_id']?>"><?=$cropProduction['cropProduction_name']?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>

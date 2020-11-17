@@ -24,7 +24,6 @@ if (isset($_POST['update'])){
     $end_date = $_POST['end_date'];
     $status = $_POST['status'];
     $categories = $_POST['categories'];
-    $crp_name = $_POST['crp_name'];
     
     $sql= "UPDATE tasks SET task_name= '$task_name', start_date= '$start_date', end_date= '$end_date', status= '$status', categories= '$categories' WHERE task_id=$id";
     $result = $conn->query($sql);
@@ -99,16 +98,6 @@ if (isset($_POST['update'])){
                                 <option value="fertilizing"
                                     <?php if ($row["categories"]=='fertilizing'){echo "selected";}?>>Fertilizing
                                 </option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="crp_name">Crop Production Name:</label><br>
-                            <select id="crp_name" name="crp_name">
-                                <option value="">Select</option>
-                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>
-                                    Something</option>
-                                <option value="something" <?php if ($row["crp_name"]=='something'){echo "selected";}?>>
-                                    Something</option>
                             </select>
                         </div>
                         <br>

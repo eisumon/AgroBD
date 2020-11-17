@@ -37,9 +37,9 @@ if (isset($_GET['delete'])){
     $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
-    echo "<script>myAlert('Record Delete Successfully','success','index.php');</script>";
+        header("location:index.php");
     } else{
-    echo "<script>myAlert(Record Delete Not Successfully','error','index.php');</script>";
+        header("location:index.php");
     }
 }  
 ?>

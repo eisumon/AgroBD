@@ -1315,7 +1315,6 @@ body > .header .logo .icon {
   margin: 0;
   font-size: 20px;
   font-weight: 400;
-  float: left;
   cursor: default;
 }
 .box .box-header a {
@@ -2810,15 +2809,13 @@ Component: timeline
 	height: 45px;
 	background-color: #5cb85c;
 	border: none;
-	padding: 0 20px;
-}
-
-.myBtn:hover {
-	background-color: yellowgreen;
-}
-
-.myBtn a{
+  padding: 10px 20px;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.myBtn:hover {
+  background-color: yellowgreen;
+  color: rgb(255, 255, 255);
 }

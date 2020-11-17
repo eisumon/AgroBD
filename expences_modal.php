@@ -1,3 +1,12 @@
+<?php
+include_once("dbCon.php");
+$conn = connect();
+$uid = $_SESSION['uid'];
+
+$sql= "SELECT * FROM crop_productions";
+$row = $conn->query($sql);
+?>
+
 <!-- modal start -->
 <div id="myModal" class="modal">
     <!-- Modal content -->
@@ -48,10 +57,14 @@
                                 <input type="date" id="date" name="date">
                             </div>
                             <div>
-                                <label for="cropProduction_id">Crop Production Name:</label><br>
-                                <select id="cropProduction_id" name="cropProduction_id">
+                                <label for="crp_name">Crop Production Name:</label><br>
+                                <select id="crp_name" name="crp_name">
                                     <option value="">Select</option>
-                                    <option value=""><?php echo $row['production_name'];?></option>
+                                    <?php 
+                                    foreach($row as $expence){
+                                    ?>
+                                    <option value="<?=$expence['cropProduction_id']?>"><?=$expence['cropProduction_name']?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>

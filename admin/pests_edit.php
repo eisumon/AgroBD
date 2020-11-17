@@ -18,23 +18,6 @@
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
 
-    <!-- Alert Script -->
-    <script>
-        function myAlert(msg, type, redirectTo) {
-            swal({
-                title: msg,
-                // text: "",
-                type: type,
-                timer: 2000,
-                showCancelButton: false,
-                showConfirmButton: false,
-                closeOnClickOutside: false,
-            }, function () {
-                window.location.href = redirectTo;
-            });
-        }
-    </script>
-
     <style>
         .error {
             color: RED;
@@ -67,11 +50,10 @@ if (isset($_POST['update'])){
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
-
-        echo "<script>myAlert('Record Update Successfully','success','pests.php');</script>";
-        } else{
-        echo "<script>myAlert(Record Update Not Successfully','error','pests_edit.php');</script>";
-        }
+    header("location:pests.php");
+    } else{
+        header("location:pests_edit.php");
+    }
 }
 ?>
 </head>

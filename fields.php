@@ -45,15 +45,15 @@ if (isset($_GET['delete'])){
 if (isset($_POST['save'])){
     $select_field = $_POST['select_field'];
     
-    $sql= "UPDATE fields SET cropProduction_id= '$select_field' WHERE f_id=$_SESSION[production_id]";
-    // echo $sql;
+    $sql= "UPDATE fields SET cropProduction_id= '$_SESSION[production_id]' WHERE f_id='$select_field'";
+
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
 
-        echo "<script>myAlert('Record Update Successfully','success','fields');</script>";
+        echo "<script>myAlert('Field Added Successfully','success','fields');</script>";
         } else{
-        echo "<script>myAlert(Record Update Not Successfully','error','fields_edit');</script>";
+        echo "<script>myAlert(Field Not Added','error','fields_edit');</script>";
         }
 }
 ?>

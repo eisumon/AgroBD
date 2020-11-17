@@ -53,7 +53,7 @@ include'includes/navbar.php';
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</h5>
-                                <a href=""><i class="fa fa-search" aria-hidden="true"></i> Explore Dashboard</a>
+                                <a href="dashboard.php"><i class="fa fa-search" aria-hidden="true"></i> Explore Dashboard</a>
                             </div>
                         </div>
                     </div>
