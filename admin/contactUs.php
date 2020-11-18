@@ -17,7 +17,6 @@
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-
     <style>
         .error {
             color: RED;
@@ -28,33 +27,17 @@
     <?php
 include_once("dbCon.php");
 $conn = connect();
-
-if (isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $sql= "SELECT * FROM pests WHERE pests_id=$id";
-    $result = $conn->query($sql);
-    // $row = mysqli_fetch_assoc($result);
-    $row = $result-> fetch_assoc();
-    $pests_name = $row['pests_name'];
-    $pests_type = $row['pests_type'];
-    $description = $row['description'];
-}
-
-if (isset($_POST['update'])){
-    $id = $_POST['pests_id'];
-    $pests_name = $_POST['pests_name'];
-    $pests_type = $_POST['pests_type'];
-    $description = $_POST['description'];
-    
-    $sql= "UPDATE pests SET pests_name= '$pests_name', pests_type= '$pests_type', description= '$description' WHERE pests_id=$id";
-    $result = $conn->query($sql);
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $sql= "DELETE FROM contact_us WHERE c_id=$id";
+    $resultt = $conn->query($sql);
     
     if($conn->query($sql)){
-    header("location:pests.php");
+        header("location:contactUs.php");
     } else{
-        header("location:pests_edit.php");
+        header("location:contactUs.php");
     }
-}
+}  
 ?>
 </head>
 
@@ -124,7 +107,7 @@ if (isset($_POST['update'])){
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="pests.php"><i class="fa fa-angle-double-right"></i> Pests Data
+                            <li><a href="pests.php"><i class="fa fa-angle-double-right"></i> Pests Data
                                     tables</a></li>
                         </ul>
                     </li>
@@ -144,7 +127,8 @@ if (isset($_POST['update'])){
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment tables</a></li>
+                            <li class="active"><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact
+                                    Us Comment tables</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -157,53 +141,69 @@ if (isset($_POST['update'])){
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Pests
-                    <small>Pests Data</small>
+                    Contact Us
+                    <small>Contact Us Data</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="pests.php">Pests</a></li>
-                    <li class="active">Edit Pests</li>
+                    <li class="active">Contact Us</li>
                 </ol>
             </section>
 
-            <!-- Input Form -->
-            <section class="col-lg-12 col-md-6 connectedSortable">
-                <!-- Pest edit form -->
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">Edit Pests Data</h3>
-                    </div><!-- /.box-header -->
-                    <!-- form start -->
-                    <form role="form" onsubmit="return nullcheck();" method="POST">
-                        <div class="box-body">
-                            <input type="hidden" name="pests_id" value="<?=$id; ?>">
-                            <div class="form-group">
-                                <label for="pests_name"> Pest Name</label>
-                                <input type="text" class="form-control" id="pests_name" name="pests_name"
-                                    value="<?=$pests_name; ?>" placeholder="Enter Pest Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="pests_type">Pest Type</label>
-                                <input type="text" class="form-control" id="pests_type" name="pests_type"
-                                    placeholder="Enter Pest Type" value="<?=$pests_type; ?>">
-                            </div>
-                            <!-- textarea -->
-                            <div class="form-group">
-                                <label for="description">Pest Description</label>
-                                <input class="form-control" rows="3" id="description" name="description"
-                                    placeholder="Enter Pest Description" value="<?=$description; ?>">
-                            </div>
-                        </div><!-- /.box-body -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
 
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary" name="update">Update</button>
-                        </div>
-                    </form>
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Contact Us Data Table</h3>
+                            </div><!-- /.box-header -->
+                            <div class="box-body table-responsive">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Message</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php include_once("dbCon.php");
+                                            $conn = connect();
+                                            $sql= "SELECT * FROM contact_us";
+                                            $result = $conn->query($sql);
+                                                while ($row = $result-> fetch_assoc()): 
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row["name"]; ?></td>
+                                            <td><?php echo $row["email"]; ?></td>
+                                            <td><?php echo $row["message"]; ?></td>
+                                            <td>
+                                                <button><a href="index.php?delete=<?php echo $row['c_id'];?>"
+                                                        style="color: red;"><i class="fa fa-trash"
+                                                            aria-hidden="true"></i>
+                                                        Delete</a></button>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile;?>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Message</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div>
                 </div>
-                <!-- /.box -->
 
-            </section><!-- /.Left col -->
+            </section><!-- /.content -->
 
         </aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
@@ -232,28 +232,6 @@ if (isset($_POST['update'])){
                 "bAutoWidth": false
             });
         });
-
-        function nullcheck() {
-
-            $(".error").remove();
-
-            $('#submit').removeAttr('disabled', true);
-
-            if ($('#pests_name').val() == '') {
-                $('#pests_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
-            if ($('#pests_type').val() == '') {
-                $('#pests_type').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-
-            if ($('#description').val() == '') {
-                $('#description').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-        }
     </script>
 
 </body>

@@ -209,71 +209,6 @@ ol {
   Header
 -----------------------*/
 
-.ht-right .lan-selector {
-	max-width: 142px;
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-}
-
-.ht-right .lan-selector .ddcommon {
-	max-width: 142px;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	outline: none;
-	cursor: pointer;
-	padding: 0 20px;
-}
-
-.ht-right .lan-selector .ddcommon .ddTitle .ddTitleText img {
-	padding-right: 5px;
-}
-
-.ht-right .lan-selector .ddcommon .ddTitle .ddTitleText span {
-	font-size: 14px;
-	color: #252525;
-}
-
-.ht-right .lan-selector .ddcommon .ddTitle .ddArrow:before {
-	content: "3";
-	font-family: "ElegantIcons";
-	font-size: 14px;
-	color: #636363;
-	float: right;
-	position: relative;
-	right: 0;
-	line-height: 26px;
-}
-
-.ht-right .lan-selector .ddcommon .ddChild {
-	background: #fff;
-	max-width: 142px;
-	width: 100%;
-	position: relative;
-	left: 0;
-}
-
-.ht-right .lan-selector .ddcommon .ddChild ul {
-	width: 100%;
-	max-width: 142px;
-}
-
-.ht-right .lan-selector .ddcommon .ddChild ul li {
-	line-height: 23px;
-	padding: 0px 10px;
-	list-style: none;
-}
-
-.ht-right .lan-selector .ddcommon .ddChild ul li img {
-	padding-right: 10px;
-}
-
-.ht-right .lan-selector .ddcommon .ddChild ul li span {
-	font-size: 13px;
-	color: #000;
-	letter-spacing: 0.325px;
-}
-
 .header-top {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -353,13 +288,6 @@ ol {
 
 .header-top .ht-right .reg-panel:hover {
 	color: green;
-}
-
-
-.header-top .ht-right .lan-selector {
-	float: left;
-	margin-top: 15px;
-	margin-bottom: 13px;
 }
 
 .inner-header {
@@ -891,6 +819,7 @@ ol {
 	position: relative;
 	top: 100px;
 	opacity: 0;
+	color: rgb(77, 77, 77);
 }
 
 .hero-items1 .single-hero-items .primary-btn {
@@ -992,11 +921,13 @@ Deal Of The Week
 	text-justify: inter-word;
 	background-color: rgb(255, 255, 255);
 	height: 150px;
-	/* border: 1px solid burlywood; */
-
-
+	margin-bottom: 10px;
+	text-align: center;
 }
-
+.core_feature p{
+	color: rgb(110, 110, 110);
+	margin-top: 10px;
+}
 .core_fea a {
 	margin-top: 50px;
 }
@@ -1261,6 +1192,9 @@ Deal Of The Week
 	font-weight: 700;
 	margin-bottom: 16px;
 }
+.contact-title p{
+	color: rgb(119, 119, 119);
+}
 
 .contact-widget .cw-item {
 	background: #ffffff;
@@ -1318,6 +1252,7 @@ Deal Of The Week
 
 .contact-form .leave-comment p {
 	margin-bottom: 38px;
+	color: rgb(119, 119, 119);
 }
 
 .contact-form .leave-comment .comment-form input {
@@ -1382,6 +1317,7 @@ Deal Of The Week
 
 .faq-accordin .card .card-body p {
 	margin-bottom: 0;
+	color: black;
 }
 
 .faq-accordin .card-heading a:after,
@@ -1621,6 +1557,9 @@ tr:nth-child(even) {
 	color: #252525;
 	font-weight: 700;
 	margin-bottom: 16px;
+}
+.seasonPlan-title p {
+	color: #7a7a7a;
 }
 
 .seasonPlan-widget .cw-item {
@@ -2178,17 +2117,17 @@ Dashboard Card Design
 }
 
 /* Style the counter cards */
-.card {
+.dCard {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	padding: 16px;
 	text-align: center;
 }
-.card:hover h3{
+.dCard:hover h3{
 	font-size: 50px;
 	transition: .5s;
 }
 
-.card h3, p{
+.dCard h3, p{
 	color: white;
 }
 
@@ -2316,11 +2255,6 @@ Dashboard Card Design
 	.header-top .ht-right .reg-panel {
 		padding-top: 9px;
 		padding-bottom: 7px;
-	}
-
-	.header-top .ht-right .lan-selector {
-		margin-top: 5px;
-		margin-bottom: 5px;
 	}
 
 	.inner-header {

@@ -26,28 +26,28 @@ include'includes/navbar.php';
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
-                    <div class="card card1">
+                    <div class="dCard card1">
                         <h3>50</h3><br>
                         <p>Total Workers</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
-                    <div class="card card2">
+                    <div class="dCard card2">
                         <h3>53</h3><br>
                         <p>Total Machinery</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
-                    <div class="card card3">
+                    <div class="dCard card3">
                         <h3>35</h3><br>
                         <p>Total Inventory</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
-                    <div class="card card4">
+                    <div class="dCard card4">
                         <h3>40</h3><br>
                         <p>Total Fields</p>
                     </div>

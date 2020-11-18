@@ -148,13 +148,13 @@ include'includes/navbar.php';
                     <p>Complete support for all crops: fruit, vegetables, grains and other.</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 core_feature">
+                    <div class="col-md-12 core_feature">
                         <h4>Farm Management</h4>
                         <p>Manage all your farming data including field activities, farm finances, and inventory In one
                             single
                             place.</p>
                     </div>
-                    <div class="col-md-6 core_feature">
+                    <div class="col-md-12 core_feature">
                         <h4>Advanced Pest Detection</h4>
                         <p>Get alerts if there is a risk of insect pests or diseases on your fields and protect your
                             crops
@@ -162,18 +162,18 @@ include'includes/navbar.php';
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 core_feature">
+                    <div class="col-md-12 core_feature">
                         <h4>Powerful Analytics</h4>
                         <p>Real-time overview of your farm performance helps you make the right decisions based on
                             facts.</p>
                     </div>
-                    <div class="col-md-6 core_feature">
+                    <div class="col-md-12 core_feature">
                         <h4>Best Practice Knowledge</h4>
                         <p>Plan your season with the help of our agricultural knowledge base and ensure higher yield.
                         </p>
                     </div>
                 </div>
-                <a href="#" class="primary-btn">Sign Up Free Trail</a>
+                <a href="#" class="primary-btn">Sign Up Now</a>
             </div>
         </div>
     </section>
@@ -202,7 +202,7 @@ include'includes/navbar.php';
             </div>
             <div class="single-hero-items">
                 <div class="container">
-                    <div>
+                    <div class="tesimonial">
                         <span><i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
                             <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
                             <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>

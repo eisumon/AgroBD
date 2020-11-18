@@ -14,14 +14,6 @@
                 </div>
             </div>
             <div class="ht-right">
-                <div class="lan-selector">
-                    <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                        <option value='ys' data-image="img/flag-3.jpg" data-imagecss="flag ys" data-title="English">
-                            Bengali</option>
-                        <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt" data-title="English">
-                            English</option>
-                    </select>
-                </div>
                 <?php if(isset($_SESSION['isLoggedIn'])){?>
                 <a href="logout" class="login-panel"><i class="fa fa-sign-out"></i>Logout</a>
                 <a href="index" class="login-panel"><i class="fa fa-user"></i><?=$_SESSION['name']?></a>

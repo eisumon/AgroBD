@@ -8,11 +8,10 @@ if(isset($_POST["send"])){
   $email= mysqli_real_escape_string($conn,$_POST['email']);
   $sql="SELECT * FROM users where email ='$email'";
   $result = $conn->query($sql);
-                    //  print_r($result);
+                //  print_r($result);
                 if($result->num_rows>0){
                   header("Location:recoverymail?email=$email");
                 }else{
-                    // echo '<script>erAlert()</script>';
                   echo "<script>myAlert('Email does not match', 'error', 'forgotpassword');</script>";
                 }
 }

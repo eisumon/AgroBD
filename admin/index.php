@@ -25,24 +25,6 @@
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
-    <?php
-
-include_once("dbCon.php");
-$conn = connect();
-
-if (isset($_GET['delete'])){
-    $id = $_GET['delete'];
-    $sql= "DELETE FROM contact_us WHERE c_id=$id";
-    $resultt = $conn->query($sql);
-    
-    if($conn->query($sql)){
-        header("location:index.php");
-    } else{
-        header("location:index.php");
-    }
-}  
-?>
 </head>
 
 
@@ -127,6 +109,15 @@ if (isset($_GET['delete'])){
                                     tables</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Contact Us</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment tables</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -186,61 +177,6 @@ if (isset($_GET['delete'])){
                         </div>
                     </div><!-- ./col -->
                 </div><!-- /.row -->
-
-                <!-- Main row -->
-                <div class="row">
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-12 connectedSortable">
-                        <!-- Contact Us Comments Data Table -->
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Contact Us Comments</h3>
-                            </div><!-- /.box-header -->
-                            <div class="box-body table-responsive">
-                                <table id="example2" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Message</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php include_once("dbCon.php");
-                                            $conn = connect();
-                                            $sql= "SELECT * FROM contact_us";
-                                            $result = $conn->query($sql);
-                                                while ($row = $result-> fetch_assoc()): 
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $row["name"]; ?></td>
-                                            <td><?php echo $row["email"]; ?></td>
-                                            <td><?php echo $row["message"]; ?></td>
-                                            <td>
-                                                <button><a href="index.php?delete=<?php echo $row['c_id'];?>"
-                                                        style="color: red;"><i class="fa fa-trash"
-                                                            aria-hidden="true"></i>
-                                                        Delete</a></button>
-                                            </td>
-                                        </tr>
-                                        <?php endwhile;?>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Message</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                    </section><!-- right col -->
-
-
-                </div><!-- /.row (main row) -->
 
             </section><!-- /.content -->
         </aside><!-- /.right-side -->
