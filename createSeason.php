@@ -49,80 +49,79 @@ if (isset($_GET['delete'])){
 
         <!-- Inner Header start -->
         <div class="container">
-            <div class="">
-                <h4 style="padding-bottom: 20px;"><?php  echo $row['cropProduction_name'];?></h4>
-                <hr><br>
-                <div class="row">
-                    <div class="col-lg-3 col-md-3">
-                        <!-- Nav bar start -->
-                        <div class="nav-item2">
-                            <div class="container">
-                                <!-- navigation bar start -->
-                                <nav class="nav-menu mobile-menu">
-                                    <ul>
-                                        <li><a href="fields.php">Fields</a></li>
-                                        <li class="active"><a href="">Create Seasons</a></li>
-                                        <li><a href="tasks.php">Tasks</a></li>
-                                        <li><a href="pest.php">Pest</a></li>
-                                    </ul>
-                                </nav>
-                                <!-- navigation bar end -->
-                            </div>
+            <h4 style="padding-bottom: 20px;"><?php  echo $row['cropProduction_name'];?></h4>
+            <hr><br>
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <!-- Nav bar start -->
+                    <div class="nav-item2">
+                        <div class="container">
+                            <!-- navigation bar start -->
+                            <nav class="nav-menu mobile-menu">
+                                <ul>
+                                    <li><a href="fields.php">Fields</a></li>
+                                    <li class="active"><a href="">Create Seasons</a></li>
+                                    <li><a href="tasks.php">Tasks</a></li>
+                                    <li><a href="pest.php">Pest</a></li>
+                                </ul>
+                            </nav>
+                            <!-- navigation bar end -->
                         </div>
-                        <!-- Nav bar end -->
                     </div>
-                    <div class="col-lg-9 col-md-9 production_box">
-                        <!-- Essential button -->
-                        <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
-                            Season</button>
-                        <hr>
+                    <!-- Nav bar end -->
+                </div>
+                <div class="col-lg-9 col-md-9 production_box">
+                    <!-- Essential button -->
+                    <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Create
+                        Season</button>
+                    <hr>
 
-                        <!-- Result Table -->
-                        <table id="example" class="display">
-                            <thead>
-                                <tr>
-                                    <th>Task Name:</th>
-                                    <th>Start date: </th>
-                                    <th>End date:</th>
-                                    <th>Expected Yield:</th>
-                                    <th>status: </th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                    <!-- Result Table -->
+                    <table id="example" class="display">
+                        <thead>
+                            <tr>
+                                <th>Task Name:</th>
+                                <th>Start date: </th>
+                                <th>End date:</th>
+                                <th>Expected Yield:</th>
+                                <th>status: </th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                             $sql= "SELECT * FROM create_seasons WHERE cropProduction_id = $production_id ";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
 
-                                <tr>
-                                    <td><?php echo $row["seasonName"]; ?></td>
-                                    <td><?php echo $row["startDate"]; ?></td>
-                                    <td><?php echo $row["endDate"]; ?></td>
-                                    <td><?php echo $row["status"]; ?></td>
-                                    <td><?php echo $row["expectedYield"]; ?></td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                            <div class="dropdown-content">
-                                                <a href="createSeason_edit.php?edit=<?php echo $row['createSeason_id'];?>"
-                                                    style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
-                                                    Edit</a>
-                                                <a href="createSeason.php?delete=<?php echo $row['createSeason_id'];?>"
-                                                    style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                    Delete</a>
-                                            </div>
+                            <tr>
+                                <td><?php echo $row["seasonName"]; ?></td>
+                                <td><?php echo $row["startDate"]; ?></td>
+                                <td><?php echo $row["endDate"]; ?></td>
+                                <td><?php echo $row["status"]; ?></td>
+                                <td><?php echo $row["expectedYield"]; ?></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="createSeason_edit.php?edit=<?php echo $row['createSeason_id'];?>"
+                                                style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
+                                                Edit</a>
+                                            <a href="createSeason.php?delete=<?php echo $row['createSeason_id'];?>"
+                                                style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                Delete</a>
                                         </div>
-                                    </td>
-                                </tr>
-                                <?php endwhile;?>
-                            </tbody>
-                        </table>
-                        <!-- Result Table End -->
-                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endwhile;?>
+                        </tbody>
+                    </table>
+                    <!-- Result Table End -->
                 </div>
-                <!-- Inner Header end -->
+            </div>
+            <!-- Inner Header end -->
     </section>
 
 

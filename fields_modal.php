@@ -14,7 +14,7 @@ $row = $conn->query($sql);
         <!-- Modal header -->
         <div class="modal-header">
             <h4>Link Field</h4>
-            <span class="close1">&times;</span>
+            <span id="close1">&times;</span>
         </div>
         <!-- Modal body -->
         <div class="modal-body">
@@ -56,7 +56,7 @@ $row = $conn->query($sql);
         <!-- Modal header -->
         <div class="modal-header">
             <h4>Add Field</h4>
-            <span class="close">&times;</span>
+            <span id="close">&times;</span>
         </div>
         <!-- Modal body -->
         <div class="modal-body">

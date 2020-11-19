@@ -1657,30 +1657,30 @@ tr:nth-child(even) {
 }
 
 /* Create Field Close Button */
-.close {
+#close {
 	color: white;
 	float: right;
 	font-size: 40px;
 	font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#close:hover,
+#close:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
 }
 
 /* Create Link Close Button */
-.close1 {
+#close1 {
 	color: white;
 	float: right;
 	font-size: 40px;
 	font-weight: bold;
 }
 
-.close1:hover,
-.close1:focus {
+#close1:hover,
+#close1:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;

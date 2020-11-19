@@ -14,7 +14,7 @@ $row = $conn->query($sql);
         <!-- Modal header -->
         <div class="modal-header">
             <h4>Register New Expences</h4>
-            <span class="close">&times;</span>
+            <span id="close">&times;</span>
         </div>
         <!-- Modal body -->
         <div class="modal-body">

@@ -10,8 +10,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- DATA TABLES -->
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
@@ -82,16 +80,21 @@ if (isset($_GET['delete'])){
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-user"></i>
-                            <span>Jane Doe <i class="caret"></i></span>
+                            <?php if(isset($_SESSION['isLoggedIn'])){?>
+                            <span><?=$_SESSION['name']?> <i class="caret"></i></span>
+                            <?php }else{ ?>
+                            <?php } ?>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
                                 <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                <?php if(isset($_SESSION['isLoggedIn'])){?>
                                 <p>
-                                    Jane Doe - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                <?=$_SESSION['name']?>
                                 </p>
+                                <?php }else{ ?>
+                            <?php } ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">

@@ -14,10 +14,8 @@ $result = $conn->query($sql);
                     $_SESSION['email']=$row['email'];
                     $_SESSION['name']=$row['name'];
             }
-            // echo "<script>myAlert('Login Successfully', 'success', 'index.html');</script>";
-            header('location:index.html');
+            header('location:index.php');
             } else{
-            // echo "<script>myAlert('Email or password does not match', 'error', 'login');</script>";
             header('location:login.php');
             }        
 }
