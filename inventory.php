@@ -77,8 +77,7 @@ if (isset($_GET['delete'])){
                             </tr>
                         </thead>
                         <tbody>
-                            <?php include_once("dbCon.php");
-                            $conn = connect();
+                            <?php
                             $sql= "SELECT * FROM inventory";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 

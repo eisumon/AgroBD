@@ -227,7 +227,7 @@ if (isset($_GET['delete'])){
                                                             aria-hidden="true"></i>
                                                         Edit</a></button>
                                                 <button><a href="crop.php?delete=<?php echo $row['cropList_id'];?>"
-                                                        style="color: red;"><i class="fa fa-trash"
+                                                        style="color: red;"><i class="fa fa-trash-o"
                                                             aria-hidden="true"></i>
                                                         Delete</a></button>
                                             </td>

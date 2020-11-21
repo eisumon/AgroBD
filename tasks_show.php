@@ -81,8 +81,7 @@ if (isset($_GET['delete'])){
                             </tr>
                         </thead>
                         <tbody>
-                            <?php include_once("dbCon.php");
-                            $conn = connect();
+                            <?php
                             $sql= "SELECT * FROM tasks as t, crop_productions as c WHERE t.cropProduction_id = c.cropProduction_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 

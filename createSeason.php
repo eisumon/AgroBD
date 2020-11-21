@@ -4,6 +4,7 @@ include'includes/navbar.php';
 include_once("dbCon.php");
 $conn = connect();
 $production_id = $_SESSION['production_id'];
+$uid = $_SESSION['uid'];
 
 if (isset($_POST['submit'])){
     $seasonName = $_POST['seasonName'];
@@ -12,7 +13,7 @@ if (isset($_POST['submit'])){
     $status = $_POST['status'];
     $expectedYield = $_POST['expectedYield'];
 
-    $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, cropProduction_id) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$production_id')";
+    $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, cropProduction_id, uid) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$production_id', '$uid')";
        //  echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('New Task Create Successfully','success','createSeason');</script>";

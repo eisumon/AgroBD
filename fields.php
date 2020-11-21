@@ -111,10 +111,10 @@ if (isset($_POST['save'])){
                             </thead>
                             <tbody>
                                 <?php 
-                            $sql= "SELECT * FROM fields WHERE cropProduction_id = $production_id ";
-                            $result = $conn->query($sql);
-                                while ($row = $result-> fetch_assoc()): 
-                            ?>
+                                $sql= "SELECT * FROM fields WHERE cropProduction_id = $production_id ";
+                                $result = $conn->query($sql);
+                                    while ($row = $result-> fetch_assoc()): 
+                                ?>
 
                                 <tr>
                                     <td><?php echo $row["field_name"]; ?></td>

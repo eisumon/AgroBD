@@ -44,7 +44,7 @@ $row = $conn->query($sql);
                             </div>
                             <div>
                                 <label for="net_amount">Net amount (tk):</label><br>
-                                <input type="text" id="net_amount" name="net_amount" placeholder="Enter net amount">
+                                <input type="number" id="net_amount" name="net_amount" placeholder="Enter net amount">
                             </div>
                         </div>
                         <div class="col-md-5 offset-md-1">

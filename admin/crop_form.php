@@ -91,10 +91,10 @@ if (isset($_GET['delete'])){
                                 <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                                 <?php if(isset($_SESSION['isLoggedIn'])){?>
                                 <p>
-                                <?=$_SESSION['name']?>
+                                    <?=$_SESSION['name']?>
                                 </p>
                                 <?php }else{ ?>
-                            <?php } ?>
+                                <?php } ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -149,7 +149,8 @@ if (isset($_GET['delete'])){
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment tables</a></li>
+                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment
+                                    tables</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -244,6 +245,36 @@ if (isset($_GET['delete'])){
                 "bAutoWidth": false
             });
         });
+
+        function nullcheck() {
+
+            $(".error").remove();
+
+            $('#submit').removeAttr('disabled', true);
+
+            if ($('#crop_name').val() == '') {
+                $('#crop_name').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#crop_category').val() == '') {
+                $('#crop_category').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#soil_type').val() == '') {
+                $('#soil_type').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+            if ($('#season').val() == '') {
+                $('#season').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+            if ($('#duration').val() == '') {
+                $('#duration').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+        }
     </script>
 
 </body>

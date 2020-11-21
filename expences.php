@@ -57,64 +57,62 @@ if (isset($_GET['delete'])){
 
         <!-- Inner Header start -->
         <div class="container production_box">
+            <h4>Expences</h4>
+            <hr>
             <div class="">
-                <h4>Expences</h4>
+                <!-- Essential button -->
+                <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Register New
+                    Expences</button>
                 <hr>
-                <div class="">
-                    <!-- Essential button -->
-                    <button id="myBtn" style="float: none;"><i class="fa fa-plus" aria-hidden="true"></i> Register New
-                        Expences</button>
-                    <hr>
 
-                    <!-- Result Table -->
-                    <table id="example" class="display">
-                        <thead>
-                            <tr>
-                                <th>Item Name:</th>
-                                <th>Category:</th>
-                                <th>Net amount (tk):</th>
-                                <th>Invoice No:</th>
-                                <th>Date:</th>
-                                <th>Production Name:</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php include_once("dbCon.php");
-                            $conn = connect();
+                <!-- Result Table -->
+                <table id="example" class="display">
+                    <thead>
+                        <tr>
+                            <th>Item Name:</th>
+                            <th>Category:</th>
+                            <th>Net amount (tk):</th>
+                            <th>Invoice No:</th>
+                            <th>Date:</th>
+                            <th>Production Name:</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                             $sql= "SELECT * FROM expences as e, crop_productions as c WHERE e.cropProduction_id = c.cropProduction_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
 
-                            <tr>
-                                <td><?php echo $row["item_name"]; ?></td>
-                                <td><?php echo $row["category"]; ?></td>
-                                <td><?php echo $row["net_amount"]; ?></td>
-                                <td><?php echo $row["invoice_no"]; ?></td>
-                                <td><?php echo $row["date"]; ?></td>
-                                <td><?php echo $row["cropProduction_name"]; ?></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="dropbtn"><i class="fa fa-bars"></i></button>
-                                        <div class="dropdown-content">
-                                            <a href="expences_edit.php?edit=<?php echo $row['e_id'];?>"
-                                                style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
-                                                Edit</a>
-                                            <a href="expences.php?delete=<?php echo $row['e_id'];?>"
-                                                style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                Delete</a>
-                                        </div>
+                        <tr>
+                            <td><?php echo $row["item_name"]; ?></td>
+                            <td><?php echo $row["category"]; ?></td>
+                            <td><?php echo $row["net_amount"]; ?></td>
+                            <td><?php echo $row["invoice_no"]; ?></td>
+                            <td><?php echo $row["date"]; ?></td>
+                            <td><?php echo $row["cropProduction_name"]; ?></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropbtn"><i class="fa fa-bars"></i></button>
+                                    <div class="dropdown-content">
+                                        <a href="expences_edit.php?edit=<?php echo $row['e_id'];?>"
+                                            style="color: green;"><i class="fa fa-edit" aria-hidden="true"></i>
+                                            Edit</a>
+                                        <a href="expences.php?delete=<?php echo $row['e_id'];?>" style="color: red;"><i
+                                                class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete</a>
                                     </div>
-                                </td>
-                            </tr>
-                            <?php endwhile;?>
-                        </tbody>
-                    </table>
-                    <!-- Result Table End -->
-                </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endwhile;?>
+                    </tbody>
+                </table>
+                <!-- Result Table End -->
             </div>
-            <!-- Inner Header end -->
+        </div>
+        <!-- Inner Header end -->
     </section>
 
 

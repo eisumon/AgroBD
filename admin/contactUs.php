@@ -185,7 +185,7 @@ if (isset($_GET['delete'])){
                                             <td><?php echo $row["message"]; ?></td>
                                             <td>
                                                 <button><a href="index.php?delete=<?php echo $row['c_id'];?>"
-                                                        style="color: red;"><i class="fa fa-trash"
+                                                        style="color: red;"><i class="fa fa-trash-o"
                                                             aria-hidden="true"></i>
                                                         Delete</a></button>
                                             </td>

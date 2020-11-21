@@ -1847,6 +1847,15 @@ input[type=date] {
 	resize: vertical;
 }
 
+input[type=number] {
+	width: 100%;
+	height: 40px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
 /* Style the label to display next to the inputs */
 label {
 	padding: 12px 12px 12px 0;
@@ -2121,10 +2130,6 @@ Dashboard Card Design
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	padding: 16px;
 	text-align: center;
-}
-.dCard:hover h3{
-	font-size: 50px;
-	transition: .5s;
 }
 
 .dCard h3, p{

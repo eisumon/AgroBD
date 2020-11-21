@@ -5,7 +5,7 @@ if(isset($_POST["login"])){
 
 $email= mysqli_real_escape_string($conn,$_POST['email']);
 $password= mysqli_real_escape_string($conn,md5($_POST['password']));
-$sql="SELECT * FROM users where email ='$email' AND password='$password'";
+$sql="SELECT * FROM admin WHERE email ='$email' AND password='$password'";
 $result = $conn->query($sql);
     // echo "$sql";
     if($result->num_rows>0){
