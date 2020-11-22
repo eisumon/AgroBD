@@ -148,7 +148,6 @@ include'includes/navbar.php';
 </body>
 </html>
 
-   
     ';
     $mailMsg 	= $message;
     //echo $message;exit;

@@ -4,11 +4,26 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
-
+// workers counter
 $sql= "SELECT count(w_id) AS total FROM workers";
 $result = $conn->query($sql);
 $row = $result-> fetch_assoc();
 $num_rows=$row['total'];
+// machinery counter
+$sql= "SELECT count(m_id) AS total FROM machinery";
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+$num_rows1=$row['total'];
+// inventory counter
+$sql= "SELECT count(i_id) AS total FROM inventory";
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+$num_rows2=$row['total'];
+// fields counter
+$sql= "SELECT count(f_id) AS total FROM fields";
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+$num_rows3=$row['total'];
 ?>
 </head>
 
@@ -35,28 +50,28 @@ $num_rows=$row['total'];
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
                     <div class="dCard card1">
-                        <h3><?php echo $num_rows; ?></h3><br>
+                        <h3><?php echo $num_rows;?></h3><br>
                         <p>Total Workers</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
                     <div class="dCard card2">
-                        <h3>53</h3><br>
+                        <h3><?php echo $num_rows1;?></h3><br>
                         <p>Total Machinery</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
                     <div class="dCard card3">
-                        <h3>35</h3><br>
+                        <h3><?php echo $num_rows2;?></h3><br>
                         <p>Total Inventory</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-12 column">
                     <div class="dCard card4">
-                        <h3>40</h3><br>
+                        <h3><?php echo $num_rows3;?></h3><br>
                         <p>Total Fields</p>
                     </div>
                 </div>

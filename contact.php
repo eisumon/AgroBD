@@ -3,13 +3,14 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
 
 if (isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-        $sql ="INSERT INTO contact_us(name, email, message) VALUES('$name', '$email', '$message')";
+        $sql ="INSERT INTO contact_us(name, email, message, uid) VALUES('$name', '$email', '$message', '$uid')";
         // echo $sql;
         // exit;
         if($conn->query($sql)){

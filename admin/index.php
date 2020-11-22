@@ -1,4 +1,18 @@
-<?php session_start();?>
+<?php session_start();
+
+include_once("dbCon.php");
+$conn = connect();
+// Users counter
+$sql= "SELECT count(uid) AS total FROM users";
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+$num_rows1=$row['total'];
+// Contact comment counter
+$sql= "SELECT count(c_id) AS total FROM contact_us";
+$result = $conn->query($sql);
+$row = $result-> fetch_assoc();
+$num_rows2=$row['total'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -142,10 +156,10 @@
                         <div class="small-box bg-green">
                             <div class="inner">
                                 <h3>
-                                    44
+                                <?php echo $num_rows1;?>
                                 </h3>
                                 <p>
-                                    User
+                                    Registered User
                                 </p>
                             </div>
                             <div class="icon">
@@ -156,27 +170,10 @@
                     </div><!-- ./col -->
                     <div class="col-lg-12 col-md-6 col-xs-12">
                         <!-- small box -->
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h3>
-                                    65
-                                </h3>
-                                <p>
-                                    Unique Visitors
-                                </p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <br>
-                        </div>
-                    </div><!-- ./col -->
-                    <div class="col-lg-12 col-md-6 col-xs-12">
-                        <!-- small box -->
                         <div class="small-box bg-blue">
                             <div class="inner">
                                 <h3>
-                                    50
+                                <?php echo $num_rows2;?>
                                 </h3>
                                 <p>
                                     Comments

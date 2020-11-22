@@ -14,9 +14,9 @@ if(isset($_GET['email'])){
   //echo $sql;exit;
     if($result->num_rows>0){
 
-     }else{
-       header("Location:404");
-     }
+    }else{
+      header("Location:404");
+    }
 }
 
   if(isset($_POST['reset'])){
