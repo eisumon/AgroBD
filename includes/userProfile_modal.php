@@ -22,17 +22,17 @@
                 <form>
                     <div>
                         <label for="name">First Name:</label><br>
-                        <input type="text" id="name" name="name" value="<?php echo $row["name"]; ?>"
+                        <input type="text" name="name" value="<?php echo $row["name"]; ?>"
                             placeholder="Your name" disabled>
                     </div>
                     <div>
-                        <label for="email_add">Email Address:</label><br>
-                        <input type="text" id="email_add" name="email" value="<?php echo $row["email"]; ?>"
+                        <label for="email">Email Address:</label><br>
+                        <input type="text" name="email" value="<?php echo $row["email"]; ?>"
                             placeholder="Your email" disabled>
                     </div>
                     <div>
                         <label for="phone">Phone Number:</label><br>
-                        <input type="text" id="phone" name="phone" value="<?php echo $row["phone"]; ?>"
+                        <input type="text" name="phone" value="<?php echo $row["phone"]; ?>"
                             placeholder="Your Number" disabled>
                     </div>
                     <br>

@@ -41,11 +41,10 @@
     function myAlert(msg, type, redirectTo) {
       swal({
         title: msg,
-        // text: "",
         type: type,
-        timer: 2000,
+        // timer: 2000,
         showCancelButton: false,
-        showConfirmButton: false,
+        showConfirmButton: true,
         closeOnClickOutside: false,
       }, function () {
         window.location.href = redirectTo;
