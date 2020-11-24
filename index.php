@@ -16,7 +16,7 @@ include'includes/navbar.php';
                         <p>Plan your season or create your plant production which you want.</p>
                         <a style="margin-right: 10px;" href="cropplant.php" class="primary-btn"><i
                                 class="fa fa-plus"></i> Create Production</a>
-                        <a href="seasonplan.php" class="primary-btn">Season Plan</a>
+                        <a href="seasonplan.php" class="primary-btn">Plan Your Season</a>
                     </div>
 
                 </div>
@@ -53,7 +53,8 @@ include'includes/navbar.php';
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</h5>
-                                <a href="dashboard.php"><i class="fa fa-search" aria-hidden="true"></i> Explore Dashboard</a>
+                                <a href="dashboard.php"><i class="fa fa-search" aria-hidden="true"></i> Explore
+                                    Dashboard</a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@ include'includes/navbar.php';
             <div class="text-center">
                 <div class="section-title">
                     <h2>How It Works?</h2>
-                    <p>Agrivi farm management software lets you plan, monitor and analyze all activities on your farm
+                    <p>AgroBD farm management software lets you plan, monitor and analyze all activities on your farm
                         easily. Tillage, planting, spraying, fertilization, irrigation, harvesting and all other
                         activities
                         are managed with a few clicks.</p>
@@ -155,8 +156,8 @@ include'includes/navbar.php';
                             place.</p>
                     </div>
                     <div class="col-md-12 core_feature">
-                        <h4>Advanced Pest Detection</h4>
-                        <p>Get alerts if there is a risk of insect pests or diseases on your fields and protect your
+                        <h4>Pest Details</h4>
+                        <p>Get pest details and solution to protect your
                             crops
                             timely.</p>
                     </div>
@@ -225,7 +226,7 @@ include'includes/navbar.php';
             <div class="text-center">
                 <div class="section-title">
                     <h2>Need More Help?</h2>
-                    <p>Get in touch with our Sales team and let them find the right solution for you.</p>
+                    <p>Get in touch with our team and let them find the right solution for you.</p>
                 </div>
                 <a href="#" class="primary-btn">Contact Us</a>
             </div>

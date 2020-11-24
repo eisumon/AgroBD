@@ -51,8 +51,13 @@ $row = $conn->query($sql);
                                 <label for="categories">Categories:</label><br>
                                 <select id="categories" name="categories">
                                     <option value="">Select</option>
+                                    <option value="">Select</option>
+                                    <option value="tillage">Tillage</option>
                                     <option value="planting">Planting</option>
-                                    <option value="fertilizing">Fertilizing</option>
+                                    <option value="spraying">Spraying</option>
+                                    <option value="fertilization">Fertilization</option>
+                                    <option value="irrigation">Irrigation</option>
+                                    <option value="harvesting ">Harvesting </option>
                                 </select>
                             </div>
                             <div>

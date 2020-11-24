@@ -67,7 +67,8 @@ if (isset($_POST['update'])){
                         <input type="hidden" name="task_id" value="<?=$id; ?>">
                         <div>
                             <label for="task_name">Task Name:</label><br>
-                            <input type="text" id="task_name" name="task_name" oninput="ontype();" value="<?=$task_name; ?>">
+                            <input type="text" id="task_name" name="task_name" oninput="ontype();"
+                                value="<?=$task_name; ?>">
                         </div>
                         <div>
                             <label for="start_date">Start date:</label><br>
@@ -93,10 +94,20 @@ if (isset($_POST['update'])){
                             <label for="categories">Categories:</label><br>
                             <select id="categories" name="categories">
                                 <option value="">Select</option>
+                                <option value="tillage" <?php if ($row["categories"]=='tillage'){echo "selected";}?>>
+                                    Tillage</option>
                                 <option value="planting" <?php if ($row["categories"]=='planting'){echo "selected";}?>>
                                     Planting</option>
-                                <option value="fertilizing"
-                                    <?php if ($row["categories"]=='fertilizing'){echo "selected";}?>>Fertilizing
+                                <option value="spraying" <?php if ($row["categories"]=='spraying'){echo "selected";}?>>
+                                    Spraying</option>
+                                <option value="fertilization"
+                                    <?php if ($row["categories"]=='fertilization'){echo "selected";}?>>Fertilization
+                                </option>
+                                <option value="irrigation"
+                                    <?php if ($row["categories"]=='irrigation'){echo "selected";}?>>Irrigation
+                                </option>
+                                <option value="harvesting"
+                                    <?php if ($row["categories"]=='harvesting'){echo "selected";}?>>Harvesting
                                 </option>
                             </select>
                         </div>

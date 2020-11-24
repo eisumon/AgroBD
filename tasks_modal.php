@@ -42,8 +42,13 @@
                                 <label for="categories">Categories:</label><br>
                                 <select id="categories" name="categories">
                                     <option value="">Select</option>
+                                    <option value="Tillage">Tillage</option>
                                     <option value="planting">Planting</option>
+                                    <option value="spraying">Spraying</option>
+                                    <option value="fertilization">Fertilization</option>
                                     <option value="fertilizing">Fertilizing</option>
+                                    <option value="irrigation">Irrigation</option>
+                                    <option value="harvesting ">Harvesting </option>
                                 </select>
                             </div>
                         </div>
