@@ -2,7 +2,7 @@
 <footer class="footer-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4 col-md-5">
                 <div class="footer-left">
                     <div class="footer-logo">
                         <a href="index"><img src="img/footer-logo.png" alt=""></a>
@@ -20,34 +20,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 offset-lg-1">
+            <div class="col-lg-3 col-md-3 offset-lg-1 offset-md-1">
                 <div class="footer-widget">
                     <h5>Information</h5>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Service</a></li>
+                        <li><a href="index">Home</a></li>
+                        <li><a href="#feature">Features</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="faq">FAQ</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-4 col-md-3">
                 <div class="footer-widget">
                     <h5>My Account</h5>
                     <ul>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="login">Login</a></li>
+                        <li><a href="register">Registration</a></li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="newslatter-item">
-                    <h5>Join Our Newsletter Now</h5>
-                    <p>Get E-mail updates about our latest shop and special offers.</p>
-                    <form action="#" class="subscribe-form">
-                        <input type="text" placeholder="Enter Your Mail">
-                        <button type="button">Subscribe</button>
-                    </form>
                 </div>
             </div>
         </div>

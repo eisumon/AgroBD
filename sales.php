@@ -13,10 +13,8 @@ if (isset($_POST['submit'])){
     $net_amount = $_POST['net_amount'];
     $invoice_no = $_POST['invoice_no'];
     $date = $_POST['date'];
-    $customer_name = $_POST['customer_name'];
-    $customer_no = $_POST['customer_no'];
 
-    $sql ="INSERT INTO sales(item_name, category, quantity, net_amount, invoice_no, date, customer_name, customer_no, uid) VALUES('$item_name', '$category', '$quantity', '$net_amount', '$invoice_no', '$date', '$customer_name', '$customer_no', '$uid')";
+    $sql ="INSERT INTO sales(item_name, category, quantity, net_amount, invoice_no, date, uid) VALUES('$item_name', '$category', '$quantity', '$net_amount', '$invoice_no', '$date', '$uid')";
          //echo $sql;exit;
     if($conn->query($sql)){
     echo "<script>myAlert('Sales Record Create Successfull','success','sales');</script>";
@@ -79,8 +77,6 @@ if (isset($_GET['delete'])){
                                 <th>Net amount:</th>
                                 <th>Invoice No:</th>
                                 <th>Date:</th>
-                                <th>Customer Name:</th>
-                                <th>Customer No:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -98,8 +94,6 @@ if (isset($_GET['delete'])){
                                 <td><?php echo $row["net_amount"]; ?></td>
                                 <td><?php echo $row["invoice_no"]; ?></td>
                                 <td><?php echo $row["date"]; ?></td>
-                                <td><?php echo $row["customer_name"]; ?></td>
-                                <td><?php echo $row["customer_no"]; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="dropbtn"><i class="fa fa-bars"></i></button>
@@ -169,25 +163,6 @@ include'includes/footer.php';?>
             if ($('#date').val() == '') {
                 $('#date').after('<span class="error">* This field is required</span>');
                 return false;
-            }
-            if ($('#customer_name').val() == '') {
-                $('#customer_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-            if ($('#customer_no').val() == '') {
-                $('#customer_no').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-        }
-
-        function ontype() {
-            $(".error").remove();
-
-            if ($('#item_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#item_name").val())) {
-                    $('#item_name').after('<span class="error">*Task name can not be numeric!!</span>');
-                    return false;
-                }
             }
         }
     </script>

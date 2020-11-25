@@ -16,8 +16,6 @@ if (isset($_GET['edit'])){
     $net_amount = $row['net_amount'];
     $invoice_no = $row['invoice_no'];
     $date = $row['date'];
-    $customer_name = $row['customer_name'];
-    $customer_no = $row['customer_no'];
 }
 
 if (isset($_POST['update'])){
@@ -28,10 +26,8 @@ if (isset($_POST['update'])){
     $net_amount = $_POST['net_amount'];
     $invoice_no = $_POST['invoice_no'];
     $date = $_POST['date'];
-    $customer_name = $_POST['customer_name'];
-    $customer_no = $_POST['customer_no'];
     
-    $sql= "UPDATE sales SET item_name= '$item_name', category= '$category', quantity= '$quantity', net_amount= '$net_amount', invoice_no= '$invoice_no', date= '$date' , customer_name= '$customer_name' , customer_no= '$customer_no' WHERE s_id=$id";
+    $sql= "UPDATE sales SET item_name= '$item_name', category= '$category', quantity= '$quantity', net_amount= '$net_amount', invoice_no= '$invoice_no', date= '$date' WHERE s_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -74,7 +70,7 @@ if (isset($_POST['update'])){
                         <div>
                             <label for="item_name">Item Name:</label><br>
                             <input type="text" id="item_name" name="item_name" placeholder="Enter item name"
-                                value="<?=$item_name; ?>" oninput="ontype();">
+                                value="<?=$item_name; ?>">
                         </div>
                         <div>
                             <label for="category">Category:</label><br>
@@ -119,16 +115,6 @@ if (isset($_POST['update'])){
                         <div>
                             <label for="date">Date:</label><br>
                             <input type="date" id="date" name="date" value="<?=$date; ?>">
-                        </div>
-                        <div>
-                            <label for="customer_name">Customer Name:</label><br>
-                            <input type="text" id="customer_name" name="customer_name" value="<?=$customer_name; ?>"
-                                placeholder="Enter customer name">
-                        </div>
-                        <div>
-                            <label for="customer_no">Customer No:</label><br>
-                            <input type="text" id="customer_no" name="customer_no" value="<?=$customer_no; ?>"
-                                placeholder="Enter customer phone number">
                         </div>
                         <br>
                         <div class="sub"><input type="submit" value="Update" name="update"></div>
@@ -184,25 +170,6 @@ if (isset($_POST['update'])){
             if ($('#date').val() == '') {
                 $('#date').after('<span class="error">* This field is required</span>');
                 return false;
-            }
-            if ($('#customer_name').val() == '') {
-                $('#customer_name').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-            if ($('#customer_no').val() == '') {
-                $('#customer_no').after('<span class="error">* This field is required</span>');
-                return false;
-            }
-        }
-
-        function ontype() {
-            $(".error").remove();
-
-            if ($('#item_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#item_name").val())) {
-                    $('#item_name').after('<span class="error">*Task name can not be numeric!!</span>');
-                    return false;
-                }
             }
         }
     </script>

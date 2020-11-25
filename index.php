@@ -35,21 +35,21 @@ include'includes/navbar.php';
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-signal" aria-hidden="true"></i> Sales</h5>
                                 <a href="sales"><i class="fa fa-plus" aria-hidden="true"></i> Register Sales</a>
                             </div>
                         </div>
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-money" aria-hidden="true"></i> Expences</h5>
                                 <a href="expences"><i class="fa fa-plus" aria-hidden="true"></i> Register Expences</a>
                             </div>
                         </div>
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</h5>
@@ -72,21 +72,21 @@ include'includes/navbar.php';
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-user" aria-hidden="true"></i> People</h5>
                                 <a href="workers"><i class="fa fa-plus" aria-hidden="true"></i> Register Workers</a>
                             </div>
                         </div>
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-industry" aria-hidden="true"></i> Machinery</h5>
                                 <a href="machinery"><i class="fa fa-plus" aria-hidden="true"></i> Register Machinery</a>
                             </div>
                         </div>
-                        <div class="col-md-4 fin_oview_body">
+                        <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
                                 <h5><i class="fa fa-home" aria-hidden="true"></i> Inventory</h5>
@@ -107,7 +107,7 @@ include'includes/navbar.php';
                 <div class="container">
                     <div class="">
                         <h1>AgroBD Farm</h1>
-                        <p>Plan your season or create your plant production which you want.</p>
+                        <p>A complete farm management system.</p>
                         <a href="register.php" class="primary-btn">Get Started</a>
                     </div>
                 </div>
