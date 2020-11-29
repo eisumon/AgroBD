@@ -25,7 +25,7 @@
                     <h5>Information</h5>
                     <ul>
                         <li><a href="index">Home</a></li>
-                        <li><a href="#feature">Features</a></li>
+                        <li><a href="index">Features</a></li>
                         <li><a href="">Contact Us</a></li>
                         <li><a href="faq">FAQ</a></li>
                     </ul>
