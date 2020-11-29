@@ -34,17 +34,19 @@ if (isset($_GET['edit'])){
     // $row = mysqli_fetch_assoc($result);
     $row = $result-> fetch_assoc();
     $pests_name = $row['pests_name'];
-    $pests_type = $row['pests_type'];
-    $description = $row['description'];
+    $common_name = $row['common_name'];
+    $family = $row['family'];
+    $host = $row['host'];
 }
 
 if (isset($_POST['update'])){
     $id = $_POST['pests_id'];
     $pests_name = $_POST['pests_name'];
-    $pests_type = $_POST['pests_type'];
-    $description = $_POST['description'];
+    $common_name = $_POST['common_name'];
+    $family = $_POST['family'];
+    $host = $_POST['host'];
     
-    $sql= "UPDATE pests SET pests_name= '$pests_name', pests_type= '$pests_type', description= '$description' WHERE pests_id=$id";
+    $sql= "UPDATE pests SET pests_name= '$pests_name', common_name= '$common_name', family= '$family', host= '$host' WHERE pests_id=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
@@ -89,10 +91,10 @@ if (isset($_POST['update'])){
                                 <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                                 <?php if(isset($_SESSION['isLoggedIn'])){?>
                                 <p>
-                                <?=$_SESSION['name']?>
+                                    <?=$_SESSION['name']?>
                                 </p>
                                 <?php }else{ ?>
-                            <?php } ?>
+                                <?php } ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -147,7 +149,8 @@ if (isset($_POST['update'])){
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment tables</a></li>
+                            <li><a href="contactUs.php"><i class="fa fa-angle-double-right"></i> Contact Us Comment
+                                    tables</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -182,20 +185,25 @@ if (isset($_POST['update'])){
                         <div class="box-body">
                             <input type="hidden" name="pests_id" value="<?=$id; ?>">
                             <div class="form-group">
-                                <label for="pests_name"> Pest Name</label>
+                                <label for="pests_name">Name of pest</label>
                                 <input type="text" class="form-control" id="pests_name" name="pests_name"
-                                    value="<?=$pests_name; ?>" placeholder="Enter Pest Name">
+                                    value="<?=$pests_name; ?>" placeholder="Enter Name of Pest">
                             </div>
                             <div class="form-group">
-                                <label for="pests_type">Pest Type</label>
-                                <input type="text" class="form-control" id="pests_type" name="pests_type"
-                                    placeholder="Enter Pest Type" value="<?=$pests_type; ?>">
+                                <label for="common_name">Common name</label>
+                                <input type="text" class="form-control" id="common_name" name="common_name"
+                                    placeholder="Enter Common Name" value="<?=$common_name; ?>">
                             </div>
                             <!-- textarea -->
                             <div class="form-group">
-                                <label for="description">Pest Description</label>
-                                <input class="form-control" rows="3" id="description" name="description"
-                                    placeholder="Enter Pest Description" value="<?=$description; ?>">
+                                <label for="family">Order/Family</label>
+                                <input class="form-control" rows="3" id="family" name="family"
+                                    placeholder="Enter Order/Family" value="<?=$family; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="host">Order/Family</label>
+                                <input class="form-control" rows="3" id="host" name="host" placeholder="Enter host"
+                                    value="<?=$host; ?>">
                             </div>
                         </div><!-- /.box-body -->
 
@@ -247,13 +255,18 @@ if (isset($_POST['update'])){
                 return false;
             }
 
-            if ($('#pests_type').val() == '') {
-                $('#pests_type').after('<span class="error">* This field is required</span>');
+            if ($('#common_name').val() == '') {
+                $('#common_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#description').val() == '') {
-                $('#description').after('<span class="error">* This field is required</span>');
+            if ($('#family').val() == '') {
+                $('#family').after('<span class="error">* This field is required</span>');
+                return false;
+            }
+
+            if ($('#host').val() == '') {
+                $('#host').after('<span class="error">* This field is required</span>');
                 return false;
             }
         }

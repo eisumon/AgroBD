@@ -85,7 +85,7 @@
 
 
 /*-------------------
-		Create Field Model
+		Create Model
 	--------------------- */
 
 // Get the modal
@@ -115,7 +115,7 @@ window.onclick = function (event) {
 }
 
 /*-------------------
-		Create Link Model
+		Create another Model
 	--------------------- */
 // Get the modal
 var modal1 = document.getElementById("linkModal");

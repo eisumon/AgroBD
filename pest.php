@@ -46,9 +46,10 @@ if(isset($_SESSION['production_id'])){
                     <table id="example" class="display">
                         <thead>
                             <tr>
-                                <th>Pests name:</th>
-                                <th>Type:</th>
-                                <th>Desciption:</th>
+                                <th>Name of pest</th>
+                                <th>Common name</th>
+                                <th>Order/Family</th>
+                                <th>Host</th>
                             </tr>
                             <thead>
                             <tbody>
@@ -59,9 +60,10 @@ if(isset($_SESSION['production_id'])){
                             ?>
                                 <tr>
                                     <td><?php echo $row["pests_name"]; ?></td>
-                                    <td><?php echo $row["pests_type"]; ?></td>
-                                    <td><?php echo $row["description"]; ?></td>
-                                    
+                                    <td><?php echo $row["common_name"]; ?></td>
+                                    <td><?php echo $row["family"]; ?></td>
+                                    <td><?php echo $row["host"]; ?></td>
+
                                 </tr>
                                 <?php endwhile;?>
                             </tbody>

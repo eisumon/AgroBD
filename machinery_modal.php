@@ -45,7 +45,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="manufacturer">Manufacturer:</label><br>
+                        <label for="manufacturer">Manufacturer / Brand:</label><br>
                         <input type="text" id="manufacturer" name="manufacturer" placeholder="Manufacturer name"
                             oninput="ontype();">
                     </div>

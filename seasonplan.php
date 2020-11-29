@@ -25,7 +25,7 @@ include'includes/navbar.php';
         <div class="container">
             <div class="seasonPlan-title" style="text-align: center;">
                 <h2>Season plan</h2>
-                <p>Select the boxes to filter out the result and click to submit button to choose your plan.</p>
+                <p>Select the boxes to filter out the result and choose your crop.</p>
             </div>
             <br>
             <hr><br>
@@ -34,7 +34,7 @@ include'includes/navbar.php';
                 <div class="col-lg-3">
                     <div class="seasonPlan-title">
                         <h4>Choose plan</h4>
-                        <p>Select the boxes to filter out the result and choose your plan.</p>
+                        <p>Select the boxes to filter out the result and choose your crop.</p>
                     </div>
                     <div class="seasonPlan-widget">
                         <form action="" method="POST">
@@ -94,7 +94,7 @@ include'includes/navbar.php';
                     <div class="">
                         <div class="seasonPlan-title">
                             <h4>Crop List</h4>
-                            <p>Select your crop and start to create crop production</p>
+                            <p>Select your crop and start to create crop production.</p>
                         </div>
                     </div><br>
                     <div class="seasonPlan-widget">

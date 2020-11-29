@@ -30,10 +30,11 @@ $conn = connect();
 if (isset($_POST['submit'])){
 
     $pests_name = $_POST['pests_name'];
-    $pests_type = $_POST['pests_type'];
-    $description = $_POST['description'];
+    $common_name = $_POST['common_name'];
+    $family = $_POST['family'];
+    $host = $_POST['host'];
 
-    $sql ="INSERT INTO pests(pests_name, pests_type, description) VALUES('$pests_name', '$pests_type', '$description')";
+    $sql ="INSERT INTO pests(pests_name, common_name, family, host) VALUES('$pests_name', '$common_name', '$family', '$host')";
     //echo $sql;exit;
     if($conn->query($sql)){
     header("location:pests.php");
@@ -173,15 +174,20 @@ if (isset($_POST['submit'])){
                                     placeholder="Enter Pest Name">
                             </div>
                             <div class="form-group">
-                                <label for="pests_type">Pest Type</label>
-                                <input type="text" class="form-control" id="pests_type" name="pests_type"
-                                    placeholder="Enter Pest Type">
+                                <label for="common_name">Common name</label>
+                                <input type="text" class="form-control" id="common_name" name="common_name"
+                                    placeholder="Enter Common Name">
                             </div>
                             <!-- textarea -->
                             <div class="form-group">
-                                <label for="description">Pest Description</label>
-                                <input class="form-control" rows="3" id="description" name="description"
-                                    placeholder="Enter Pest Description">
+                                <label for="family">Order/Family</label>
+                                <input class="form-control" rows="3" id="family" name="family"
+                                    placeholder="Enter Order/Family">
+                            </div>
+                            <div class="form-group">
+                                <label for="host">Order/Family</label>
+                                <input class="form-control" rows="3" id="host" name="host"
+                                    placeholder="Enter host">
                             </div>
                         </div><!-- /.box-body -->
 
@@ -229,18 +235,18 @@ if (isset($_POST['submit'])){
 
             $('#submit').removeAttr('disabled', true);
 
-            if ($('#pests_name').val() == '') {
-                $('#pests_name').after('<span class="error">* This field is required</span>');
+            if ($('#common_name').val() == '') {
+                $('#common_name').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#pests_type').val() == '') {
-                $('#pests_type').after('<span class="error">* This field is required</span>');
+            if ($('#family').val() == '') {
+                $('#family').after('<span class="error">* This field is required</span>');
                 return false;
             }
 
-            if ($('#description').val() == '') {
-                $('#description').after('<span class="error">* This field is required</span>');
+            if ($('#host').val() == '') {
+                $('#host').after('<span class="error">* This field is required</span>');
                 return false;
             }
         }

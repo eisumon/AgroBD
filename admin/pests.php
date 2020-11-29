@@ -74,10 +74,10 @@ if (isset($_GET['delete'])){
                                 <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                                 <?php if(isset($_SESSION['isLoggedIn'])){?>
                                 <p>
-                                <?=$_SESSION['name']?>
+                                    <?=$_SESSION['name']?>
                                 </p>
                                 <?php }else{ ?>
-                            <?php } ?>
+                                <?php } ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -184,23 +184,24 @@ if (isset($_GET['delete'])){
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Pest Name</th>
-                                            <th>Pest Type</th>
-                                            <th>Pest Description</th>
+                                            <th>Name of pest</th>
+                                            <th>Common name</th>
+                                            <th>Order/Family</th>
+                                            <th>Host</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php include_once("dbCon.php");
-                                            $conn = connect();
+                                        <?php
                                             $sql= "SELECT * FROM pests";
                                             $result = $conn->query($sql);
                                                 while ($row = $result-> fetch_assoc()): 
                                         ?>
                                         <tr>
                                             <td><?php echo $row["pests_name"]; ?></td>
-                                            <td><?php echo $row["pests_type"]; ?></td>
-                                            <td><?php echo $row["description"]; ?></td>
+                                            <td><?php echo $row["common_name"]; ?></td>
+                                            <td><?php echo $row["family"]; ?></td>
+                                            <td><?php echo $row["host"]; ?></td>
                                             <td>
                                                 <button><a href="pests_edit.php?edit=<?php echo $row['pests_id'];?>"
                                                         style="color: green;"><i class="fa fa-edit"
@@ -216,9 +217,10 @@ if (isset($_GET['delete'])){
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Pest Name</th>
-                                            <th>Pest Type</th>
-                                            <th>Pest Description</th>
+                                            <th>Name of pest</th>
+                                            <th>Common name</th>
+                                            <th>Order/Family</th>
+                                            <th>Host</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

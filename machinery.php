@@ -79,7 +79,7 @@ if (isset($_GET['delete'])){
                             <tr>
                                 <th>Machinery Name:</th>
                                 <th>Category:</th>
-                                <th>Manufacturer:</th>
+                                <th>Manufacturer / Brand:</th>
                                 <th>Model No:</th>
                                 <th>Reg.Number:</th>
                                 <th>Action</th>
@@ -162,23 +162,6 @@ include'includes/footer.php';
             if ($('#reg_number').val() == '') {
                 $('#reg_number').after('<span class="error">* This field is required</span>');
                 return false;
-            }
-        }
-
-        function ontype() {
-            $(".error").remove();
-
-            if ($('#machinery_name').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#machinery_name").val())) {
-                    $('#machinery_name').after('<span class="error">*Machinery name can not be numeric!!</span>');
-                    return false;
-                }
-            }
-            if ($('#manufacturer').val() !== '') {
-                if (!/^[a-z ]+$/i.test($("#manufacturer").val())) {
-                    $('#manufacturer').after('<span class="error">*Manufacturer name can not be numeric!!</span>');
-                    return false;
-                }
             }
         }
     </script>

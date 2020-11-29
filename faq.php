@@ -27,45 +27,48 @@ include'includes/navbar.php';
                         <div class="card">
                             <div class="card-heading active">
                                 <a class="active" data-toggle="collapse" data-target="#collapseOne">
-                                    Is There Anything I Should Bring?
+                                    How can I change the password?
                                 </a>
                             </div>
                             <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.</p>
+                                    <p>To restore password, click on the link HERE, in the next step, provide an e-mail
+                                        address to which the account has been assigned. Link to change the password will
+                                        be sent to that e-mail address.</p>
+                                    <p>For the full instruction, click <a href="">HERE</a>.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-heading">
                                 <a data-toggle="collapse" data-target="#collapseTwo">
-                                    Where Can I Find Market Research Reports?
+                                    Is AgroBD available on iOS or Android mobile apps?
                                 </a>
                             </div>
                             <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.</p>
+                                    <p>AgroBD FMS can't be used via mobile apps for Android or iOS devices. The mobile
+                                        apps for Androiod or iOS devices is comming soon.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-heading">
                                 <a data-toggle="collapse" data-target="#collapseThree">
-                                    Where Can I Find The Wall Street Journal?
+                                    How to use dashboard in AgroBD?
                                 </a>
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.</p>
+                                    <p>To learn how to use Dashboard tab in Agrivi, take a look in <a href="">HERE</a>.</p>
+
+                                    <p>What can be analyzed under field operations <a href="">HERE</a>.</p>
+
+                                    <p>How to analyze crop productivity <a href="">HERE</a>.</p>
+
+                                    <p>How to analyze farm usage <a href="">HERE</a>.</p>
+
+                                    <p>How to analyze farm finances <a href="">HERE</a>.</p>
                                 </div>
                             </div>
                         </div>
