@@ -75,7 +75,7 @@ include'includes/navbar.php';
                         <div class="col-md-4 col-sm-6 fin_oview_body">
                             <div class="fin_body_box">
                                 <img src="img/sales.png" alt="">
-                                <h5><i class="fa fa-user" aria-hidden="true"></i> People</h5>
+                                <h5><i class="fa fa-user" aria-hidden="true"></i> Workers</h5>
                                 <a href="workers"><i class="fa fa-plus" aria-hidden="true"></i> Register Workers</a>
                             </div>
                         </div>
