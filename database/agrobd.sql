@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2020 at 07:22 PM
+-- Generation Time: Nov 29, 2020 at 09:02 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -335,7 +335,7 @@ CREATE TABLE `users` (
   `email` varchar(20) NOT NULL,
   `password` varchar(200) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  `token` varchar(50) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
