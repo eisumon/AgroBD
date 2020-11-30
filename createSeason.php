@@ -16,9 +16,9 @@ if (isset($_POST['submit'])){
     $sql ="INSERT INTO create_seasons(seasonName, startDate, endDate, status, expectedYield, cropProduction_id, uid) VALUES('$seasonName', '$startDate', '$endDate', '$status', '$expectedYield', '$production_id', '$uid')";
        //  echo $sql;exit;
     if($conn->query($sql)){
-    echo "<script>myAlert('New Task Create Successfully','success','createSeason');</script>";
+    echo "<script>myAlert('New Season Create Successfully','success','createSeason');</script>";
     } else{
-    echo "<script>myAlert(Task Create Not Successfull','error','createSeason');</script>";
+    echo "<script>myAlert(Season Create Not Successfull','error','createSeason');</script>";
     }
 }
 
