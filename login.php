@@ -19,7 +19,7 @@ $result = $conn->query($sql);
             }
             echo "<script>myAlert('Login Successfully', 'success', 'index');</script>";
             } else{
-            echo "<script>myAlert('Email or password does not match', 'error', 'login');</script>";
+            echo "<script>myAlert('Email or password does not match!!! Try again', 'error', 'login');</script>";
             }        
 }
 ?>
