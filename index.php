@@ -174,7 +174,7 @@ include'includes/navbar.php';
                         </p>
                     </div>
                 </div>
-                <a href="#" class="primary-btn">Sign Up Now</a>
+                <a href="register" class="primary-btn">Sign Up Now</a>
             </div>
         </div>
     </section>
@@ -228,7 +228,7 @@ include'includes/navbar.php';
                     <h2>Need More Help?</h2>
                     <p>Get in touch with our team and let them find the right solution for you.</p>
                 </div>
-                <a href="#" class="primary-btn">Contact Us</a>
+                <a href="contact_us" class="primary-btn">Contact Us</a>
             </div>
         </div>
     </section>
