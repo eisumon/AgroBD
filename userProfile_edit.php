@@ -18,10 +18,9 @@ if (isset($_GET['edit'])){
 if (isset($_POST['update'])){
     $id = $_POST['uid'];
     $name = $_POST['name'];
-    $email = $_POST['email'];
     $phone = $_POST['phone'];
     
-    $sql= "UPDATE users SET name= '$name', email= '$email', phone= '$phone' WHERE uid=$id";
+    $sql= "UPDATE users SET name= '$name', phone= '$phone' WHERE uid=$id";
     $result = $conn->query($sql);
     
     if($conn->query($sql)){
