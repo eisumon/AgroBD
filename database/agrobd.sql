@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2020 at 09:02 PM
+-- Generation Time: Dec 01, 2020 at 06:46 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`a_id`, `name`, `email`, `password`) VALUES
-(5, 'MD EZAHEBUL ISLAM', 'ezahebul@gmail.com', '202cb962ac59075b964b07152d234b70');
+(8, 'Admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -56,13 +56,6 @@ CREATE TABLE `contact_us` (
   `uid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `contact_us`
---
-
-INSERT INTO `contact_us` (`c_id`, `name`, `email`, `message`, `uid`, `created_at`) VALUES
-(19, 'Halla', 'patew@mailinator.com', 'Iste dolor consequun', 0, '2020-11-21 15:55:28');
 
 -- --------------------------------------------------------
 
@@ -87,7 +80,7 @@ CREATE TABLE `create_seasons` (
 --
 
 INSERT INTO `create_seasons` (`createSeason_id`, `seasonName`, `startDate`, `endDate`, `status`, `expectedYield`, `cropProduction_id`, `uid`, `created_date`) VALUES
-(3, 'Allen Blanchard', '1993-02-12', '2008-07-15', 'in progress', 'Dolores harum amet ', 18, 12, '2020-11-21 15:56:01');
+(6, 'Ross Mcgowan', '1986-10-02', '1979-06-10', 'finished', 'Officia dolor facili', 32, 18, '2020-11-30 16:39:04');
 
 -- --------------------------------------------------------
 
@@ -111,7 +104,7 @@ CREATE TABLE `crop_lists` (
 
 INSERT INTO `crop_lists` (`cropList_id`, `crop_name`, `crop_category`, `soil_type`, `season`, `duration`, `created_at`) VALUES
 (1, 'Jute', 'Tree', 'Clay', 'Kharif- 1', 'Seasonal - summer', '2020-11-21 15:57:31'),
-(5, 'Aus rice', 'Grain ', 'Clay loam', 'Kharif- 1', 'Seasonal - summer', '2020-11-21 15:57:31'),
+(5, 'Aus', 'Grain ', 'Clay loam', 'Kharif- 1', 'Seasonal - summer', '2020-11-30 16:49:45'),
 (7, 'T.aman', 'Grain ', 'Loam', 'Kharif- 2', 'Seasonal - summer', '2020-11-21 15:57:31'),
 (9, 'Glenna Stewart', 'Aut quod optio quib', 'Expedita nisi provid', 'Nobis nostrum et exp', 'Sint tempor hic et d', '2020-11-21 15:57:31');
 
@@ -135,8 +128,7 @@ CREATE TABLE `crop_productions` (
 --
 
 INSERT INTO `crop_productions` (`cropProduction_id`, `cropProduction_name`, `crop_name`, `location`, `uid`, `created_at`) VALUES
-(13, 'Dragon', 'Jute', 'Dhaka, Bangladesh', 12, '2020-11-20 12:18:18'),
-(29, 'Winter season first production', 'Tomato', 'Dhaka, Bangladesh', 12, '2020-11-23 18:26:18');
+(32, 'My Crop Production', 'Aus rice', 'Dhaka, Bangladesh', 18, '2020-11-30 16:34:37');
 
 -- --------------------------------------------------------
 
@@ -161,10 +153,7 @@ CREATE TABLE `expences` (
 --
 
 INSERT INTO `expences` (`e_id`, `item_name`, `category`, `net_amount`, `invoice_no`, `date`, `cropProduction_id`, `uid`, `created_date`) VALUES
-(6, 'Orli Blackwell', 'protection product', 55, 'Aspernatur duis aliq', '1994-02-15', 10, 12, '2020-11-21 17:34:16'),
-(9, 'Seed', 'seed', 10000, '#64641961', '2020-11-02', 13, 12, '2020-11-29 06:59:14'),
-(10, 'Inorganic fertilizer', 'fertilizer', 5000, '#46941694', '2020-10-06', 13, 12, '2020-11-29 07:35:32'),
-(11, 'Tractor', 'machinery', 1000000, '#9844164', '2020-09-15', 29, 12, '2020-11-29 07:36:48');
+(13, 'Adara Shannon', 'fuel', 63, 'Dolores sit qui qui', '2008-07-19', 32, 18, '2020-11-30 16:41:55');
 
 -- --------------------------------------------------------
 
@@ -189,8 +178,8 @@ CREATE TABLE `fields` (
 --
 
 INSERT INTO `fields` (`f_id`, `field_name`, `location`, `usable_area`, `soil_type`, `ownership_type`, `cropProduction_id`, `uid`, `created_at`) VALUES
-(8, 'Field 1', 'Consequatur ipsum cu', 'Nulla magn', 'sandy clay', 'given for use', 18, 12, '2020-11-19 16:55:45'),
-(9, 'My field', 'Dhaka, Bangladesh', '50 ha', 'clay', 'privately owned', 29, 12, '2020-11-24 15:10:07');
+(11, 'My new field', 'Veritatis voluptate ', 'At sed qua', 'loamy sand', 'lease', 32, 18, '2020-11-30 16:37:00'),
+(12, 'Dylan Avila', 'Est et est molestiae', 'Aut volupt', 'loam', 'privately owned', NULL, 18, '2020-11-30 16:45:54');
 
 -- --------------------------------------------------------
 
@@ -213,7 +202,7 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`i_id`, `item_name`, `category`, `quantity`, `date`, `uid`, `created_at`) VALUES
-(5, 'Purple Capsicum Seeds', 'seed', '1000 Pcs', '2020-11-05', 12, '2020-11-29 07:14:00');
+(6, 'Hall Todd', 'crop', '549', '1992-10-08', 18, '2020-11-30 16:44:51');
 
 -- --------------------------------------------------------
 
@@ -237,8 +226,7 @@ CREATE TABLE `machinery` (
 --
 
 INSERT INTO `machinery` (`m_id`, `machinery_name`, `category`, `manufacturer`, `model`, `reg_number`, `uid`, `created_at`) VALUES
-(15, 'Tractor', 'tractor', 'SONALIKA', 'Supreme DI 35 RX', '4196161', 12, '2020-11-29 07:06:54'),
-(16, 'YANMAR Rice Transpla', 'planter', 'YANMAR', 'YANMAR Rice Transpla', '6482884', 12, '2020-11-29 16:54:28');
+(17, 'Brandon Bender', 'tractor', 'Blanditiis sit dele', 'Voluptas amet deser', '817', 18, '2020-11-30 16:44:21');
 
 -- --------------------------------------------------------
 
@@ -294,7 +282,7 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`s_id`, `item_name`, `category`, `quantity`, `net_amount`, `invoice_no`, `date`, `uid`, `create_date`) VALUES
-(10, 'Crops', 'crop', '200kg', 20000, '#01648931', '2020-11-10', 12, '2020-11-29 06:57:20');
+(11, 'Conan Marks', 'field', '86', 0, 'Sit atque incididunt', '2012-08-09', 18, '2020-11-30 16:41:15');
 
 -- --------------------------------------------------------
 
@@ -319,9 +307,8 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`task_id`, `task_name`, `start_date`, `end_date`, `status`, `categories`, `cropProduction_id`, `uid`, `created_at`) VALUES
-(7, 'Vernon Jacobson', '2014-06-02', '2012-08-13', 'finished', 'fertilizing', 18, 12, '0000-00-00 00:00:00'),
-(11, 'fertilize', '1996-10-21', '2012-12-09', 'pending', 'harvesting', 13, 12, '2020-11-24 20:19:06'),
-(13, 'Planting', '2020-11-20', '2020-11-22', 'in progress', 'fertilization', 29, 12, '2020-11-24 20:21:11');
+(16, 'Ross Holder', '1987-04-27', '1975-10-27', 'pending', 'fertilizing', 32, 18, '2020-11-30 16:38:02'),
+(17, 'Aphrodite Pierce', '1974-10-23', '1993-07-21', '-1', 'planting', 32, 18, '2020-11-30 16:40:44');
 
 -- --------------------------------------------------------
 
@@ -344,7 +331,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `name`, `email`, `password`, `phone`, `token`, `created_at`) VALUES
-(12, 'MD EZAHEBUL ISLAM', 'ezahebul@gmail.com', '202cb962ac59075b964b07152d234b70', '01954149655', '', '2020-11-21 16:14:58');
+(18, 'MD EZAHEBUL ISLAM', 'ezahebul@gmail.com', '202cb962ac59075b964b07152d234b70', '01910203040', '', '2020-11-30 16:47:15');
 
 -- --------------------------------------------------------
 
@@ -370,7 +357,7 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`w_id`, `fname`, `lname`, `gender`, `city`, `address`, `phone`, `role`, `uid`, `created_at`) VALUES
-(1, 'Faizul', 'Karim', 'male', 'barishal', 'Barishal', '01910203040', 'worker', 12, '2020-11-23 18:39:47');
+(2, 'Giselle', 'Schroeder', 'others', 'khulna', 'At officiis et aut q', '+1 (632) 394-88', 'worker', 18, '2020-11-30 16:43:41');
 
 --
 -- Indexes for dumped tables
@@ -481,19 +468,19 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `create_seasons`
 --
 ALTER TABLE `create_seasons`
-  MODIFY `createSeason_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `createSeason_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `crop_lists`
@@ -505,31 +492,31 @@ ALTER TABLE `crop_lists`
 -- AUTO_INCREMENT for table `crop_productions`
 --
 ALTER TABLE `crop_productions`
-  MODIFY `cropProduction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cropProduction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `expences`
 --
 ALTER TABLE `expences`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `fields`
 --
 ALTER TABLE `fields`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `machinery`
 --
 ALTER TABLE `machinery`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pests`
@@ -541,25 +528,25 @@ ALTER TABLE `pests`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
