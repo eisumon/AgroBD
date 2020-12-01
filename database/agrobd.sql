@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 06:46 PM
+-- Generation Time: Dec 01, 2020 at 07:40 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -75,13 +75,6 @@ CREATE TABLE `create_seasons` (
   `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `create_seasons`
---
-
-INSERT INTO `create_seasons` (`createSeason_id`, `seasonName`, `startDate`, `endDate`, `status`, `expectedYield`, `cropProduction_id`, `uid`, `created_date`) VALUES
-(6, 'Ross Mcgowan', '1986-10-02', '1979-06-10', 'finished', 'Officia dolor facili', 32, 18, '2020-11-30 16:39:04');
-
 -- --------------------------------------------------------
 
 --
@@ -123,13 +116,6 @@ CREATE TABLE `crop_productions` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `crop_productions`
---
-
-INSERT INTO `crop_productions` (`cropProduction_id`, `cropProduction_name`, `crop_name`, `location`, `uid`, `created_at`) VALUES
-(32, 'My Crop Production', 'Aus rice', 'Dhaka, Bangladesh', 18, '2020-11-30 16:34:37');
-
 -- --------------------------------------------------------
 
 --
@@ -147,13 +133,6 @@ CREATE TABLE `expences` (
   `uid` int(11) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `expences`
---
-
-INSERT INTO `expences` (`e_id`, `item_name`, `category`, `net_amount`, `invoice_no`, `date`, `cropProduction_id`, `uid`, `created_date`) VALUES
-(13, 'Adara Shannon', 'fuel', 63, 'Dolores sit qui qui', '2008-07-19', 32, 18, '2020-11-30 16:41:55');
 
 -- --------------------------------------------------------
 
@@ -173,14 +152,6 @@ CREATE TABLE `fields` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `fields`
---
-
-INSERT INTO `fields` (`f_id`, `field_name`, `location`, `usable_area`, `soil_type`, `ownership_type`, `cropProduction_id`, `uid`, `created_at`) VALUES
-(11, 'My new field', 'Veritatis voluptate ', 'At sed qua', 'loamy sand', 'lease', 32, 18, '2020-11-30 16:37:00'),
-(12, 'Dylan Avila', 'Est et est molestiae', 'Aut volupt', 'loam', 'privately owned', NULL, 18, '2020-11-30 16:45:54');
-
 -- --------------------------------------------------------
 
 --
@@ -196,13 +167,6 @@ CREATE TABLE `inventory` (
   `uid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `inventory`
---
-
-INSERT INTO `inventory` (`i_id`, `item_name`, `category`, `quantity`, `date`, `uid`, `created_at`) VALUES
-(6, 'Hall Todd', 'crop', '549', '1992-10-08', 18, '2020-11-30 16:44:51');
 
 -- --------------------------------------------------------
 
@@ -220,13 +184,6 @@ CREATE TABLE `machinery` (
   `uid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `machinery`
---
-
-INSERT INTO `machinery` (`m_id`, `machinery_name`, `category`, `manufacturer`, `model`, `reg_number`, `uid`, `created_at`) VALUES
-(17, 'Brandon Bender', 'tractor', 'Blanditiis sit dele', 'Voluptas amet deser', '817', 18, '2020-11-30 16:44:21');
 
 -- --------------------------------------------------------
 
@@ -277,13 +234,6 @@ CREATE TABLE `sales` (
   `create_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `sales`
---
-
-INSERT INTO `sales` (`s_id`, `item_name`, `category`, `quantity`, `net_amount`, `invoice_no`, `date`, `uid`, `create_date`) VALUES
-(11, 'Conan Marks', 'field', '86', 0, 'Sit atque incididunt', '2012-08-09', 18, '2020-11-30 16:41:15');
-
 -- --------------------------------------------------------
 
 --
@@ -302,14 +252,6 @@ CREATE TABLE `tasks` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`task_id`, `task_name`, `start_date`, `end_date`, `status`, `categories`, `cropProduction_id`, `uid`, `created_at`) VALUES
-(16, 'Ross Holder', '1987-04-27', '1975-10-27', 'pending', 'fertilizing', 32, 18, '2020-11-30 16:38:02'),
-(17, 'Aphrodite Pierce', '1974-10-23', '1993-07-21', '-1', 'planting', 32, 18, '2020-11-30 16:40:44');
-
 -- --------------------------------------------------------
 
 --
@@ -325,13 +267,6 @@ CREATE TABLE `users` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`uid`, `name`, `email`, `password`, `phone`, `token`, `created_at`) VALUES
-(18, 'MD EZAHEBUL ISLAM', 'ezahebul@gmail.com', '202cb962ac59075b964b07152d234b70', '01910203040', '', '2020-11-30 16:47:15');
 
 -- --------------------------------------------------------
 
@@ -351,13 +286,6 @@ CREATE TABLE `workers` (
   `uid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `workers`
---
-
-INSERT INTO `workers` (`w_id`, `fname`, `lname`, `gender`, `city`, `address`, `phone`, `role`, `uid`, `created_at`) VALUES
-(2, 'Giselle', 'Schroeder', 'others', 'khulna', 'At officiis et aut q', '+1 (632) 394-88', 'worker', 18, '2020-11-30 16:43:41');
 
 --
 -- Indexes for dumped tables
@@ -480,7 +408,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `create_seasons`
 --
 ALTER TABLE `create_seasons`
-  MODIFY `createSeason_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `createSeason_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `crop_lists`
@@ -492,31 +420,31 @@ ALTER TABLE `crop_lists`
 -- AUTO_INCREMENT for table `crop_productions`
 --
 ALTER TABLE `crop_productions`
-  MODIFY `cropProduction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cropProduction_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `expences`
 --
 ALTER TABLE `expences`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fields`
 --
 ALTER TABLE `fields`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `machinery`
 --
 ALTER TABLE `machinery`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pests`
@@ -528,25 +456,25 @@ ALTER TABLE `pests`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
