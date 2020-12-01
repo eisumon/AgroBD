@@ -89,7 +89,7 @@ if (isset($_GET['delete'])){
                 </thead>
                 <tbody>
                     <?php
-                            $sql= "SELECT * FROM workers";
+                            $sql= "SELECT * FROM workers WHERE uid = $uid";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                         ?>

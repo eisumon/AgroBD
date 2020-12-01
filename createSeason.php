@@ -91,7 +91,7 @@ if (isset($_GET['delete'])){
                         </thead>
                         <tbody>
                             <?php
-                            $sql= "SELECT * FROM create_seasons WHERE cropProduction_id = $production_id ";
+                            $sql= "SELECT * FROM create_seasons WHERE cropProduction_id = $production_id";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>

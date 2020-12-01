@@ -87,7 +87,7 @@ if (isset($_GET['delete'])){
                         </thead>
                         <tbody>
                             <?php
-                            $sql= "SELECT * FROM machinery";
+                            $sql= "SELECT * FROM machinery WHERE uid = $uid";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>

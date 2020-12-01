@@ -3,6 +3,7 @@ include'includes/navbar.php';
 
 include_once("dbCon.php");
 $conn = connect();
+$uid = $_SESSION['uid'];
     
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
@@ -64,7 +65,7 @@ if (isset($_GET['delete'])){
                             <thead>
                             <tbody>
                                 <?php
-                            $sql= "SELECT * FROM crop_productions";
+                            $sql= "SELECT * FROM crop_productions WHERE uid = $uid";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>

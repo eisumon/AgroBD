@@ -82,7 +82,7 @@ if (isset($_GET['delete'])){
                         </thead>
                         <tbody>
                             <?php
-                            $sql= "SELECT * FROM sales";
+                            $sql= "SELECT * FROM sales WHERE uid = $uid";
                             $result = $conn->query($sql);
                                 while ($row = $result-> fetch_assoc()): 
                             ?>
