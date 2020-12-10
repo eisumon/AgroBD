@@ -1,4 +1,10 @@
 <?php 
+include'includes/head.php';
+?>
+</head>
+
+<body>
+<?php 
 include_once("dbCon.php");
 $conn =connect();
 if(isset($_POST["send"])){
@@ -13,12 +19,11 @@ if(isset($_POST["send"])){
                   echo "<script>myAlert('Email does not match', 'error', 'forgotpassword');</script>";
                 }
 }
-include'includes/head.php';
-include'includes/navbar.php';?>
-</head>
+?>
 
-<body>
-
+<?php
+include'includes/navbar.php';
+?>
   <!-- Breadcrumb Section Begin -->
   <div class="breacrumb-section">
     <div class="container">

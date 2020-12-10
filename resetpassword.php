@@ -24,7 +24,7 @@ if(isset($_GET['email'])){
     $password=md5($_POST['password']);
     $sql= "UPDATE users SET password='$password', token='' WHERE email='$email'";
     //echo $sql;exit;
-     $result = $conn->query($sql);
+    $result = $conn->query($sql);
     if(mysqli_affected_rows($conn) >0 ){
     echo "<script>myAlert('Password reset successfully', 'success', 'login');</script>";
     }
