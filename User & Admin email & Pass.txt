@@ -1,0 +1,14 @@
+User Panel
+.....................................
+
+email: ezahebul@gmail.com
+Password: 123
+
+
+
+
+Admin Panel
+.....................................
+
+email: admin@gmail.com
+Password: admin

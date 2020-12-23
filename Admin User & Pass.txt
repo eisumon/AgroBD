@@ -1,5 +1,0 @@
-Admin Dasboard
-.....................................
-
-email: admin@gmail.com
-Password: admin
